@@ -11,6 +11,7 @@ import {
 
 import { API_URL } from "@/config-global";
 import { isValidToken, setSession } from "@/lib/utils";
+import { STORAGE_KEY } from "@/lib/contanst";
 
 // ----------------------------------------------------------------------
 /**
@@ -91,8 +92,6 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
 
 // ----------------------------------------------------------------------
 
-const STORAGE_KEY = "token";
-
 interface AuthProviderProps {
   children: ReactNode;
 }
@@ -108,12 +107,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const userJson = await fetch(`${API_URL}/auth/me`, {
           method: "GET",
           credentials: "include",
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         });
         if (!userJson.ok) {
           throw new Error("Invalid token");
         }
-        const { user } = await userJson.json();
+        const user = await userJson.json();
+
         dispatch({
           type: "INITIAL",
           payload: { user: { ...user, token } },

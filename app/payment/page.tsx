@@ -7,12 +7,14 @@ import {
   PayPalHostedFieldsProvider,
   PayPalScriptProvider,
 } from "@paypal/react-paypal-js";
-import CardPayment, { CUSTOM_CLASS, SubmitPayment } from "./card-payment";
+import CardPayment, { SubmitPayment } from "./card-payment";
 import PaypalButtonPayment from "./button-payment";
 import Link from "next/link";
 import useCart from "@/context/cart/use-cart";
 import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+import { Phone } from "lucide-react";
 export type OnApproveData = {
   billingToken?: string | null;
   facilitatorAccessToken?: string;
@@ -22,43 +24,115 @@ export type OnApproveData = {
   subscriptionID?: string | null;
   authCode?: string | null;
 };
+interface ICart {
+  products: {
+    id: string;
+    quantity: number;
+  }[];
+  voucher?: string;
+  email: string;
+  shippingAddress: {
+    fullName: string;
+    phone: string;
+    address: string;
+    address2?: string;
+    city: string;
+    state?: string;
+    postalCode: string;
+    country: string;
+  };
+  billingAddress: {
+    fullName: string;
+    phone: string;
+    address: string;
+    address2?: string;
+    city: string;
+    state?: string;
+    postalCode: string;
+    country: string;
+  };
+}
 export default function SelectPayment() {
   const [message, setMessage] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+
   const router = useRouter();
   const cart = useCart();
   const { products, setProducts } = cart;
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [clientToken, setClientToken] = useState(null);
   const [address, setAddress] = useState<string>("");
+  const [order, setOrder] = useState<ICart | null>(null);
+  console.log("PRODUCTS1", products);
 
   useEffect(() => {
-    const addressJson = JSON.parse(
-      localStorage.getItem("deliveryAddress") || "{}"
-    );
-    let add = "";
-    if (addressJson.company_name) {
-      add += addressJson.company_name + ", ";
+    try {
+      const addressJson = localStorage.getItem("deliveryAddress");
+      if (!addressJson) {
+        toast.error("Please provide a delivery address");
+        router.push("/checkout");
+        return;
+      }
+      const productJson = localStorage.getItem("cart");
+      if (!productJson) {
+        toast.error("Please add some products to the cart");
+        router.push("/products");
+        return;
+      }
+      const productsData = JSON.parse(productJson);
+      const addresData = JSON.parse(addressJson);
+      const billingAddressJson = localStorage.getItem("billingAddress");
+      if (!billingAddressJson) {
+        toast.error("Please provide a billing address");
+        router.push("/checkout");
+        return;
+      }
+      const billingAddress = JSON.parse(billingAddressJson);
+
+      const { address, address2, city, state, postalCode, country } =
+        addresData;
+
+      // Nếu không có state, bỏ dấu phẩy phía trước
+      const add = `${address2} ${address}, ${city}${
+        state ? `, ${state}` : ""
+      } ${postalCode ? postalCode : ""}, ${country}`.trim();
+
+      setAddress(add);
+      console.log("PRODUCTS", products);
+
+      const orderData = {
+        products: productsData.map(
+          (product: { quantity: number; id: string }) => ({
+            quantity: product.quantity,
+            id: product.id,
+          })
+        ),
+        email: addresData.email,
+        shippingAddress: {
+          ...addresData,
+          phone: addresData.phone || undefined,
+          fullName: [addresData.firstName, addresData.lastName]
+            .filter(Boolean)
+            .join(" "),
+        },
+        billingAddress: {
+          ...billingAddress,
+          phone: billingAddress.phone || undefined,
+          fullName: [billingAddress.firstName, billingAddress.lastName]
+            .filter(Boolean)
+            .join(" "),
+        },
+      };
+      setOrder(orderData);
+      (async () => {
+        const response = await (
+          await fetch(`${API_URL}/payment/paypal2/generate-client-token`)
+        ).json();
+        setClientToken(response?.clientToken || null);
+      })();
+    } catch (error) {
+      console.error(error);
+      setMessage(`Could not initiate PayPal Checkout...${error}`);
     }
-    add = add + addressJson.address1 + ", ";
-    if (addressJson.address2) {
-      add += addressJson.address2 + ", ";
-    }
-    add =
-      add +
-      addressJson.city +
-      ", " +
-      addressJson.zip +
-      ", " +
-      addressJson.country;
-    setEmail(addressJson.email);
-    setAddress(add);
-    (async () => {
-      const response = await (
-        await fetch(`${API_URL}/payment/paypal2/generate-client-token`)
-      ).json();
-      setClientToken(response?.clientToken || null);
-    })();
   }, []);
 
   const createOrder = async () => {
@@ -70,19 +144,10 @@ export default function SelectPayment() {
         },
         // use the "body" param to optionally pass additional order information
         // like product ids and quantities
-        body: JSON.stringify({
-          products: products.map((product) => ({
-            slug: product.slug,
-            quantity: product.quantity,
-            attributes: { title: product.attributes.title },
-            id: product.id,
-          })),
-          voucher: "ADS",
-        }),
+        body: JSON.stringify(order),
       });
 
       const orderData = await response.json();
-      console.log("orderData", orderData);
 
       if (orderData.id) {
         return orderData.id;
@@ -155,7 +220,7 @@ export default function SelectPayment() {
           <div>
             {" "}
             <p className="text-gray-500">Contact</p>
-            <p>{email}</p>
+            <p>{order?.email}</p>
           </div>
           <Link href="/checkout" className="ml-4 underline">
             Change

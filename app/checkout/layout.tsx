@@ -1,4 +1,4 @@
-import CheckoutLayout from "../layouts/checkout-payout";
+import CheckoutLayout from "../layouts/checkout-layout";
 
 import { ReactNode } from "react";
 

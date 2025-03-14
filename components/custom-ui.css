@@ -1,0 +1,3 @@
+select:valid ~ label {
+  transform: scale(0.7) translateY(-2rem);
+}

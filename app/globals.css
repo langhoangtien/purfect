@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 body {
-  font-family: Harmonia Sans, sans-serif, Arial, Helvetica;
+  font-family: Inter, Harmonia Sans, sans-serif, Arial, Helvetica;
 }
-
+* {
+  outline: none;
+  box-sizing: border-box;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

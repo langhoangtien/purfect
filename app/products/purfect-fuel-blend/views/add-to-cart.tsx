@@ -6,7 +6,7 @@ const products = [
     image: "/purfect/slide1.webp",
     title: "BUY 1 - $69.99",
     quantity: 1,
-    id: "67befb8dbc76678e332cbdbe",
+    id: "67cc656d7a9b26945e230d6a",
     slug: "purfect-fuel-blend",
     attributes: {
       title: "combo 1",
@@ -23,7 +23,7 @@ const products = [
       title: "combo 2",
       price: 119.99,
     },
-    id: "67befb8dbc76678e332cbdbf",
+    id: "67cc656d7a9b26945e230d6c",
     slug: "purfect-fuel-blend",
   },
   {
@@ -36,7 +36,7 @@ const products = [
       title: "combo 3",
       price: 199.99,
     },
-    id: "67befb8dbc76678e332cbdc0",
+    id: "67cc656d7a9b26945e230d6e",
     slug: "purfect-fuel-blend",
   },
 ];
