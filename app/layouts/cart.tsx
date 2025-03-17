@@ -96,7 +96,7 @@ export default function Cart() {
     );
   };
   return (
-    <div>
+    <div className="p-4">
       {" "}
       <Link href="/cart" className="relative inline-block cursor-pointer">
         <CartIcon className="size-11  text-gray-800" />
