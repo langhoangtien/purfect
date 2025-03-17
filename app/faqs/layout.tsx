@@ -1,7 +1,6 @@
-import CheckoutLayout from "../layouts/checkout-layout";
-
 import { ReactNode } from "react";
+import MainLayout from "../layouts/main-layout";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return <CheckoutLayout>{children}</CheckoutLayout>;
+  return <MainLayout>{children}</MainLayout>;
 }

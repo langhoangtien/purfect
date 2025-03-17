@@ -9,7 +9,7 @@ const MENU = [
       { title: "Order Tracking", link: "/order-tracking" },
       { title: "About Us", link: "/about-us" },
       { title: "Blogs", link: "/blogs" },
-      { title: "Contact", link: "/contact" },
+      { title: "Contact", link: "/contact-us" },
       { title: "FAQs", link: "/faqs" },
     ],
   },
@@ -19,7 +19,10 @@ const MENU = [
       { title: "Terms of Service", link: "/terms-of-service" },
       { title: "Privacy Policy", link: "/privacy-policy" },
       { title: "Shipping Policy", link: "/shipping-policy" },
-      { title: "Return and Refund Policy", link: "/return-and-refund-policy" },
+      {
+        title: "Return and Refund Policy",
+        link: "/refund-and-cancellation-policy",
+      },
       {
         title: "Billing Terms and Conditions",
         link: "/billing-terms-and-conditions",
