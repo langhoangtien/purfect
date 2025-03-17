@@ -83,8 +83,12 @@ export default function ProductPage() {
       const data = await res.json();
       setProducts(data.data);
       setTotalPages(data.pagination.totalPages);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Unknown error");
+      }
     } finally {
       setLoading(false);
     }
@@ -108,8 +112,11 @@ export default function ProductPage() {
 
       setSelectedProducts([]);
       fetchProduct();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) setError(err.message);
+      else {
+        setError("Unknown error");
+      }
     }
   };
 

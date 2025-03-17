@@ -72,8 +72,9 @@ export default function UserFormDialog({
       toast.success(`User ${user ? "updated" : "created"} successfully`);
       onSuccess();
       onClose();
-    } catch (err: any) {
-      toast.error(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) toast.error(err.message);
+      else toast.error("An error occurred");
     }
   };
 

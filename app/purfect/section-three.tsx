@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 const stats = [
@@ -25,7 +25,9 @@ export default function SectionThree() {
       <div className="grid grid-cols-2 items-center lg:items-start p-6 lg:p-12 space-y-6 lg:space-y-0 lg:space-x-12">
         {/* Image Section */}
         <div className="col-span-2 md:col-span-1 flex justify-center">
-          <img
+          <Image
+            width={1500}
+            height={1500}
             src="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569178.png?width=1200&height=0&min_height=0"
             alt="Vitality Bundle"
             className="w-full h-auto rounded-lg"
@@ -65,7 +67,7 @@ export default function SectionThree() {
           <div className="flex items-center">
             <Link
               href="/products/purfect-fuel-blend"
-              className="h-14  p-4 font-semibold text-primary hover:text-primary border-green-700 border-2 rounded-full "
+              className="h-14  p-4 font-semibold text-primary hover:text-primary border-primary border-2 rounded-full "
             >
               The PurfectFuel ™ Difference
             </Link>

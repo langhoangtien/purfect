@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const imgs = [
   {
     src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/testicles-medical-anatomy-body_organ-masculine-reproduction-system.png?v=1712073082",
@@ -35,14 +37,21 @@ const imgs = [
 export default function SectionTwo() {
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
+      <p className="text-center font-semibold py-8 text-darker text-2xl">
+        Daily supplements for living life — or creating it
+      </p>
       <div className="grid grid-cols-2 md:grid-cols-8 gap-8">
         {imgs.map((img) => (
-          <div
-            key={img.src}
-            className="flex flex-col items-center space-y-4 text-[#46755f]"
-          >
-            <img key={img.src} className=" aspect-square" src={img.src} />
-            <p>{img.description}</p>
+          <div key={img.src} className="flex flex-col items-center space-y-4 ">
+            <Image
+              width={400}
+              height={400}
+              key={img.src}
+              alt={img.description}
+              className="aspect-square max-w-12 w-full h-auto rounded-lg"
+              src={img.src}
+            />
+            <p className="text-primary">{img.description}</p>
           </div>
         ))}
       </div>

@@ -1,9 +1,9 @@
-import type { MotionProps } from 'framer-motion';
+import type { MotionProps } from "framer-motion";
 
-import { motion as m } from 'motion/react';
-import { forwardRef, HTMLProps } from 'react';
+import { motion as m } from "motion/react";
+import { forwardRef, HTMLProps } from "react";
 
-import { varContainer } from './variants';
+import { varContainer } from "./variants";
 
 // ----------------------------------------------------------------------
 
@@ -22,8 +22,8 @@ export const MotionViewport = forwardRef<HTMLDivElement, MotionViewportProps>(
       ? {}
       : {
           component: m.div,
-          initial: 'initial',
-          whileInView: 'animate',
+          initial: "initial",
+          whileInView: "animate",
           variants: varContainer(),
           viewport: { once: true, amount: 0.3 },
         };
@@ -33,5 +33,7 @@ export const MotionViewport = forwardRef<HTMLDivElement, MotionViewportProps>(
         {children}
       </div>
     );
+
+    MotionViewport.displayName = "MotionViewport";
   }
 );

@@ -1,13 +1,14 @@
 "use client";
 
-import { MinusIcon, PlusIcon, ShoppingCartIcon, X } from "lucide-react";
-import Image from "next/image";
-import { useContext } from "react";
+import { ShoppingCartIcon } from "lucide-react";
+import { useContext, useState } from "react";
 import { CartContext } from "@/context/cart/cart-context";
 
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+import { UKOSplashScreen } from "@/components/splash-screen";
+import { ProductCart } from "./view";
 
 interface Product {
   image: string;
@@ -20,10 +21,31 @@ interface Product {
 
 export default function Cart() {
   const cartContext = useContext(CartContext);
-  const router = useRouter();
-  const handleCheckout = () => {
-    if (cartContext.products.length) {
-      router.push("/checkout");
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    try {
+      setIsLoading(true);
+      const cartItems = products.map((product: Product) => ({
+        id: product.id,
+        quantity: product.quantity,
+      }));
+
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cartItems }),
+      });
+
+      const data = await res.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
   const { products, updateQuantity, removeProduct, subtotal } = cartContext;
@@ -72,6 +94,7 @@ export default function Cart() {
       </div>
     );
   };
+  if (isLoading) return <UKOSplashScreen />;
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="flex justify-center my-2">
@@ -86,96 +109,3 @@ export default function Cart() {
     </div>
   );
 }
-
-interface ProductCartProps {
-  image: string;
-  quantity: number;
-  name: string;
-  price: number;
-  id: string;
-  title: string;
-  updateQuantity: (id: string, newQuantity: number) => void;
-  removeProduct: (id: string) => void;
-}
-
-export const ProductCart: React.FC<ProductCartProps> = ({
-  image,
-  quantity,
-  name,
-  price,
-  id,
-  title,
-  updateQuantity,
-  removeProduct,
-}) => {
-  return (
-    <div className="flex relative items-center space-x-4 border-b py-2">
-      <X
-        strokeWidth={1}
-        className="absolute right-0.5 top-0.5 size-4 cursor-pointer"
-        onClick={() => removeProduct(id)}
-      />
-      <div className="flex-shrink-0 size-20 md:size-28">
-        <Image
-          className="rounded-md  object-cover"
-          alt={name}
-          src={image}
-          width={100}
-          height={100}
-        />
-      </div>
-      <div className="flex flex-1 text-sm justify-center space-y-2 flex-col">
-        <span className="text-sm font-semibold">{name}</span>
-        <span className="text-gray-500">{title}</span>
-        <span className="flex text-sm justify-between font-semibold">
-          <QuantityCart
-            quantity={quantity}
-            updateQuantity={(newQuantity) => updateQuantity(id, newQuantity)}
-          />
-          <span className="text-sm font-semibold">
-            {" "}
-            {new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-            }).format(price * quantity)}
-          </span>
-        </span>
-      </div>
-    </div>
-  );
-};
-
-interface QuantityCartProps {
-  quantity: number;
-  updateQuantity: (newQuantity: number) => void;
-}
-
-const QuantityCart: React.FC<QuantityCartProps> = ({
-  quantity,
-  updateQuantity,
-}) => {
-  return (
-    <div className="relative flex items-center max-w-[6rem]">
-      <button
-        type="button"
-        onClick={() => updateQuantity(Math.max(1, quantity - 1))}
-        className="border border-gray-300 rounded-s-lg p-2 h-8 hover:bg-gray-200"
-      >
-        <MinusIcon className="w-3 h-3 text-gray-900" />
-      </button>
-      <input
-        type="text"
-        value={quantity}
-        readOnly
-        className="border-y-[1px] border-gray-300 h-8 text-center text-gray-900 text-sm font-normal w-full py-2.5"
-      />
-      <button
-        type="button"
-        onClick={() => updateQuantity(quantity + 1)}
-        className="border border-gray-300 rounded-e-lg p-2 h-8 hover:bg-gray-200"
-      >
-        <PlusIcon className="w-3 h-3 text-gray-900" />
-      </button>
-    </div>
-  );
-};

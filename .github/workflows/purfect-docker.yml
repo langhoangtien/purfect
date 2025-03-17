@@ -29,12 +29,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Create .env file
         run: |
-          echo "NEXT_PUBLIC_HOST_API=${{ secrets.NEXT_PUBLIC_HOST_API }}" > .env
-          echo "NEXT_PUBLIC_HOST=${{ secrets.NEXT_PUBLIC_HOST }}" >> .env
+          echo "NEXT_PUBLIC_PAYPAL_CLIENT_ID=${{ secrets.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}" > .env
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
           echo "SHOPIFY_STORE_URL=${{ secrets.SHOPIFY_STORE_URL }}" >> .env.local
           echo "SHOPIFY_STOREFRONT_ACCESS_TOKEN=${{ secrets.SHOPIFY_STOREFRONT_ACCESS_TOKEN }}" >> .env.local
-          echo "SHOPIFY_STOREFRONT_API_VERSION=${{ secrets.SHOPIFY_STOREFRONT_API_VERSION }}" >> .env.local
           echo "DOMAIN=${{ secrets.DOMAIN }}" >> .env.local
+          echo "SHOPIFY_API_SECRET=${{ secrets.SHOPIFY_API_SECRET }}" >> .env.local
 
       # Bước 4: Build Docker image
       - name: Build Docker image

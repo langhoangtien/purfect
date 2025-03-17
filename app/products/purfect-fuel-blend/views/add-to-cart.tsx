@@ -90,8 +90,6 @@ export function AddToCartSection() {
         quantity={product.quantity}
         id={product.id}
         title={product.title}
-        attributes={product.attributes}
-        slug={product.slug}
       />
     </div>
   );

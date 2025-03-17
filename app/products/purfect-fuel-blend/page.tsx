@@ -1,7 +1,7 @@
 import PaymentMethods from "@/components/paymnet-methods";
 
 import ProductDetailCarousel from "./views/product-carosel";
-import { AddToCartSection } from "./views/add-to-cart";
+
 import StarIcon from "@/components/star-icon";
 import { Heart, TruckIcon, Undo2Icon } from "lucide-react";
 import {
@@ -10,7 +10,9 @@ import {
   AccordionItem,
   AccordionTriggerCustom,
 } from "@/components/ui/accordion";
-import ProductReviews from "./views/reviews";
+import { getProductBySlug } from "@/lib/shopify";
+import { notFound } from "next/navigation";
+import { AddToCartPurfectSection } from "./views/add-to-cart-purfect";
 const data = [
   {
     title: "Description",
@@ -41,27 +43,25 @@ const data = [
       "Experience the benefits of our Dynamic Vitality Duo risk-free with our 30-day money-back guarantee. If you’re not fully satisfied with your wellness improvement, simply return the product within 30 days for a full refund",
   },
 ];
-const slides = [
-  "/purfect/slide1.webp",
-  "/purfect/slide2.webp",
-  "/purfect/slide3.webp",
-  "/purfect/slide4.webp",
-  "/purfect/slide5.webp",
-  "/purfect/slide6.webp",
-  "/purfect/slide7.webp",
-  "/purfect/slide8.webp",
-  "/purfect/slide9.webp",
-  "/purfect/slide10.webp",
-  "/purfect/slide11.webp",
-];
-export default function LaserCapPage() {
+
+type Image = {
+  node: {
+    url: string;
+  };
+};
+export default async function PufectPage() {
+  const product = await getProductBySlug("purfect-fuel-blend");
+  if (!product) return notFound();
+
   return (
     <div className="p-4">
       <div className="max-w-7xl mx-auto p-4 rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Hình ảnh */}
           <div>
-            <ProductDetailCarousel slides={slides} />
+            <ProductDetailCarousel
+              slides={product.images.edges.map((img: Image) => img.node.url)}
+            />
           </div>
 
           {/* Nội dung */}
@@ -103,8 +103,15 @@ export default function LaserCapPage() {
 
             <div className="mt-4 rounded-lg">
               <p className="text-4xl flex space-x-2 ">
-                <span className="font-normal "> $69.99</span>
-                <span className="line-through  ">$159.99</span>{" "}
+                <span className="font-normal ">
+                  {" "}
+                  ${product.variants.edges[0]?.node.priceV2.amount}
+                </span>
+                <span className="line-through  ">
+                  $
+                  {product.variants.edges[0]?.node.compareAtPriceV2?.amount ??
+                    ""}
+                </span>{" "}
               </p>
             </div>
 
@@ -115,7 +122,7 @@ export default function LaserCapPage() {
               <p>🌟 60 Day Returns</p>
             </div>
             <div className="mt-6">
-              <AddToCartSection />
+              <AddToCartPurfectSection product={product} />
             </div>
 
             <div className="mx-2 flex items-center space-x-4 md:space-x-8 text-gray-700  justify-around text-sm sm:text-base">
@@ -147,8 +154,10 @@ export default function LaserCapPage() {
             </div>
           </div>
         </div>
-        <ProductReviews />
+        {/* <ProductReviews /> */}
       </div>
     </div>
   );
 }
+
+export const revalidate = 60;

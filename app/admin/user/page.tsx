@@ -43,6 +43,7 @@ export default function UsersPage() {
     }, 500);
 
     return () => clearTimeout(delayDebounce);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, page]);
 
   const fetchUsers = async () => {
@@ -64,8 +65,9 @@ export default function UsersPage() {
       const data = await res.json();
       setUsers(data.data);
       setTotalPages(data.pagination.totalPages);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) setError(err.message);
+      else setError("An error occurred");
     } finally {
       setLoading(false);
     }
@@ -89,8 +91,9 @@ export default function UsersPage() {
 
       setSelectedUsers([]);
       fetchUsers();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) setError(err.message);
+      else setError("An error occurred");
     }
   };
 

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -82,9 +83,11 @@ export default function ProductReviews() {
               key={index}
               className="border rounded-xl overflow-hidden shadow-md"
             >
-              <img
+              <Image
                 src={review.image}
                 alt={review.name}
+                width={400}
+                height={400}
                 className="w-full h-60 object-cover"
               />
               <div className="p-4">

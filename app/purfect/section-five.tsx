@@ -1,5 +1,6 @@
 import StarIcon from "@/components/star-icon";
 import Link from "next/link";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -56,7 +57,7 @@ export default function SectionFive() {
         {/* Phần nội dung chính */}
         <div className="grid md:grid-cols-4 grid-cols-1 p-4 gap-16 md:gap-32">
           {/* Cột bên trái (thống kê) */}
-          <div className="py-8 order-3 md:order- px-4 rounded-2xl shadow-md h-full flex flex-col space-y-2 bg-[#46755f] text-white text-left  justify-center">
+          <div className="py-8 order-3 md:order- px-4 rounded-2xl shadow-md h-full flex flex-col space-y-2 bg-primary text-white text-left  justify-center">
             <h3 className="text-2xl font-bold ">
               Don’t just take our word for it
             </h3>
@@ -70,12 +71,18 @@ export default function SectionFive() {
                 key={review.name}
                 className="bg-white py-16 px-8 rounded-2xl shadow-md  relative"
               >
-                <img
+                <Image
                   src="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569146.png?width=1200&height=0&min_height=0"
                   className="w-20 h-20 object-contain rounded-full absolute -top-10 right-6"
-                ></img>
+                  width={80}
+                  height={80}
+                  alt="reviewer"
+                />
 
-                <img
+                <Image
+                  width={109}
+                  height={20}
+                  alt="all reviews"
                   className="py-2"
                   src="https://cdn.shopify.com/s/files/1/0840/0158/7493/files/All_Reviews_ae294cf4-c8c9-4bed-998f-bdd086f5fa7d_109x.png?v=1712097691"
                 />
@@ -92,7 +99,7 @@ export default function SectionFive() {
                   </div>
                   <Link
                     href="/products/purfect-fuel-blend"
-                    className="mt-4 py-1 px-3 text-base underline  rounded-md font-sans text-[#46755f]"
+                    className="mt-4 py-1 px-3 text-base underline  rounded-md font-sans text-primary"
                   >
                     Shop Now
                   </Link>

@@ -1,11 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
-
-// Renders errors or successfull transactions on the screen.
-function Message({ content }: { content: string }) {
-  return <p>{content}</p>;
-}
 
 interface PaymentProps {
   createOrder: (data: any, actions: any) => Promise<string>;
@@ -16,8 +12,6 @@ export default function PaypalButtonPayment({
   createOrder,
   onApprove,
 }: PaymentProps) {
-  const [message, setMessage] = useState("");
-
   return (
     <div className="App">
       <PayPalButtons
@@ -31,8 +25,6 @@ export default function PaypalButtonPayment({
         createOrder={createOrder}
         onApprove={onApprove}
       />
-
-      <Message content={message} />
     </div>
   );
 }

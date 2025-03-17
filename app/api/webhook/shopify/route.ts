@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   const signature = req.headers.get("x-shopify-hmac-sha256") || "";
 
   const hash = crypto
-    .createHmac("sha256", process.env.SHOPIFY_WEBHOOK_SECRET || "")
+    .createHmac("sha256", process.env.SHOPIFY_API_SECRET || "")
     .update(rawBody, "utf8")
     .digest("base64");
 

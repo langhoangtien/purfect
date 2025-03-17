@@ -32,5 +32,7 @@ export const MotionContainer = forwardRef<HTMLDivElement, MotionContainerProps>(
         {children}
       </m.div>
     );
+
+    MotionContainer.displayName = "MotionContainer";
   }
 );

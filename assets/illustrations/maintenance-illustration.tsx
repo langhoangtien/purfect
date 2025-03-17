@@ -1,22 +1,24 @@
-import { memo, SVGProps } from 'react';
+import { memo, SVGProps } from "react";
 
-import { CONFIG } from 'src/config-global';
-
-import { BackgroundShape } from './background-shape';
-import { cn } from '@/lib/utils';
+import { BackgroundShape } from "./background-shape";
+import { cn } from "@/lib/utils";
 
 // ----------------------------------------------------------------------
 interface Props extends SVGProps<SVGSVGElement> {
   hideBackground?: boolean;
 }
-function MaintenanceIllustration({ hideBackground, className, ...other }: Props) {
-  const PRIMARY_LIGHT = 'hsl(var(--primary-light))';
+function MaintenanceIllustration({
+  hideBackground,
+  className,
+  ...other
+}: Props) {
+  const PRIMARY_LIGHT = "hsl(var(--primary-light))";
 
-  const PRIMARY_MAIN = 'hsl(var(--primary))';
+  const PRIMARY_MAIN = "hsl(var(--primary))";
 
-  const PRIMARY_DARK = 'hsl(var(--primary-dark))';
+  const PRIMARY_DARK = "hsl(var(--primary-dark))";
 
-  const PRIMARY_DARKER = 'hsl(var(--primary-darker))';
+  const PRIMARY_DARKER = "hsl(var(--primary-darker))";
 
   return (
     <svg
@@ -24,7 +26,7 @@ function MaintenanceIllustration({ hideBackground, className, ...other }: Props)
       height="100%"
       viewBox="0 0 480 360"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-auto w-80 max-w-full flex-shrink-0', className)}
+      className={cn("h-auto w-80 max-w-full flex-shrink-0", className)}
       {...other}
     >
       {!hideBackground && <BackgroundShape />}
@@ -113,11 +115,20 @@ function MaintenanceIllustration({ hideBackground, className, ...other }: Props)
         opacity="0.2"
       />
 
-      <path fill="#FF5630" d="M118.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+      <path
+        fill="#FF5630"
+        d="M118.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
+      />
 
-      <path fill="#FFAB00" d="M126.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+      <path
+        fill="#FFAB00"
+        d="M126.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
+      />
 
-      <path fill="#36B37E" d="M134.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+      <path
+        fill="#36B37E"
+        d="M134.108 103.182a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
+      />
 
       <defs>
         <linearGradient
@@ -208,7 +219,7 @@ function MaintenanceIllustration({ hideBackground, className, ...other }: Props)
       </defs>
 
       <image
-        href={`${CONFIG.assetsDir}/assets/illustrations/characters/character-5.webp`}
+        href={`/assets/illustrations/characters/character-5.webp`}
         height="300"
         x="245"
         y="30"

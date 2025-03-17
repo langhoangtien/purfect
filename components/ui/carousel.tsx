@@ -399,7 +399,7 @@ type ThumbPropType = {
 };
 
 export const Thumb: React.FC<ThumbPropType> = (props) => {
-  const { selected, index, onClick, image } = props;
+  const { selected, onClick, image } = props;
 
   return (
     <div

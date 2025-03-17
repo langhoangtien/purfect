@@ -35,7 +35,7 @@ export default function OrdersPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [editing, setEditing] = useState<IOrder | null>(null);
+  const [, setEditing] = useState<IOrder | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -45,6 +45,7 @@ export default function OrdersPage() {
     }, 500);
 
     return () => clearTimeout(delayDebounce);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, page]);
 
   const fetchData = async () => {
@@ -66,8 +67,12 @@ export default function OrdersPage() {
       const data = await res.json();
       setUsers(data.data);
       setTotalPages(data.pagination.totalPages);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
     } finally {
       setLoading(false);
     }
@@ -91,8 +96,12 @@ export default function OrdersPage() {
 
       setSelected([]);
       fetchData();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
     }
   };
 

@@ -14,7 +14,9 @@ const data = [
           Simply choose your style on the product page then click the “Add To
           Cart” button and follow the simple steps to complete your order.
         </p>
-        <p>We’ll prepare your order and let you know when it's on its way!</p>
+        <p>
+          We’ll prepare your order and let you know when it&apos;s on its way!
+        </p>
       </div>
     ),
   },

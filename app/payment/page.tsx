@@ -14,7 +14,7 @@ import useCart from "@/context/cart/use-cart";
 import { useRouter } from "next/navigation";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Phone } from "lucide-react";
+
 export type OnApproveData = {
   billingToken?: string | null;
   facilitatorAccessToken?: string;
@@ -53,7 +53,7 @@ interface ICart {
   };
 }
 export default function SelectPayment() {
-  const [message, setMessage] = useState<string>("");
+  const [, setMessage] = useState<string>("");
 
   const router = useRouter();
   const cart = useCart();
@@ -62,7 +62,6 @@ export default function SelectPayment() {
   const [clientToken, setClientToken] = useState(null);
   const [address, setAddress] = useState<string>("");
   const [order, setOrder] = useState<ICart | null>(null);
-  console.log("PRODUCTS1", products);
 
   useEffect(() => {
     try {
@@ -133,6 +132,7 @@ export default function SelectPayment() {
       console.error(error);
       setMessage(`Could not initiate PayPal Checkout...${error}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const createOrder = async () => {
@@ -164,6 +164,7 @@ export default function SelectPayment() {
       setMessage(`Could not initiate PayPal Checkout...${error}`);
     }
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onApprove = async (data: OnApproveData, actions: any) => {
     try {
       const response = await fetch(

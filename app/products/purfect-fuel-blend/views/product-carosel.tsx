@@ -27,8 +27,8 @@ export default function ProductDetailCarousel({
                   <CardContent className="flex md:w-[475px] aspect-[1/1] items-center justify-center rounded-xl p-0">
                     <Image
                       alt="Product Image"
-                      width={475}
-                      height={475}
+                      width={800}
+                      height={800}
                       src={image}
                       priority={!index}
                       className="object-cover w-full h-full rounded-xl"

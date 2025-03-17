@@ -50,6 +50,7 @@ export default function LoginPage() {
       form.setValue("username", savedUsername);
       form.setValue("rememberMe", true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onSubmit = async (data: LoginFormValues) => {

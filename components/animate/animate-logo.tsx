@@ -1,7 +1,7 @@
-import { motion as m } from 'motion/react';
+import { motion as m } from "motion/react";
 
-import { Logo } from '../logo';
-import { HTMLProps } from 'react';
+import { HTMLProps } from "react";
+import Logo from "../logo";
 
 // ----------------------------------------------------------------------
 
@@ -22,10 +22,10 @@ export function AnimateLogo1({ logo, ...other }: AnimateLogoProps) {
           duration: 2,
           repeatDelay: 1,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: "easeInOut",
         }}
       >
-        {logo ?? <Logo disableLink width={64} height={64} />}
+        {logo ?? <Logo />}
       </m.div>
 
       <m.div
@@ -33,9 +33,9 @@ export function AnimateLogo1({ logo, ...other }: AnimateLogoProps) {
           scale: [1.6, 1, 1, 1.6, 1.6],
           rotate: [270, 0, 0, 270, 270],
           opacity: [0.25, 1, 1, 1, 0.25],
-          borderRadius: ['25%', '25%', '50%', '50%', '25%'],
+          borderRadius: ["25%", "25%", "50%", "50%", "25%"],
         }}
-        transition={{ ease: 'linear', duration: 3.2, repeat: Infinity }}
+        transition={{ ease: "linear", duration: 3.2, repeat: Infinity }}
         className="absolute h-[calc(100%-20px)] w-[calc(100%-20px)] border-[3px] border-primary/70"
       />
 
@@ -44,9 +44,9 @@ export function AnimateLogo1({ logo, ...other }: AnimateLogoProps) {
           scale: [1, 1.2, 1.2, 1, 1],
           rotate: [0, 270, 270, 0, 0],
           opacity: [1, 0.25, 0.25, 0.25, 1],
-          borderRadius: ['25%', '25%', '50%', '50%', '25%'],
+          borderRadius: ["25%", "25%", "50%", "50%", "25%"],
         }}
-        transition={{ ease: 'linear', duration: 3.2, repeat: Infinity }}
+        transition={{ ease: "linear", duration: 3.2, repeat: Infinity }}
         className="absolute h-full w-full border-8 border-primary/70"
       />
     </div>
@@ -72,11 +72,11 @@ export function AnimateLogo2({ logo, ...other }: AnimateLogoProps) {
       className="relative inline-flex h-24 w-24 items-center justify-center"
       {...other}
     >
-      {logo ?? <Logo style={{ zIndex: 9 }} />}
+      {logo ?? <Logo />}
 
       <m.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 10, ease: 'linear', repeat: Infinity }}
+        transition={{ duration: 10, ease: "linear", repeat: Infinity }}
         // sx={{
         //   width: 1,
         //   height: 1,

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from "next/image";
 const data = [
   {
     title: "How do I use PurfectFuel ™ products?",
@@ -51,7 +52,10 @@ export default function SectionSeven() {
           </div>
         </div>
         <div className="w-full aspect-square ">
-          <img
+          <Image
+            width={1500}
+            height={1500}
+            alt="PurfectFuel"
             className="w-full object-contain"
             src="https://img.thesitebase.net/files/10596429/2024/08/26/1724654928e68bc62f5f.png?width=640&height=0&min_height=640"
           />

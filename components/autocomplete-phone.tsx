@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronDownIcon } from "lucide-react";
 import { useMemo } from "react";
 import { markets } from "@/assets/data";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ISelect extends Record<string, any> {
   label: string;
   code: string;
@@ -43,7 +46,7 @@ export default function AutocompletePhone({
         .toLowerCase()
         .includes(search.toLowerCase())
     );
-  }, [markets, search]);
+  }, [search]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

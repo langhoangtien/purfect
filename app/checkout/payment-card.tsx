@@ -8,7 +8,7 @@ import {
 import { API_URL, PAYPAL_CLIENT_ID } from "@/config-global";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Circle, CircleHelpIcon, Loader2, Lock } from "lucide-react";
+import { CircleHelpIcon, Loader2, Lock } from "lucide-react";
 
 const CUSTOM_CLASS =
   "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset disabled:cursor-not-allowed disabled:opacity-50 md:text-sm";
@@ -59,23 +59,24 @@ const SubmitPayment = ({
         cardholderName: cardHolderName?.current?.value,
       })
       .then((data) => {
-        // Your logic to capture the transaction
+        console.log(data);
+
         fetch("url_to_capture_transaction", {
           method: "POST",
         })
           .then((response) => response.json())
           .then((data) => {
-            // Here use the captured info
+            console.log(data);
           })
           .catch((err) => {
-            // Here handle error
+            console.log("Error:", err);
           })
           .finally(() => {
             setPaying(false);
           });
       })
       .catch((err) => {
-        // Here handle error
+        console.log("Error:", err);
         setPaying(false);
       });
   };

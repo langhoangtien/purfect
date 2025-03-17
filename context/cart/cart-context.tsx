@@ -8,11 +8,6 @@ export interface Product {
   price: number;
   id: string;
   title: string;
-  attributes: {
-    title: string;
-    price: number;
-  };
-  slug: string;
 }
 
 interface CartContextType {

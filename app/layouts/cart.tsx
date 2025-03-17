@@ -7,12 +7,12 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { MinusIcon, PlusIcon, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "@/context/cart/cart-context";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { QuantityCart } from "../cart/view";
 
 interface Product {
   image: string;
@@ -24,11 +24,26 @@ interface Product {
 
 export default function Cart() {
   const cartContext = useContext(CartContext);
-  const router = useRouter();
-  const handleCheckout = () => {
-    if (cartContext.products.length) {
-      router.push("/checkout");
-      setSheet(false);
+
+  const handleCheckout = async () => {
+    const cartItems = cartContext.products.map((product) => ({
+      id: product.id,
+      quantity: product.quantity,
+    }));
+
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cartItems }),
+    });
+
+    const data = await res.json();
+
+    if (data.checkoutUrl) {
+      setSheet(false); // Đóng giỏ hàng
+      window.location.href = data.checkoutUrl; // Redirect sang Shopify Checkout
     }
   };
   const { products, updateQuantity, removeProduct, subtotal, sheet, setSheet } =
@@ -109,12 +124,7 @@ export default function Cart() {
   );
 }
 
-interface ProductCartProps {
-  image: string;
-  quantity: number;
-  name: string;
-  price: number;
-  id: string;
+interface ProductCartProps extends Product {
   updateQuantity: (id: string, newQuantity: number) => void;
   removeProduct: (id: string) => void;
 }
@@ -158,41 +168,6 @@ const ProductCart: React.FC<ProductCartProps> = ({
           </span>
         </span>
       </div>
-    </div>
-  );
-};
-
-interface QuantityCartProps {
-  quantity: number;
-  updateQuantity: (newQuantity: number) => void;
-}
-
-const QuantityCart: React.FC<QuantityCartProps> = ({
-  quantity,
-  updateQuantity,
-}) => {
-  return (
-    <div className="relative flex items-center max-w-[6rem]">
-      <button
-        type="button"
-        onClick={() => updateQuantity(Math.max(1, quantity - 1))}
-        className="border border-gray-300 rounded-s-lg p-2 h-8 hover:bg-gray-200"
-      >
-        <MinusIcon className="w-3 h-3 text-gray-900" />
-      </button>
-      <input
-        type="text"
-        value={quantity}
-        readOnly
-        className="border-y-[1px] border-gray-300 h-8 text-center text-gray-900 text-sm font-normal w-full py-2.5"
-      />
-      <button
-        type="button"
-        onClick={() => updateQuantity(quantity + 1)}
-        className="border border-gray-300 rounded-e-lg p-2 h-8 hover:bg-gray-200"
-      >
-        <PlusIcon className="w-3 h-3 text-gray-900" />
-      </button>
     </div>
   );
 };

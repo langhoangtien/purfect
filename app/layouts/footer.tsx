@@ -1,41 +1,7 @@
 import ListPaymentMethod from "@/components/ui/list-payment-method";
+import Image from "next/image";
 import Link from "next/link";
 
-const menu = [
-  {
-    title: "Shop",
-    items: [
-      { title: "All Products", link: "/all-products" },
-      { title: "Men's Products", link: "/mens-products" },
-      { title: "Women's Products", link: "/womens-products" },
-    ],
-  },
-  {
-    title: "Explore",
-    items: [
-      { title: "Help Center", link: "/help-center" },
-      { title: "Sustainability", link: "/sustainability" },
-      { title: "Science", link: "/science" },
-      { title: "Articles", link: "/articles" },
-      {
-        title: "Health and Medical Disclaimer",
-        link: "/health-and-medical-disclaimer",
-      },
-    ],
-  },
-  {
-    title: "Policies",
-    items: [
-      { title: "Privacy Policy", link: "/privacy-policy" },
-      {
-        title: "Refund and Cancellation Policy",
-        link: "/refund-and-cancellation-policy",
-      },
-      { title: "Terms of Service", link: "/terms-of-service" },
-      { title: "Shipping Policy", link: "/shipping-policy" },
-    ],
-  },
-];
 const MENU = [
   {
     title: "MORE INFO",
@@ -68,7 +34,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div className="space-y-4">
-          <img
+          <Image
+            width={100}
+            height={100}
             style={{
               borderWidth: 0,
               borderStyle: "solid",

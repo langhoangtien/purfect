@@ -1,5 +1,6 @@
 import StarIcon from "@/components/star-icon";
 import { Check } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 const works = [
@@ -78,9 +79,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="p-6 border rounded-lg space-y-4 ">
       <div className="flex justify-center">
-        <img
+        <Image
           src={image}
           alt={title}
+          width={2000}
+          height={2000}
+          quality={80}
           className="w-full aspect-square rounded-lg p-4"
         />
       </div>
@@ -140,7 +144,7 @@ export default function SectionFour() {
             "Enhances energy levels",
             "Boosts immune system",
           ]}
-          buttonColor="bg-green-900"
+          buttonColor="bg-primary"
           checkColor="text-green-900"
         />
         <ProductCard
@@ -163,8 +167,11 @@ export default function SectionFour() {
           “I’m a guy who struggled with low testosterone and this stuff gives me
           an unreal kick to life”
         </p>
-        <img
-          className="size-18 object-contain rounded-full "
+        <Image
+          width={200}
+          height={200}
+          alt="Mark W."
+          className="size-20 object-contain rounded-full "
           src="https://cdn.shopify.com/s/files/1/0840/0158/7493/files/gfsd.png?v=1712073082"
         />
         <div className="flex flex-col items-center space-y-2">
@@ -184,7 +191,7 @@ export default function SectionFour() {
       </div>
       <div className="w-full max-w-6xl flex flex-col space-y-8 mx-auto">
         <p className="text-5xl text-gray-800 text-left">
-          Here's how PurfectFuel ™ works
+          Here&apos;s how PurfectFuel ™ works
         </p>
         <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-8">
           {works.map((item) => (
@@ -192,11 +199,14 @@ export default function SectionFour() {
               key={item.image}
               className="flex flex-col items-center space-y-4 font-semibold text-gray-700"
             >
-              <img
+              <Image
+                width={1500}
+                height={1500}
+                alt="PurfectFuel ™ works"
                 className="rounded-full w-full aspect-square"
                 src={item.image}
               />
-              <p>Promotes overall wellness and vitality</p>
+              <p>{item.description}</p>
             </div>
           ))}
         </div>
@@ -216,7 +226,10 @@ export default function SectionFour() {
               key={item.image}
               className="flex flex-col rounded-3xl items-center space-y-4 font-semibold bg-[#ccc] text-gray-700"
             >
-              <img
+              <Image
+                width={1500}
+                height={1500}
+                alt={item.title}
                 className="rounded-t-xl w-full object-cover aspect-[4:3]"
                 src={item.image}
               />

@@ -25,7 +25,7 @@ export default function HealthAndMedicalDisclaimer() {
         <ul className="list-disc px-8">
           <li>
             <p>
-              <strong>Shilajit &amp; Sea Moss:</strong> Dive into nature's
+              <strong>Shilajit &amp; Sea Moss:</strong> Dive into nature&apos;s
               potency with shilajit, known for its enriching mineral content and
               energy-boosting properties, and sea moss, which supports thyroid
               function and boosts immunity with its rich mineral profile.

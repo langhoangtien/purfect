@@ -33,6 +33,7 @@ import { PlusIcon, Trash2Icon, TrashIcon, X } from "lucide-react";
 import { convertIDToURL, convertURLToID, toSlug } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { uploadImage, uploadImages } from "@/lib/common";
+import Image from "next/image";
 
 const variantZodSchema = z
   .object({
@@ -249,8 +250,9 @@ export default function ProductFormDialog({
       toast.success(`Product ${product ? "updated" : "created"} successfully`);
       onSuccess();
       onClose();
-    } catch (err) {
-      toast.error((err as any)?.message || "Failed to save product");
+    } catch (err: unknown) {
+      console.error(err);
+      toast.error("Failed to save product");
     } finally {
       setLoading(false);
     }
@@ -281,7 +283,9 @@ export default function ProductFormDialog({
                   className="cursor-pointer bg-gray-200 rounded-full p-4 "
                   title="Chọn ảnh bìa"
                 >
-                  <img
+                  <Image
+                    width={128}
+                    height={128}
                     src={image || "/no-img.svg"}
                     alt="cover"
                     className="w-32 h-32 object-cover  rounded-full"
@@ -388,7 +392,9 @@ export default function ProductFormDialog({
                       key={index}
                     >
                       {" "}
-                      <img
+                      <Image
+                        width={80}
+                        height={80}
                         src={image}
                         alt="cover"
                         className="w-20 h-20 object-cover rounded-md"
@@ -478,7 +484,9 @@ export default function ProductFormDialog({
                           htmlFor={`varianr-image${index}`}
                           className="cursor-pointer"
                         >
-                          <img
+                          <Image
+                            width={48}
+                            height={48}
                             src={variant.image || "/no-img.svg"}
                             alt="variant"
                             className="w-12 h-12 object-cover rounded-md"

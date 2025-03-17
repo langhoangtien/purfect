@@ -13,6 +13,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 import { markets, states } from "@/assets/data";
 import { Select, Input } from "@/components/custom-ui";
+import Image from "next/image";
 
 interface FormData {
   email: string;
@@ -121,6 +122,7 @@ export default function CheckoutForm() {
       setValue("billingPhone", data.phone);
       setValue("billingCountry", data.country);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const country = watch("country");
@@ -573,7 +575,9 @@ const ProductCart: React.FC<ProductCartProps> = ({
   return (
     <div className="flex relative space-x-4 border-b items-center justify-between py-2">
       <div className="flex space-x-4 items-center">
-        <img
+        <Image
+          width={64}
+          height={64}
           className="rounded-md md:size-16 size-12  object-contain"
           alt={name}
           src={image}

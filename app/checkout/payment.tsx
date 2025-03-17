@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { API_URL, PAYPAL_CLIENT_ID } from "@/config-global";
+import { PayPalButtons } from "@paypal/react-paypal-js";
+import { API_URL } from "@/config-global";
 import { useRouter } from "next/navigation";
 import useCart from "@/context/cart/use-cart";
 
@@ -24,15 +24,6 @@ export default function Payment({ voucher, products }: PaymentProps) {
   const cartContext = useCart();
   const { setProducts } = cartContext;
   const router = useRouter();
-  const initialOptions = {
-    clientId: PAYPAL_CLIENT_ID,
-    "enable-funding": "venmo",
-    "disable-funding": "",
-    currency: "USD",
-    "data-page-type": "product-details",
-    components: "buttons",
-    "data-sdk-integration-source": "developer-studio",
-  };
 
   const [message, setMessage] = useState("");
 

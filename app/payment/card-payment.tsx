@@ -1,14 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import {
-  PayPalScriptProvider,
-  PayPalHostedFieldsProvider,
   PayPalHostedField,
   usePayPalHostedFields,
 } from "@paypal/react-paypal-js";
-import { API_URL, PAYPAL_CLIENT_ID } from "@/config-global";
+import { API_URL } from "@/config-global";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Circle, CircleHelpIcon, Loader2, Lock } from "lucide-react";
+import { CircleHelpIcon, Loader2, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 import useCart from "@/context/cart/use-cart";
 
@@ -17,13 +15,6 @@ export const CUSTOM_CLASS =
 const INVALID_COLOR = {
   color: "#dc3545",
 };
-
-interface FormErrors {
-  holderName?: string;
-  cardNumber?: string;
-  ccv?: string;
-  expirationDate?: string;
-}
 
 // Example of custom component to handle form submit
 export const SubmitPayment = () => {
@@ -79,7 +70,8 @@ export const SubmitPayment = () => {
           });
       })
       .catch((err) => {
-        // Here handle error
+        console.log("Error:", err);
+
         setPaying(false);
       });
   };
@@ -99,8 +91,6 @@ export const SubmitPayment = () => {
 };
 
 export default function CardPayment() {
-  const [cardHolderName, setCardHolderName] = useState<string>("");
-
   return (
     <>
       <div className="space-y-4 mt-4">

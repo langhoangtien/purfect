@@ -70,7 +70,7 @@ export default function HealthAndMedicalDisclaimer() {
         </p>
         <p data-mce-fragment={1}>
           The 120-Day Refund Policy ensures that your satisfaction is our top
-          priority.&nbsp; Here's how it works:
+          priority.&nbsp; Here&apos;s how it works:
         </p>
         <ul>
           <li>

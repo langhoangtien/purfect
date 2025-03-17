@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronDownIcon } from "lucide-react";
 import { useMemo } from "react";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ISelect extends Record<string, any> {
   label: string;
   code: string;

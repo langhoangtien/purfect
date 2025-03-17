@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 const effects = [
@@ -54,7 +55,9 @@ export default function SectionSix() {
                 key={effect.title}
                 className="flex flex-col space-y-2 items-center"
               >
-                <img
+                <Image
+                  width={64}
+                  height={64}
                   src={effect.image}
                   alt={effect.title}
                   className="w-16 h-16 object-contain"
@@ -68,7 +71,7 @@ export default function SectionSix() {
           <div className="mt-8">
             <Link
               href="/products/purfect-fuel-blend"
-              className="bg-[#46755f] text-white px-6 py-4 rounded-full text-lg font-medium shadow-lg"
+              className="bg-primary text-white px-6 py-4 rounded-full text-lg font-medium shadow-lg"
             >
               Start your PurfectFuel™ Today →
             </Link>
