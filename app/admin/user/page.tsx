@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import {
   Table,
   TableBody,
@@ -13,10 +12,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Pencil } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { API_URL } from "@/config-global";
 import UserFormDialog from "./user-form-dialog";
 import { STORAGE_KEY } from "@/lib/contanst";
+import { UKOSplashScreen } from "@/components/splash-screen";
 
 interface User {
   _id: string;
@@ -36,23 +35,21 @@ export default function UsersPage() {
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   useEffect(() => {
-    const delayDebounce = setTimeout(() => {
+    const delayFetch = setTimeout(() => {
       fetchUsers();
-    }, 500);
+    }, 300);
 
-    return () => clearTimeout(delayDebounce);
+    return () => clearTimeout(delayFetch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, page]);
 
   const fetchUsers = async () => {
-    setLoading(true);
-    setError(null);
     try {
+      setLoading(true);
       const token = sessionStorage.getItem(STORAGE_KEY);
-      if (!token) throw new Error("Unauthorized: No token found");
-
       const res = await fetch(
         `${API_URL}/users?page=${page}&limit=10&search=${search}`,
         {
@@ -65,18 +62,20 @@ export default function UsersPage() {
       const data = await res.json();
       setUsers(data.data);
       setTotalPages(data.pagination.totalPages);
-    } catch (err: unknown) {
-      if (err instanceof Error) setError(err.message);
-      else setError("An error occurred");
+    } catch (err) {
+      console.error(err);
+      setError("Không thể tải danh sách user");
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async () => {
+    if (!selectedUsers.length) return;
+
     try {
+      setDeleteLoading(true);
       const token = sessionStorage.getItem(STORAGE_KEY);
-      if (!token) throw new Error("Unauthorized: No token found");
 
       const res = await fetch(`${API_URL}/users/delete-many`, {
         method: "DELETE",
@@ -91,15 +90,27 @@ export default function UsersPage() {
 
       setSelectedUsers([]);
       fetchUsers();
-    } catch (err: unknown) {
-      if (err instanceof Error) setError(err.message);
-      else setError("An error occurred");
+    } catch (err) {
+      console.error(err);
+      setError("Xóa người dùng thất bại");
+    } finally {
+      setDeleteLoading(false);
     }
+  };
+
+  const handleSelectAll = (checked: boolean) => {
+    setSelectedUsers(checked ? users.map((user) => user._id) : []);
+  };
+
+  const handleSelectUser = (userId: string, checked: boolean) => {
+    setSelectedUsers((prev) =>
+      checked ? [...prev, userId] : prev.filter((id) => id !== userId)
+    );
   };
 
   return (
     <div className="p-6">
-      <div className="flex h-10 py-3 justify-between space-x-1 items-center">
+      <div className="flex h-8  justify-between space-x-2 items-center py-4">
         <Input
           placeholder="Search by username or email"
           value={search}
@@ -114,20 +125,21 @@ export default function UsersPage() {
           Add User
         </Button>
       </div>
+
       {error && <p className="text-red-500">{error}</p>}
+
       {loading ? (
-        <p>Loading...</p>
+        <UKOSplashScreen />
       ) : (
         <>
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>
-                  <Checkbox
+                  <input
+                    type="checkbox"
                     checked={selectedUsers.length === users.length}
-                    onCheckedChange={(checked) =>
-                      setSelectedUsers(checked ? users.map((u) => u._id) : [])
-                    }
+                    onChange={(e) => handleSelectAll(e.target.checked)}
                   />
                 </TableHead>
                 <TableHead>Username</TableHead>
@@ -141,14 +153,11 @@ export default function UsersPage() {
               {users.map((user) => (
                 <TableRow key={user._id}>
                   <TableCell>
-                    <Checkbox
+                    <input
+                      type="checkbox"
                       checked={selectedUsers.includes(user._id)}
-                      onCheckedChange={(checked) =>
-                        setSelectedUsers((prev) =>
-                          checked
-                            ? [...prev, user._id]
-                            : prev.filter((id) => id !== user._id)
-                        )
+                      onChange={(e) =>
+                        handleSelectUser(user._id, e.target.checked)
                       }
                     />
                   </TableCell>
@@ -172,8 +181,9 @@ export default function UsersPage() {
               ))}
             </TableBody>
           </Table>
+
           <div className="flex justify-between mt-4">
-            <Button disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
+            <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
               Prev
             </Button>
             <span>
@@ -181,20 +191,22 @@ export default function UsersPage() {
             </span>
             <Button
               disabled={page === totalPages}
-              onClick={() => setPage((p) => p + 1)}
+              onClick={() => setPage(page + 1)}
             >
               Next
             </Button>
           </div>
+
           <Button
             className="mt-4"
             onClick={handleDelete}
-            disabled={!selectedUsers.length}
+            disabled={!selectedUsers.length || deleteLoading}
           >
-            Delete Selected
+            {deleteLoading ? "Deleting..." : "Delete Selected"}
           </Button>
         </>
       )}
+
       <UserFormDialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}

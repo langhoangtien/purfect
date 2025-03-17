@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Select } from "@/components/select";
 
 interface FormData {
   name: string;
@@ -106,16 +107,6 @@ export default function ContactForm() {
     e.preventDefault();
     if (validate()) {
       setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        issueType: issueOptions[0],
-        attachments: [],
-      });
-      setErrors({});
     }
   };
 
@@ -171,7 +162,7 @@ export default function ContactForm() {
                 <p className="text-red-500 text-sm">{errors.phone}</p>
               )}
 
-              <select
+              <Select
                 name="issueType"
                 value={formData.issueType}
                 onChange={handleChange}
@@ -182,7 +173,7 @@ export default function ContactForm() {
                     {option}
                   </option>
                 ))}
-              </select>
+              </Select>
 
               <Textarea
                 className="col-span-2"

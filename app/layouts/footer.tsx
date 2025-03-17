@@ -6,7 +6,7 @@ const MENU = [
   {
     title: "MORE INFO",
     items: [
-      { title: "Order Tracking", link: "/order-tracking" },
+      { title: "Order Tracking", link: "/track-order" },
       { title: "About Us", link: "/about-us" },
       { title: "Blogs", link: "/blogs" },
       { title: "Contact", link: "/contact-us" },
