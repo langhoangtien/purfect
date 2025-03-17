@@ -75,8 +75,6 @@ export type ShopifyCollection = {
 // Shopify Fetch
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ShopifyFetch = async (query: string, variables?: Record<string, any>) => {
-  console.log("ShopifyFetch", domain, query, variables);
-
   const response = await fetch(`${domain}/api/${version}/graphql.json`, {
     method: "POST",
     headers: {
