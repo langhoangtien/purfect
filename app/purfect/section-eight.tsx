@@ -8,7 +8,7 @@ import { REVIEWS } from "@/assets/reviews";
 const INITIAL_COUNT = 10;
 
 export default function ReviewList() {
-  const [sortBy, setSortBy] = useState("latest");
+  const [sortBy, setSortBy] = useState("helpful");
   const [filterStar, setFilterStar] = useState("0");
   const [likedIds, setLikedIds] = useState<number[]>([]);
   const [visibleReviews, setVisibleReviews] = useState(INITIAL_COUNT);
@@ -53,7 +53,7 @@ export default function ReviewList() {
       {/* Filter & Sort */}
       <div className="flex flex-col md:flex-row md:justify-between space-y-3 md:space-y-0 mb-6">
         <select
-          className="border px-4 py-1 rounded w-full md:w-auto"
+          className="border px-4 py-1 h-10 rounded w-full md:w-auto"
           value={filterStar}
           onChange={(e) => setFilterStar(e.target.value)}
         >
@@ -65,7 +65,7 @@ export default function ReviewList() {
           ))}
         </select>
         <select
-          className="border px-4 py-1 rounded w-full md:w-auto"
+          className="border px-4 py-1 h-10 rounded w-full md:w-auto"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
         >
@@ -87,7 +87,11 @@ export default function ReviewList() {
                 </div>
               </div>
               <span className="text-gray-800 text-sm mt-1 md:mt-0">
-                {new Date(review.createdAt).toLocaleDateString()}
+                {new Intl.DateTimeFormat("en-US", {
+                  month: "short",
+                  day: "2-digit",
+                  year: "numeric",
+                }).format(new Date(review.createdAt))}
               </span>
             </div>
 
@@ -100,7 +104,7 @@ export default function ReviewList() {
                 {review.images?.map((url, i) => (
                   <div
                     key={i}
-                    className="relative w-16 h-16 md:w-20 md:h-20 border border-gray-700 rounded-md"
+                    className="relative w-20 h-20 md:w-24 md:h-24 border border-gray-300 rounded-md"
                   >
                     <img
                       src={url}
@@ -112,7 +116,7 @@ export default function ReviewList() {
                 {review.videos?.map((url, i) => (
                   <video
                     key={i}
-                    className="w-16 h-16 md:w-20 md:h-20 border border-gray-700 rounded-md"
+                    className="relative w-20 h-20 md:w-24 md:h-24 border border-gray-300 rounded-md"
                     controls
                   >
                     <source src={url} type="video/mp4" />
