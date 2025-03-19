@@ -1,3 +1,4 @@
+import ReviewList from "../purfect/section-eight";
 import SectionFive from "../purfect/section-five";
 import SectionFour from "../purfect/section-four";
 import SectionOne from "../purfect/section-one";
@@ -16,6 +17,7 @@ export default function Home() {
       <SectionFive />
       <SectionSix />
       <SectionSeven />
+      <ReviewList />
     </div>
   );
 }

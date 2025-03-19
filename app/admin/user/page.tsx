@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Pencil } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { API_URL } from "@/config-global";
 import UserFormDialog from "./user-form-dialog";
 import { STORAGE_KEY } from "@/lib/contanst";
@@ -44,7 +44,13 @@ export default function UsersPage() {
 
     return () => clearTimeout(delayFetch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, page]);
+  }, [search]);
+
+  useEffect(() => {
+    fetchUsers();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
 
   const fetchUsers = async () => {
     try {
@@ -202,6 +208,7 @@ export default function UsersPage() {
             onClick={handleDelete}
             disabled={!selectedUsers.length || deleteLoading}
           >
+            <Trash2 size={16} className="mr-2" />
             {deleteLoading ? "Deleting..." : "Delete Selected"}
           </Button>
         </>
