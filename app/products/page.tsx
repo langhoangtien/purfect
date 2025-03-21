@@ -46,3 +46,4 @@ const ProductsPage = async () => {
 };
 
 export default ProductsPage;
+export const revalidate = 60;
