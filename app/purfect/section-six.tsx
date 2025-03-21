@@ -35,7 +35,10 @@ export default function SectionSix() {
     <div className="w-full mx-auto ">
       <div className="grid grid-cols-1 md:grid-cols-2 ">
         {/* Left: Product Images */}
-        <div className="flex gap-6 min-h-full h-[80vh] bg-cover items-end bg-[url(https://img.thesitebase.net/10596/10596429/products/ver_1/1721785579330.png?width=1200&height=0&min_height=0)]"></div>
+        <div
+          style={{ backgroundImage: "url('/purfect/blog1.jpg')" }}
+          className="flex gap-6 min-h-full h-[80vh] bg-cover items-end "
+        ></div>
 
         {/* Right: Text Content */}
         <div className="space-y-6 md:p-16 p-8 bg-[url(https://cdn.shopify.com/s/files/1/0840/0158/7493/files/hgkuj.png?v=1712106922)] text-white">

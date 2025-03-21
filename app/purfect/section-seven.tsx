@@ -56,8 +56,8 @@ export default function SectionSeven() {
             width={1500}
             height={1500}
             alt="OptiLife"
-            className="w-full object-contain"
-            src="https://img.thesitebase.net/files/10596429/2024/08/26/1724654928e68bc62f5f.png?width=640&height=0&min_height=640"
+            className="w-full rounded-md object-contain"
+            src="/purfect/slide4.webp"
           />
         </div>
       </div>

@@ -102,3 +102,16 @@ body {
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
+.bgo-responsive {
+  background-image: url("/purfect/img2.avif");
+  background-size: cover;
+  background-position: cover;
+}
+
+@media (min-width: 768px) {
+  /* md: từ 768px trở lên */
+  .bgo-responsive {
+    background-image: url("/purfect/img1.png");
+  }
+}

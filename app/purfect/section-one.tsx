@@ -11,9 +11,9 @@ export default function SectionOne() {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="w-full flex  h-[80vh] min-h-[420px] bg-[url(https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569168.png?width=1200&height=0&min_height=0)]  relative items-start  justify-start md:px-80 md:bg-[url(https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569158.png?width=1200&height=0&min_height=0)] md:items-center aspect-video"
+        className="w-full flex  h-[80vh] min-h-[420px] bgo-responsive relative items-start  justify-start md:px-40 lg:px-80 sm:px-32  md:items-center aspect-video"
       >
-        <div className="absolute inset-0 bg-black/25"></div>
+        <div className="absolute inset-0 bg-black/35"></div>
         <div className="flex w-full p-4 md:justify-start justify-center">
           {" "}
           <div className="relative flex flex-col justify-start  text-center md:text-left space-y-4  text-white max-w-lg">
@@ -22,16 +22,16 @@ export default function SectionOne() {
             </p>
             <p className="hidden md:block">
               Unlock 50+ essential minerals & optimize vitality with our Seamoss
-              & Shilajit bundle. Start your OptiLife ™ Today
+              & Shilajit bundle. Start your PurfectFuel ™ Today
             </p>
             <p className="md:hidden">
               Unlock 50+ essential minerals & optimize vitality with our Seamoss
               & Shilajit bundle.{" "}
             </p>
             <div className="flex flex-col space-y-2  md:space-y-4 items-center md:items-start ">
-              <Link href="/products/optilife-blend">
+              <Link href="/products/purfect-fuel-blend">
                 <Button className="rounded-full flex items-center justify-between">
-                  <span> Start your OptiLife ™ Today</span>
+                  <span> Start your PurfectFuel ™ Today</span>
                   <ArrowRightIcon size={24} />
                 </Button>
               </Link>

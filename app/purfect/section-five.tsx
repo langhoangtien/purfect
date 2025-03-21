@@ -72,7 +72,7 @@ export default function SectionFive() {
                 className="bg-white py-16 px-8 rounded-2xl shadow-md  relative"
               >
                 <Image
-                  src="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569146.png?width=1200&height=0&min_height=0"
+                  src="/purfect/slide1.webp"
                   className="w-20 h-20 object-contain rounded-full absolute -top-10 right-6"
                   width={80}
                   height={80}

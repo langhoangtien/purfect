@@ -28,7 +28,7 @@ export default function SectionThree() {
           <Image
             width={1500}
             height={1500}
-            src="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569178.png?width=1200&height=0&min_height=0"
+            src="/purfect/slide5.webp"
             alt="Vitality Bundle"
             className="w-full h-auto rounded-lg"
           />

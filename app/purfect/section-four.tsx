@@ -5,8 +5,7 @@ import Link from "next/link";
 import React from "react";
 const works = [
   {
-    image:
-      "https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569146.png?width=1200&height=0&min_height=0",
+    image: "/purfect/img8.avif",
     description: "Take your dosage",
   },
   {
@@ -85,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           width={2000}
           height={2000}
           quality={80}
-          className="w-full aspect-square rounded-lg p-4"
+          className="w-full aspect-square rounded-xl "
         />
       </div>
       <div className="flex items-center space-x-2 justify-center">
@@ -134,10 +133,10 @@ export default function SectionFour() {
     <div className="w-full flex flex-col space-y-16 max-w-6xl mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
         <ProductCard
-          image="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569189.png?width=1200&height=0&min_height=0"
+          image="/purfect/img5.avif"
           rating="4.9"
           reviews="30,405"
-          title="20 in 1 - Dynamic Vitality Bundle"
+          title="24 in 1 - Dynamic Vitality Bundle"
           description="Crafted with precision, our Dynamic Vitality Bundle is formulated to provide you with a comprehensive solution for optimal health and vitality. Here's what it includes:"
           benefits={[
             "Promotes overall wellness",
@@ -148,10 +147,10 @@ export default function SectionFour() {
           checkColor="text-green-900"
         />
         <ProductCard
-          image="https://img.thesitebase.net/10596/10596429/products/ver_1/1721785569146.png?width=1200&height=0&min_height=0"
+          image="/purfect/img7.avif"
           rating="4.8"
           reviews="12,839"
-          title="15 In 1 - Sea Moss Bundle"
+          title="16 In 1 - Sea Moss Bundle"
           description="Our Sea Moss Bundle combines the power of nature's superfoods to support your health and well-being. Here's what it offers:"
           benefits={[
             "Promotes overall wellness",
