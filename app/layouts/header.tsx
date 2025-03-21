@@ -43,9 +43,11 @@ export function CarouselHeader() {
       >
         <CarouselContent>
           {[
-            "Shop Now Before It’s Gone!",
-            "New Year, New Hair! 🎉",
+            "USA Made",
+            "30 Day Money Back Guarantee",
             "Up To 50% OFF + Free Shipping",
+            "Total Wellness In a Bottle",
+            "Ancient Blend",
           ].map((text) => (
             <CarouselItem key={text}>
               <p className="text-center p-2">{text}</p>
