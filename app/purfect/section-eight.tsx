@@ -2,8 +2,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ThumbsUp } from "lucide-react";
+import { ChevronsDownIcon, ThumbsUp } from "lucide-react";
 import { REVIEWS } from "@/assets/reviews";
+import { Button } from "@/components/ui/button";
 
 const INITIAL_COUNT = 10;
 
@@ -148,12 +149,10 @@ export default function ReviewList() {
       {/* Load More Button */}
       {visibleReviews < sortedReviews.length && (
         <div className="text-center mt-6">
-          <button
-            onClick={() => setVisibleReviews((prev) => prev + 15)}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-          >
+          <Button onClick={() => setVisibleReviews((prev) => prev + 15)}>
             Load More
-          </button>
+            <ChevronsDownIcon />
+          </Button>
         </div>
       )}
     </div>

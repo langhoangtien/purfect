@@ -99,6 +99,7 @@ enum SIZE_ENUM {
   ULTRA = 800,
 }
 export const convertIDToURL = (id: string, size: SIZE_ENUM = 400) => {
+  if (!id) return "";
   return `${API_URL}/files/${id}-${size}.avif`;
 };
 

@@ -47,16 +47,16 @@ export default function Footer() {
               boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
               borderRadius: 100,
             }}
-            className="image p-0 w-auto object-contain size-24  aspect-square"
+            className="image p-0 w-auto object-contain size-32  aspect-square"
             draggable="false"
             alt=""
             decoding="async"
             data-loaded="false"
-            src="https://img.thesitebase.net/files/10596429/2024/07/18/17213201170eba2836df.jpeg?width=3840&height=0&min_height=100"
+            src="/logo-footer.png"
           />
 
-          <h2 className="text-2xl font-bold">Purfect Fuel Inc.</h2>
-          <p className="text-sm mt-2">Email: contact@purfectfuel.com</p>
+          <h2 className="text-2xl font-bold">OptiLife LLC.</h2>
+          <p className="text-sm mt-2">Email: ccontact@optilifecompany.com</p>
           {/* <div className="flex space-x-4 mt-4 text-xl">
           <FaFacebookF className="cursor-pointer hover:text-blue-500" />
           <FaYoutube className="cursor-pointer hover:text-red-500" />
@@ -117,7 +117,7 @@ export default function Footer() {
         </div>
 
         <div className="flex space-x-2 mt-2 md:mt-0">
-          <p className="mt-2 md:mt-0 text-gray-400">Powered by Ludmia</p>
+          <p className="mt-2 md:mt-0 text-gray-400">Powered by OptiLife</p>
           <ListPaymentMethod />
         </div>
       </div>

@@ -17,6 +17,7 @@ const menuItems = [
   { name: "User", icon: Users, href: "/admin/user" },
   { name: "Product", icon: Package, href: "/admin/product" },
   { name: "Customer", icon: Users, href: "/admin/customer" },
+  { name: "Review", icon: Package, href: "/admin/review" },
   { name: "Option", icon: Settings, href: "/admin/option" },
 ];
 

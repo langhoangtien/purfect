@@ -58,24 +58,6 @@ export default function SectionOne() {
           </div>
         </div>
       </div>
-      <div className=" w-full  mx-auto ">
-        <div className="relative h-16 bg-primary overflow-hidden w-full">
-          <div className="flex text-run py-4 space-x-16 ">
-            {[
-              "Total Wellness In a Bottle",
-              "Vegan",
-              "Patented Ingredients",
-              "Ancient Blend",
-              "30 Day Money Back Guarantee",
-              "USA Made",
-            ].map((item, index) => (
-              <span key={index} className="whitespace-nowrap font-semibold">
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

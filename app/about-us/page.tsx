@@ -4,20 +4,19 @@ export default function HealthAndMedicalDisclaimer() {
       <h2 className="text-center text-3xl font-semibold my-8">About Us</h2>
       <div>
         <p>
-          Welcome to <strong>Purfect Fuel</strong>, where we harness the power
-          of nature to boost your wellness. Our journey is inspired by the
-          belief that nature holds the key to optimal health, and we are
-          committed to bringing you its most potent gifts through our premium
-          supplements.
+          Welcome to <strong>OptiLife</strong>, where we harness the power of
+          nature to boost your wellness. Our journey is inspired by the belief
+          that nature holds the key to optimal health, and we are committed to
+          bringing you its most potent gifts through our premium supplements.
         </p>
         <h3 className="text-2xl font-semibold">
           <strong>Our Mission</strong>
         </h3>
         <p>
-          Our mission at <strong>Purfect Fuel</strong> is to empower your
-          wellness journey with high-quality, natural supplements. We are
-          dedicated to enhancing your health and vitality by providing products
-          that support balance, healing, and strength from within.
+          Our mission at <strong>OptiLife</strong> is to empower your wellness
+          journey with high-quality, natural supplements. We are dedicated to
+          enhancing your health and vitality by providing products that support
+          balance, healing, and strength from within.
         </p>
         <h3 className="text-2xl font-semibold">
           <strong>Our Products</strong>
@@ -80,31 +79,31 @@ export default function HealthAndMedicalDisclaimer() {
           <strong>Our Promise</strong>
         </h3>
         <p>
-          At <strong>Purfect Fuel</strong>, we ensure that each product is
-          crafted with the highest standards of purity and potency. We are
-          committed to sustainability and ethical sourcing, ensuring that our
-          supplements are free from harmful additives and are environmentally
-          friendly.
+          At <strong>OptiLife</strong>, we ensure that each product is crafted
+          with the highest standards of purity and potency. We are committed to
+          sustainability and ethical sourcing, ensuring that our supplements are
+          free from harmful additives and are environmentally friendly.
         </p>
         <h3 className="text-2xl font-semibold">
           <strong>Join Our Community</strong>
         </h3>
         <p>
-          Join the <strong>Purfect Fuel</strong> family and connect with a
-          community of wellness enthusiasts. We offer educational resources,
-          interactive workshops, and a supportive online community to enhance
-          your holistic health journey.
+          Join the <strong>OptiLife</strong> family and connect with a community
+          of wellness enthusiasts. We offer educational resources, interactive
+          workshops, and a supportive online community to enhance your holistic
+          health journey.
         </p>
         <p>
-          Discover the power of nature with Purfect Fuel.{" "}
-          <strong>Awaken your inner Hercules and thrive!</strong>
+          Discover the power of nature with OptiLife.{" "}
+          <strong>Awaken your inner OptiLife and thrive!</strong>
         </p>
         <p>
-          <strong>Purfect Fuel LLC</strong>
+          <strong>OptiLife LLC</strong>
         </p>
         <p>
           <strong>
-            Address:&nbsp;3129 Windlass CT, Tampa Florida 33607, United States
+            Address:&nbsp;+1111B S Governors Ave STE 28573 Dover Delaware 19904,
+            United States
           </strong>
         </p>
         <p>
@@ -114,13 +113,13 @@ export default function HealthAndMedicalDisclaimer() {
             rel="noopener noreferrer nofollow"
             title=""
             role="url"
-            href="mailto:contact@purfectfuel.com"
+            href="mailto:contact@optilifecompany.com"
           >
-            <strong>contact@purfectfuel.com</strong>
+            <strong>contact@optilifecompany.com</strong>
           </a>
         </p>
         <p>
-          <strong>Phone:&nbsp;+1781 217 5531</strong>
+          <strong>Phone:&nbsp;+1302 590 6135</strong>
         </p>
       </div>
     </div>

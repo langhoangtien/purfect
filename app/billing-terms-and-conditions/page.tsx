@@ -6,7 +6,7 @@ export default function HealthAndMedicalDisclaimer() {
       </h2>
       <div className="space-y-2" data-text-editor-id="content">
         <p>
-          Thank you for shopping at <strong>Purfect Fuel</strong>! We strive to
+          Thank you for shopping at <strong>OptiLife</strong>! We strive to
           provide you with a seamless and secure shopping experience. Please
           review our payment policy below:
         </p>
@@ -47,9 +47,9 @@ export default function HealthAndMedicalDisclaimer() {
           </li>
         </ul>
         <p>
-          <strong>Currency:</strong> All transactions on Purfect Fuel are
-          processed in United States Dollar (USD). Prices displayed on the
-          website are in USD by default.
+          <strong>Currency:</strong> All transactions on OptiLife are processed
+          in United States Dollar (USD). Prices displayed on the website are in
+          USD by default.
         </p>
         <p>
           <strong>Tax Policy:</strong> Tax will be calculated during checkout if
@@ -173,20 +173,19 @@ export default function HealthAndMedicalDisclaimer() {
             rel="noopener noreferrer nofollow"
             title=""
             role="url"
-            href="mailto:contact@purfectfuel.com"
+            href="mailto:contact@optilifecompany.com"
           >
-            contact@purfectfuel.com
+            contact@optilifecompany.com
           </a>
         </p>
         <p>
-          <strong>Policy Revision:</strong> Purfect Fuel reserves the right to
+          <strong>Policy Revision:</strong> OptiLife reserves the right to
           update or modify this payment policy at any time without prior notice.
           Please review this policy periodically for any changes.
         </p>
         <p>
-          By shopping with Purfect Fuel, you agree to abide by the terms
-          outlined in this payment policy. Thank you for choosing Purfect Fuel
-          for your needs!
+          By shopping with OptiLife, you agree to abide by the terms outlined in
+          this payment policy. Thank you for choosing OptiLife for your needs!
         </p>
       </div>
     </div>

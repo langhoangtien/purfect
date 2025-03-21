@@ -13,7 +13,7 @@ export default function HealthAndMedicalDisclaimer() {
               fontSize: "1rem",
             }}
           >
-            This Privacy Policy describes how Nordic Biolabs (the &quot;
+            This Privacy Policy describes how OptiLife (the &quot;
           </span>
           <strong
             style={{
@@ -634,7 +634,7 @@ export default function HealthAndMedicalDisclaimer() {
         <p>
           Should you have any questions about our privacy practices or this
           Privacy Policy, or if you would like to exercise any of the rights
-          available to you, please email us at contact@nordicbiolabs.com
+          available to you, please email us at contact@optilifecompany.com
         </p>
       </div>
     </div>

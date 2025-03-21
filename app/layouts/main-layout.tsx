@@ -4,8 +4,8 @@ import Footer from "../layouts/footer";
 import Newsletter from "@/components/news-letter";
 
 export const metadata: Metadata = {
-  title: "Purfect Fuel Blend",
-  description: "Purfect Fuel Blend",
+  title: "OptiLife Blend",
+  description: "OptiLife Blend",
 };
 
 export default function MainLayout({

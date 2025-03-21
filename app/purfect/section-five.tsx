@@ -19,7 +19,7 @@ const reviews = [
     name: "Michael B. ",
     time: "20 in 1 Bundle",
     content:
-      "I've struggled with fatigue and low energy for years, but Sea moss has been a game-changer for me. I feel more energized and focused than ever before. Thank you, Hercules!",
+      "I've struggled with fatigue and low energy for years, but Sea moss has been a game-changer for me. I feel more energized and focused than ever before. Thank you, OptiLife!",
   },
 ];
 export default function SectionFive() {

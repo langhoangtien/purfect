@@ -6,8 +6,8 @@ import Logo from "@/components/logo";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Purfect Fuel Blend",
-  description: "Purfect Fuel Blend",
+  title: "OptiLife Blend",
+  description: "OptiLife Blend",
 };
 
 export default function CheckoutLayout({

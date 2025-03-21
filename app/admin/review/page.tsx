@@ -13,27 +13,29 @@ import {
 } from "@/components/ui/table";
 import { Pencil, Trash2 } from "lucide-react";
 import { API_URL } from "@/config-global";
-import UserFormDialog from "./user-form-dialog";
+
 import { STORAGE_KEY } from "@/lib/contanst";
 import { UKOSplashScreen } from "@/components/splash-screen";
+import Link from "next/link";
 import { useDebounce } from "@/hooks/use-debounce";
 
-interface User {
+interface Review {
   _id: string;
-  username: string;
-  fullName: string;
-  email: string;
+  customer: string;
+  productId: string;
+  title: string;
+  body: string;
   createdAt: string;
+  rating: number;
 }
 
 export default function UsersPage() {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<Review[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [editingUser, setEditingUser] = useState<User | null>(null);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
@@ -50,7 +52,7 @@ export default function UsersPage() {
       setLoading(true);
       const token = sessionStorage.getItem(STORAGE_KEY);
       const res = await fetch(
-        `${API_URL}/users?page=${page}&limit=10&search=${search}`,
+        `${API_URL}/reviews?page=${page}&limit=10&search=${search}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -76,7 +78,7 @@ export default function UsersPage() {
       setDeleteLoading(true);
       const token = sessionStorage.getItem(STORAGE_KEY);
 
-      const res = await fetch(`${API_URL}/users/delete-many`, {
+      const res = await fetch(`${API_URL}/reviews/delete-many`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -115,14 +117,9 @@ export default function UsersPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Button
-          onClick={() => {
-            setEditingUser(null);
-            setDialogOpen(true);
-          }}
-        >
-          Add User
-        </Button>
+        <Link href="/admin/review/add">
+          <Button>Add Review</Button>
+        </Link>
       </div>
 
       {error && <p className="text-red-500">{error}</p>}
@@ -141,9 +138,11 @@ export default function UsersPage() {
                     onChange={(e) => handleSelectAll(e.target.checked)}
                   />
                 </TableHead>
-                <TableHead>Username</TableHead>
-                <TableHead>Full Name</TableHead>
-                <TableHead>Email</TableHead>
+                <TableHead>Customer</TableHead>
+                <TableHead>Product</TableHead>
+                <TableHead>Title</TableHead>
+                <TableHead>Body</TableHead>
+                <TableHead>Rating</TableHead>
                 <TableHead>Created At</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
@@ -160,21 +159,19 @@ export default function UsersPage() {
                       }
                     />
                   </TableCell>
-                  <TableCell>{user.username}</TableCell>
-                  <TableCell>{user.fullName}</TableCell>
-                  <TableCell>{user.email}</TableCell>
+                  <TableCell>{user.customer}</TableCell>
+                  <TableCell>{user.productId}</TableCell>
+                  <TableCell>{user.title}</TableCell>
+                  <TableCell>{user.body}</TableCell>
+                  <TableCell>{user.rating}</TableCell>
+
                   <TableCell>
                     {new Date(user.createdAt).toLocaleDateString()}
                   </TableCell>
                   <TableCell>
-                    <Pencil
-                      strokeWidth={1}
-                      className="cursor-pointer"
-                      onClick={() => {
-                        setEditingUser(user);
-                        setDialogOpen(true);
-                      }}
-                    />
+                    <Link href={`/admin/review/${user._id}`}>
+                      <Pencil strokeWidth={1} className="cursor-pointer" />
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}
@@ -206,13 +203,6 @@ export default function UsersPage() {
           </Button>
         </>
       )}
-
-      <UserFormDialog
-        open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
-        user={editingUser}
-        onSuccess={fetchUsers}
-      />
     </div>
   );
 }

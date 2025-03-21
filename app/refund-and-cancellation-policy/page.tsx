@@ -4,181 +4,100 @@ export default function HealthAndMedicalDisclaimer() {
       <h2 className="font-bold text-gray-800 text-5xl text-center my-8">
         Refund and Cancellation Policy
       </h2>
-      <div>
-        <meta charSet="utf-8" />
-        <p data-mce-fragment={1}>
-          <strong>Order Cancellation</strong>
-          <br />
-          <br />
-          If you want to cancel your order, please contact us within{" "}
-          <strong>the first 24 hours</strong> after placing the order, since
-          after 24 hours, your order is being processed and already on its way
-          to the shipping address.
-          <br />
-          <br />
-          If you contact us while your order is in transit, you are eligible for
-          a full refund too, but you will need to ship the product back to us
-          and we will cover the shipping costs.
-          <br />
-          <br />
-          If you purchased a subscription, please visit our{" "}
-          <a href="https://nordicbiolabs.com/pages/subscription-policy">
-            Subscription Policy
-          </a>{" "}
-          for more details. The subscription policy includes specific guidelines
-          on how to cancel or modify your subscription.
+      <div className="space-y-2">
+        <h4 className="font-semibold">RETURN</h4>
+        <p>
+          Our policy lasts 30 days. If 30 days have gone by since your purchase,
+          unfortunately, we can’t offer you a refund or exchange.
         </p>
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>Return &amp; Refund Policy</strong>
+        <p>
+          To be eligible for a return, your item must be unused and in the same
+          condition that you received it. It must also be in the original
+          packaging.
         </p>
-        <p data-mce-fragment={1}>
-          We have a 30-day return policy, which means you have 30 days after
-          receiving your item to request a return.
-          <br data-mce-fragment={1} />
-          <br data-mce-fragment={1} />
-          To be eligible for a return, your item must be in the same condition
-          that you received it, unworn or unused, with tags, and in its original
-          packaging. You’ll also need the receipt or proof of purchase.
+        <p>
+          Several types of goods are exempt from being returned. Perishable
+          goods such as food, flowers, newspapers, or magazines cannot be
+          returned. We also do not accept products that are intimate or sanitary
+          goods, hazardous materials, or flammable liquids or gases.
         </p>
-        <p data-mce-fragment={1}>
-          To start a return, you can contact us at contact@nordicbiolabs.com.
-          <br />
-          <br />
-          If your return is accepted, we’ll send you a return shipping address,
-          as well as instructions on how and where to send your package. Please
-          note{" "}
-          <strong>
-            that the cost of the return shipping will vary based on your
-            location.
-          </strong>{" "}
-          In some cases, the return shipping <strong>may be free</strong>, but{" "}
-          <strong>it is not guaranteed to be free for all locations.</strong>{" "}
-          Items sent back to us without first requesting a return will not be
-          accepted.
-        </p>
-        <p data-mce-fragment={1}>
-          <strong>120-Day Refund Policy</strong>
-        </p>
-        <p data-mce-fragment={1}>
-          This policy applies specifically to{" "}
-          <strong>
-            Nordic Biolabs Hair Regrowth Cap, Bio-Veloxin Serum, and Complete
-            Hair Cycle Solution.
-          </strong>{" "}
-          We understand the importance of giving our products the time they need
-          to show results.
-        </p>
-        <p data-mce-fragment={1}>
-          The 120-Day Refund Policy ensures that your satisfaction is our top
-          priority.&nbsp; Here&apos;s how it works:
-        </p>
-        <ul>
-          <li>
-            <strong>30-Day Return Window:</strong> If you decide to return the
-            product without using it, you have 30 days from the date of
-            receiving the item to request a return. The product must be in the
-            same condition as received, unworn or unused, with tags, and in its
-            original packaging. A valid receipt or proof of purchase is
-            required.
-          </li>
-          <li>
-            <strong>120-Day Satisfaction Guarantee:</strong> Our commitment to
-            your satisfaction goes beyond the initial 30 days. Once you start
-            using the Nordic Biolabs Hair Regrowth Cap, Bio-Veloxin Serum, or
-            Complete Hair Cycle Solution, we encourage you to give it a fair
-            chance for a minimum of 120 days. If, after consistent use for 120
-            days, you are not satisfied with the results, you can initiate a
-            return for a full refund. We value your commitment to trying our
-            products and want to ensure you feel confident about your purchase.
-          </li>
+        <p>Additional non-returnable items:</p>
+        <ul className="list-disc list-inside ml-4">
+          <li>Gift cards</li>
+          <li>Downloadable software products</li>
+          <li>Some health and personal care items</li>
         </ul>
-        <p data-mce-fragment={1}>
-          To initiate a claim under the 120-Day Money Back Guarantee,{" "}
-          <strong>please adhere to the following steps:</strong>
-          <br />
-          <br />
-          1. To be eligible, you need to take photos at least every two weeks
-          from the same angle and with the same hair texture (wet or dry), and
-          add a timestamp on each photo.
-          <br />
-          <br />
-          2. You must use the product consecutively for 120 days.
-          <br />
-          <br />
-          3. After the 120 days have passed from your first date of use, email
-          us at contact@nordicbiolabs.com with all relevant information
-          including your order number, the total number of days you used the
-          products, and a set of 8 photos taken bi-weekly. We will review your
-          case and proceed with the return process if applicable.
+        <p>
+          To complete your return, we require a receipt or proof of purchase.
         </p>
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>
-            To start a return, you can contact us at
-            contact@nordicbiolabs.com&nbsp;
-          </strong>
-          <br data-mce-fragment={1} />
-          <br data-mce-fragment={1} />
-          If your return is accepted, we’ll send you a return shipping address,
-          as well as instructions on how and where to send your package. Items
-          sent back to us without first requesting a return will not be
-          accepted.
-          <br data-mce-fragment={1} />
-          <strong data-mce-fragment={1}>
-            <br data-mce-fragment={1} />
-            Damages and issues
-          </strong>
+        <p>
+          Please do not send your purchase back to the manufacturer. There are
+          certain situations where only partial refunds are granted (if
+          applicable):
         </p>
-        <p data-mce-fragment={1}>
-          Please inspect your order upon reception and contact us immediately if
-          the item is defective, damaged or if you receive the wrong item so
-          that we can evaluate the issue and make it right.
+        <ul className="list-disc list-inside ml-4">
+          <li>Book with obvious signs of use</li>
+          <li>
+            CD, DVD, VHS tape, software, video game, cassette tape, or vinyl
+            record that has been opened
+          </li>
+          <li>
+            Any item not in its original condition is damaged or missing parts
+            for reasons not due to our error
+          </li>
+          <li>Any item that is returned more than 30 days after delivery</li>
+        </ul>
+        <h4 className="font-semibold">REFUNDS (IF APPLICABLE)</h4>
+        <p>
+          Once your return is received and inspected, we will send you an email
+          to notify you that we have received your returned item. We will also
+          notify you of the approval or rejection of your refund. If you are
+          approved, then your refund will be processed, and a credit will
+          automatically be applied to your credit card or original method of
+          payment within a certain amount of days.
         </p>
-        <br data-mce-fragment={1} />
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>
-            Exceptions / non-returnable items
-          </strong>
-          <br data-mce-fragment={1} />
-          Certain types of items cannot be returned, like perishable goods (such
-          as food, flowers, or plants), custom products (such as special orders
-          or personalized items), and personal care goods (such as beauty
-          products). We also do not accept returns for hazardous materials,
-          flammable liquids, or gases. Please get in touch if you have questions
-          or concerns about your specific item.
-          <br data-mce-fragment={1} />
-          <br data-mce-fragment={1} />
-          Unfortunately, we cannot accept returns on sale items or gift cards.
+        <h4 className="font-semibold">
+          LATE OR MISSING REFUNDS (IF APPLICABLE)
+        </h4>
+        <p>
+          If you haven’t received a refund yet, first check your bank account
+          again. Then contact your credit card company, it may take some time
+          before your refund is officially posted. Next, contact your bank.
+          There is often some processing time before a refund is posted. If
+          you’ve done all of this and you still have not received your refund
+          yet, please contact us at contact@optilifecompany.com.
         </p>
-        <br data-mce-fragment={1} />
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>Exchanges</strong>
-          <br data-mce-fragment={1} />
-          The fastest way to ensure you get what you want is to return the item
-          you have, and once the return is accepted, make a separate purchase
-          for the new item.
+        <h4 className="font-semibold">SALE ITEMS (IF APPLICABLE)</h4>
+        <p>
+          Only regular priced items may be refunded; unfortunately, sale items
+          cannot be refunded.
         </p>
-        <br data-mce-fragment={1} />
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>
-            European Union 14-day cooling off period
-          </strong>
-          <br data-mce-fragment={1} />
-          Notwithstanding the above, if the merchandise is being shipped into
-          the European Union, you have the right to cancel or return your order
-          within 14 days, for any reason and without a justification. As above,
-          your item must be in the same condition that you received it, unworn
-          or unused, with tags, and in its original packaging. You’ll also need
-          the receipt or proof of purchase.
+        <h4 className="font-semibold">EXCHANGES (IF APPLICABLE)</h4>
+        <p>
+          We only replace items if they are defective or damaged. If you need to
+          exchange it for the same item, send us an email at
+          contact@optilifecompany.com.
         </p>
-        <br data-mce-fragment={1} />
-        <p data-mce-fragment={1}>
-          <strong data-mce-fragment={1}>Refunds</strong>
-          <br data-mce-fragment={1} />
-          We will notify you once we’ve received and inspected your return, and
-          let you know if the refund was approved or not. If approved, you’ll be
-          automatically refunded on your original payment method within 10
-          business days. Please remember it can take some time for your bank or
-          credit card company to process and post the refund too.
+        <h4 className="font-semibold">GIFTS</h4>
+        <p>
+          If the item was marked as a gift when purchased and shipped directly
+          to you, you’ll receive a gift credit for the value of your return.
+          Once the returned item is received, a gift certificate will be mailed
+          to you. If the item wasn’t marked as a gift when purchased, or the
+          gift giver had the order shipped to themselves to give to you later,
+          we will send a refund to the gift giver, and he will find out about
+          your return.&nbsp;
+        </p>
+        <h4 className="font-semibold">SHIPPING</h4>
+        <p>
+          You will be responsible for paying for your own shipping costs for
+          returning your item. Shipping costs are non-refundable. If you receive
+          a refund, the cost of return shipping will be deducted from your
+          refund. Depending on where you live, the time it may take for your
+          exchanged product to reach you may vary. If you are shipping an item
+          over $75, you should consider using a trackable shipping service or
+          purchasing shipping insurance. We don’t guarantee that we will receive
+          your returned item.
         </p>
       </div>
     </div>

@@ -215,7 +215,8 @@ export default function ContactForm() {
           information you need.{" "}
         </p>
         <p>
-          <strong>Headquarters</strong>: 3129 Windlass CT, Tampa, Florida 33607
+          <strong>Headquarters</strong>: 1111B S Governors Ave STE 28573 Dover
+          Daleware 19904
           <br />
           <strong>Email</strong>:{" "}
           <a
@@ -223,12 +224,12 @@ export default function ContactForm() {
             rel="noopener noreferrer nofollow"
             title=""
             role="url"
-            href="mailto:contact@purfectfuel.com"
+            href="mailto:contact@optilifecompany.com"
           >
-            contact@purfectfuel.com
+            contact@optilifecompany.com
           </a>
           <br />
-          <strong>Phone</strong>: +1 781 217 5531
+          <strong>Phone</strong>: +1 302 590 6135
         </p>
       </div>
     </div>

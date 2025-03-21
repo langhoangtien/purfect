@@ -8,7 +8,7 @@ export default function HealthAndMedicalDisclaimer() {
         </p>
         <p />
         <p>
-          The information provided by Purfect Fuel Inc. (&quot;we,&quot;
+          The information provided by OptiLife LLC. (&quot;we,&quot;
           &quot;us,&quot; or &quot;our&quot;) on https://www.purfectfuel.com
           (the &quot;Site&quot;) is for general informational purposes only. All
           information on the Site is provided in good faith, however, we make no
@@ -97,7 +97,7 @@ export default function HealthAndMedicalDisclaimer() {
             role="url"
             href="mailto:contact@gudmuscle.com"
           >
-            contact@purfectfuel.com
+            contact@optilifecompany.com
           </a>
           .
         </p>
