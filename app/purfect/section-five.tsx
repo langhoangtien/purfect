@@ -7,7 +7,7 @@ const reviews = [
     name: "Matt J. ",
     time: "20 in 1 Bundle",
     content:
-      "PurfectFuel ™ truly lives up to its name! Since starting the Dynamic Vitality Bundle, I've noticed a significant boost in my energy levels and overall vitality. Highly recommended!",
+      "OptiLife ™ truly lives up to its name! Since starting the Dynamic Vitality Bundle, I've noticed a significant boost in my energy levels and overall vitality. Highly recommended!",
   },
   {
     name: "David S. ",
@@ -49,8 +49,8 @@ export default function SectionFive() {
             The best supplement ever; according to 114k+ 5 star reviews
           </h2>
           <p className="text-lg font-semibold  mt-2">
-            People love PurfectFuel — read why 98% of PurfectFuel customers
-            would shop with us again.
+            People love OptiLife — read why 98% of OptiLife customers would shop
+            with us again.
           </p>
         </div>
 

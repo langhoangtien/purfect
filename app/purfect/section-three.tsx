@@ -37,15 +37,15 @@ export default function SectionThree() {
         {/* Text Section */}
         <div className="col-span-2 md:col-span-1 text-center lg:text-left space-y-4">
           <h1 className="text-4xl font-bold text-[#22392e]">
-            With PurfectFuel ™<br />
+            With OptiLife ™<br />
             it’s easy —<br />
             to feel your best self
           </h1>
           <p className="text-gray-600">
-            PurfectFuel ™ brings you the ultimate vitality boost with our
-            Dynamic Vitality Bundle. Crafted with highly potent herbal
-            ingredients, this bundle is designed to enhance your overall
-            well-being, promote energy, and support a healthy lifestyle.
+            OptiLife ™ brings you the ultimate vitality boost with our Dynamic
+            Vitality Bundle. Crafted with highly potent herbal ingredients, this
+            bundle is designed to enhance your overall well-being, promote
+            energy, and support a healthy lifestyle.
           </p>
 
           {/* Stats Section */}
@@ -69,7 +69,7 @@ export default function SectionThree() {
               href="/products/optilife-blend"
               className="h-14  p-4 font-semibold text-primary hover:text-primary border-primary border-2 rounded-full "
             >
-              The PurfectFuel ™ Difference
+              The OptiLife ™ Difference
             </Link>
           </div>
         </div>

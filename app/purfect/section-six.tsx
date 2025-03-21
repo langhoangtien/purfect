@@ -73,7 +73,7 @@ export default function SectionSix() {
               href="/products/optilife-blend"
               className="bg-primary text-white px-6 py-4 rounded-full text-lg font-medium shadow-lg"
             >
-              Start your PurfectFuel™ Today →
+              Start your OptiLife™ Today →
             </Link>
             <p className="mt-4 text-base font-semibold">
               Love it or your money back, guaranteed.

@@ -9,7 +9,7 @@ export default function HealthAndMedicalDisclaimer() {
         <p />
         <p>
           The information provided by OptiLife LLC. (&quot;we,&quot;
-          &quot;us,&quot; or &quot;our&quot;) on https://www.purfectfuel.com
+          &quot;us,&quot; or &quot;our&quot;) on https://www.optilifecompany.com
           (the &quot;Site&quot;) is for general informational purposes only. All
           information on the Site is provided in good faith, however, we make no
           representation or warranty of any kind, express or implied, regarding

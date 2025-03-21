@@ -191,7 +191,7 @@ export default function SectionFour() {
       </div>
       <div className="w-full max-w-6xl flex flex-col space-y-8 mx-auto">
         <p className="text-5xl text-gray-800 text-left">
-          Here&apos;s how PurfectFuel ™ works
+          Here&apos;s how OptiLife ™ works
         </p>
         <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-8">
           {works.map((item) => (
@@ -202,7 +202,7 @@ export default function SectionFour() {
               <Image
                 width={1500}
                 height={1500}
-                alt="PurfectFuel ™ works"
+                alt="OptiLife ™ works"
                 className="rounded-full w-full aspect-square"
                 src={item.image}
               />

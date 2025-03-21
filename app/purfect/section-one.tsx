@@ -22,7 +22,7 @@ export default function SectionOne() {
             </p>
             <p className="hidden md:block">
               Unlock 50+ essential minerals & optimize vitality with our Seamoss
-              & Shilajit bundle. Start your PurfectFuel ™ Today
+              & Shilajit bundle. Start your OptiLife ™ Today
             </p>
             <p className="md:hidden">
               Unlock 50+ essential minerals & optimize vitality with our Seamoss
@@ -31,7 +31,7 @@ export default function SectionOne() {
             <div className="flex flex-col space-y-2  md:space-y-4 items-center md:items-start ">
               <Link href="/products/optilife-blend">
                 <Button className="rounded-full flex items-center justify-between">
-                  <span> Start your PurfectFuel ™ Today</span>
+                  <span> Start your OptiLife ™ Today</span>
                   <ArrowRightIcon size={24} />
                 </Button>
               </Link>

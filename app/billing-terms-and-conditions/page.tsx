@@ -116,9 +116,9 @@ export default function HealthAndMedicalDisclaimer() {
                 rel="noopener noreferrer nofollow"
                 title=""
                 role="url"
-                href="mailto:info@purfectfuel.com"
+                href="mailto:info@optilifecompany.com"
               >
-                info@purfectfuel.com
+                info@optilifecompany.com
               </a>{" "}
               for assistance.
             </p>
