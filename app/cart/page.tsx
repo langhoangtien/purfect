@@ -51,7 +51,7 @@ export default function Cart() {
   const { products, updateQuantity, removeProduct, subtotal } = cartContext;
   const CartEmpty = () => {
     return (
-      <div className="flex flex-col h-screen min-h-80 justify-center items-center  space-y-3">
+      <div className="flex flex-col h-screen min-h-60 justify-center items-center  space-y-3">
         <ShoppingCartIcon strokeWidth={1} className="w-16 h-16 text-gray-500" />
         <span className="text-gray-500 text-lg">Your cart is empty</span>
         <span className="text-green-900 text-base font-semibold uppercase">

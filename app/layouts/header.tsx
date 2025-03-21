@@ -17,7 +17,7 @@ export default function Header() {
   const isMobile = useIsTablet();
   return (
     <header className="w-full text-white">
-      <CarouselHeader />
+      {/* <CarouselHeader /> */}
       <div className="mx-auto max-w-7xl p-4">
         {" "}
         {isMobile ? <NavMobile /> : <NavDesktop />}
