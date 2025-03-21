@@ -29,7 +29,7 @@ export default function SectionOne() {
               & Shilajit bundle.{" "}
             </p>
             <div className="flex flex-col space-y-2  md:space-y-4 items-center md:items-start ">
-              <Link href="/products/purfect-fuel-blend">
+              <Link href="/products/optilife-blend">
                 <Button className="rounded-full flex items-center justify-between">
                   <span> Start your PurfectFuel ™ Today</span>
                   <ArrowRightIcon size={24} />

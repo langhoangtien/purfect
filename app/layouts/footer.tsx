@@ -56,7 +56,7 @@ export default function Footer() {
           />
 
           <h2 className="text-2xl font-bold">OptiLife LLC.</h2>
-          <p className="text-sm mt-2">Email: ccontact@optilifecompany.com</p>
+          <p className="text-sm mt-2">Email: contact@optilifecompany.com</p>
           {/* <div className="flex space-x-4 mt-4 text-xl">
           <FaFacebookF className="cursor-pointer hover:text-blue-500" />
           <FaYoutube className="cursor-pointer hover:text-red-500" />

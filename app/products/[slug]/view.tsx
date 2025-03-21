@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { Product, ProductVariant } from "@/lib/shopify";
 import { useState } from "react";
-import ProductDetailCarousel from "../purfect-fuel-blend/views/product-carosel";
+
 import { toast } from "sonner";
 
 import useCart from "@/context/cart/use-cart";
+import ProductDetailCarousel from "../optilife-blend/views/product-carosel";
 
 export default function ProductView(data: { data: Product }) {
   const product = data.data;

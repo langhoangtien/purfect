@@ -113,13 +113,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </ul>
       <div className="flex justify-between items-center mt-4">
         <Link
-          href="/products/purfect-fuel-blend"
+          href="/products/optilife-blend"
           className={`md:px-16 px-6 py-4 ${buttonColor} text-white rounded-full text-lg font-medium hover:opacity-90 transition`}
         >
           Try Now
         </Link>
         <Link
-          href="/products/purfect-fuel-blend"
+          href="/products/optilife-blend"
           className="text-green-700 hover:text-primary px-2 hover:border-primary font-semibold border-b-2"
         >
           Learn <br /> more

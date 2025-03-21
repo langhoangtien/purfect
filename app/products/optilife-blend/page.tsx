@@ -50,7 +50,7 @@ type Image = {
   };
 };
 export default async function PufectPage() {
-  const product = await getProductBySlug("purfect-fuel-blend");
+  const product = await getProductBySlug("optilife-blend");
   if (!product) return notFound();
 
   return (
@@ -80,7 +80,7 @@ export default async function PufectPage() {
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl  font-bold text-gray-800">
-              <span className="text-green-900">PurfectFuel</span> Blend®
+              <span className="text-green-900">OptiLife</span> Blend®
               <span className="bg-red-500 rounded-md text-white text-sm mx-2 p-1 align-top font-semibold">
                 Today Only!
               </span>

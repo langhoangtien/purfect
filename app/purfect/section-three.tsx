@@ -66,7 +66,7 @@ export default function SectionThree() {
           {/* Button Section */}
           <div className="flex items-center">
             <Link
-              href="/products/purfect-fuel-blend"
+              href="/products/optilife-blend"
               className="h-14  p-4 font-semibold text-primary hover:text-primary border-primary border-2 rounded-full "
             >
               The PurfectFuel ™ Difference

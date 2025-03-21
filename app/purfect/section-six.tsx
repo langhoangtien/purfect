@@ -70,7 +70,7 @@ export default function SectionSix() {
 
           <div className="mt-8">
             <Link
-              href="/products/purfect-fuel-blend"
+              href="/products/optilife-blend"
               className="bg-primary text-white px-6 py-4 rounded-full text-lg font-medium shadow-lg"
             >
               Start your PurfectFuel™ Today →

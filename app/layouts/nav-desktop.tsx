@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export const menu = [
   { name: "About Us", link: "/about-us" },
-  { name: "Buy", link: "/products/purfect-fuel-blend" },
+  { name: "Buy", link: "/products/optilife-blend" },
   { name: "Contact", link: "/contact-us" },
   { name: "Track Order", link: "/track-order" },
 ];
