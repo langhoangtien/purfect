@@ -114,7 +114,7 @@ const ReviewList: React.FC = () => {
   const [filters, setFilters] = useState({
     rating: 5,
     purchaseVerified: false,
-    hasMedia: false,
+    hasMedia: true,
     sortBy: "createdAt",
     sortOrder: "desc",
   });

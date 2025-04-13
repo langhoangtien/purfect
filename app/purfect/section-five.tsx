@@ -1,25 +1,46 @@
 import StarIcon from "@/components/star-icon";
-import Link from "next/link";
+
 import Image from "next/image";
 
 const reviews = [
   {
-    name: "Matt J. ",
+    name: "- Patricia C.",
     time: "20 in 1 Bundle",
+    image: "/purfect/review1.webp",
     content:
-      "OptiLife ™ truly lives up to its name! Since starting the Dynamic Vitality Bundle, I've noticed a significant boost in my energy levels and overall vitality. Highly recommended!",
+      "OMG, this product is amazing! I used to feel so drained by midday, but now I can get through my workday without needing a nap. The focus boost is real, too—I'm way more productive and clear-headed 👍.",
   },
   {
-    name: "David S. ",
+    image: "/purfect/review2.webp",
+    name: "- Betty V.",
     time: "15 in 1 Blend",
     content:
-      "As a fitness guy, I'm always looking for ways to optimize my performance. This bundle has become an essential part of my routine, helping me push past my limits and achieve my goals",
+      "At first, I was skeptical, but after trying Hercules Pill Wellness Superblend, I am convinced. It has significantly improved my energy and concentration. The best part is that it fits perfectly into my daily routine. No more afternoon slumps, just natural, sustained energy throughout the day. Plus, it's made with natural ingredients, which is a huge plus for me.",
   },
   {
-    name: "Michael B. ",
+    image: "/purfect/review3.webp",
+    name: "- Karen Y.",
     time: "20 in 1 Bundle",
     content:
-      "I've struggled with fatigue and low energy for years, but Sea moss has been a game-changer for me. I feel more energized and focused than ever before. Thank you, OptiLife!",
+      "This superblend is just fantastic. I feel more awake and alert than ever before. It's so easy to use, and the effects are almost instant. If you struggle with low energy like I did, you have to try this!",
+  },
+  {
+    name: "- Jamal A.",
+    image: "/purfect/review4.webp",
+    content:
+      "I started taking this bundle and I felt a big energy boost. It helps me get to bed faster. I noticed my skin clearing up. I wake up feeling like I can conquer the world!”",
+  },
+  {
+    name: "- Sidney G.",
+    image: "/purfect/review5.webp",
+    content:
+      "I started taking these 2 weeks ago.  My anxiety is non-existent. My energy is through the roof. My mood has been  10 out of 10 every morning.",
+  },
+  {
+    name: "- Greg R.",
+    image: "/purfect/review6.webp",
+    content:
+      "This pill have almost everything your body needs.. it give me energy and let me feel good for the next day.",
   },
 ];
 export default function SectionFive() {
@@ -55,58 +76,34 @@ export default function SectionFive() {
         </div>
 
         {/* Phần nội dung chính */}
-        <div className="grid md:grid-cols-4 grid-cols-1 p-4 gap-16 md:gap-32">
-          {/* Cột bên trái (thống kê) */}
-          <div className="py-8 order-3 md:order- px-4 rounded-2xl shadow-md h-full flex flex-col space-y-2 bg-primary text-white text-left  justify-center">
-            <h3 className="text-2xl font-bold ">
-              Don’t just take our word for it
-            </h3>
-            <p className=" text-base mb-4">Over 4,000 five star reviews</p>
-            <p className="text-base mb-2">4.9 Average</p>
-            <p className=" text-base">833 reviews</p>
-          </div>
-          <div className="col-span-3 order-2 grid md:grid-cols-3 grid-cols-1 gap-16  md:gap-32">
-            {reviews.map((review) => (
-              <div
-                key={review.name}
-                className="bg-white py-16 px-8 rounded-2xl shadow-md  relative"
-              >
+        <div className="grid md:grid-cols-3 max-w-7xl w-full mx-auto grid-cols-1 p-4 gap-8">
+          {reviews.map((review) => (
+            <div key={review.name}>
+              <div className="bg-white p-4 rounded-2xl shadow-md items-center flex flex-col space-y-4 justify-center">
                 <Image
-                  src="/purfect/slide1.webp"
-                  className="w-20 h-20 object-contain rounded-full absolute -top-10 right-6"
-                  width={80}
-                  height={80}
+                  src={review.image}
+                  className="size-60 aspect-square object-cover rounded-xs"
+                  width={400}
+                  height={400}
                   alt="reviewer"
                 />
 
-                <Image
-                  width={109}
-                  height={20}
-                  alt="all reviews"
-                  className="py-2"
-                  src="https://cdn.shopify.com/s/files/1/0840/0158/7493/files/All_Reviews_ae294cf4-c8c9-4bed-998f-bdd086f5fa7d_109x.png?v=1712097691"
-                />
-
+                <span className="flex items-center space-x-2 text-yellow-500">
+                  <StarIcon className="size-7 " />
+                  <StarIcon className="size-7" />
+                  <StarIcon className="size-7 " />
+                  <StarIcon className="size-7" />
+                  <StarIcon className="size-7" />
+                </span>
                 <p className="text-base font-semibold text-left text-gray-800 italic mb-4">
                   “{review.content}”
                 </p>
-                <div className="flex items-center justify-between">
-                  <div className="text-left">
-                    <p className="text-base font-bold text-gray-800">
-                      {review.name}
-                    </p>
-                    <p className="text-base text-gray-500">{review.time}</p>
-                  </div>
-                  <Link
-                    href="/products/optilife-blend"
-                    className="mt-4 py-1 px-3 text-base underline  rounded-md font-sans text-primary"
-                  >
-                    Shop Now
-                  </Link>
+                <div className="flex items-center font-semibold justify-between">
+                  {review.name}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

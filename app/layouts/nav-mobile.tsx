@@ -21,7 +21,7 @@ export default function NavMobile() {
         <SheetTrigger asChild>
           <Menu strokeWidth={1} className="size-6 text-gray-800"></Menu>
         </SheetTrigger>
-        <SheetContent side={"left"}>
+        <SheetContent onOpenAutoFocus={(e) => e.preventDefault()} side={"left"}>
           <SheetHeader>
             <SheetTitle></SheetTitle>
             <SheetDescription></SheetDescription>
