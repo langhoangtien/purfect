@@ -134,15 +134,17 @@ export function AddToCartPurfectSection({
     <div>
       <div className="mt-4 rounded-lg">
         <div className=" flex space-x-3 items-center ">
-          <span className="line-through text-xl  ">
-            ${variant?.price ?? ""}
-          </span>{" "}
           {!!variant?.compareAtPrice && (
-            <span className="font-normal text-4xl text-accent-foreground ">
-              {" "}
+            <span className="line-through text-xl  ">
               ${variant?.compareAtPrice ?? ""}
             </span>
           )}
+
+          <span className="font-normal text-4xl text-accent-foreground ">
+            {" "}
+            ${variant?.price ?? ""}
+          </span>
+
           <Badge>Sale</Badge>
         </div>
       </div>
