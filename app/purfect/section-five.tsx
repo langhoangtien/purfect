@@ -95,7 +95,7 @@ export default function SectionFive() {
                   <StarIcon className="size-7" />
                   <StarIcon className="size-7" />
                 </span>
-                <p className="text-base font-semibold text-left text-gray-800 italic mb-4">
+                <p className="text-base  text-center text-gray-800 italic mb-4">
                   “{review.content}”
                 </p>
                 <div className="flex items-center font-semibold justify-between">
