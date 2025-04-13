@@ -20,6 +20,7 @@ interface Product {
   name: string;
   price: number;
   id: string;
+  title: string;
 }
 
 export default function Cart() {
@@ -105,7 +106,11 @@ export default function Cart() {
         </span>
       </Link>
       <Sheet onOpenChange={setSheet} open={sheet}>
-        <SheetContent className="p-0 flex flex-col" side="right">
+        <SheetContent
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          className="p-0 flex flex-col"
+          side="right"
+        >
           <SheetHeader>
             <SheetTitle className="p-4">
               Cart{" "}
@@ -135,6 +140,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
   name,
   price,
   id,
+  title,
   updateQuantity,
   removeProduct,
 }) => {
@@ -154,6 +160,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
       />
       <div className="flex flex-1 justify-center space-y-4 flex-col">
         <span className="text-sm font-semibold">{name}</span>
+        <span className="text-gray-500">{title}</span>
         <span className="flex text-sm justify-between font-semibold">
           <QuantityCart
             quantity={quantity}

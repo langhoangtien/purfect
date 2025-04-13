@@ -11,7 +11,7 @@ export default function SectionOne() {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="w-full flex  h-[80vh] min-h-[420px] bgo-responsive relative items-start  justify-start md:px-40 lg:px-80 sm:px-32  md:items-center aspect-video"
+        className="w-full flex h-[80vh] min-h-[420px] bgo-responsive relative items-start  justify-start md:px-40 lg:px-80 sm:px-32  md:items-center aspect-video"
       >
         <div className="absolute inset-0 bg-black/35"></div>
         <div className="flex w-full p-4 md:justify-start justify-center">

@@ -6,12 +6,11 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ProductVariant, Product as ProductShopify } from "@/lib/shopify";
+import { Badge } from "@/components/ui/badge";
 
 export default function AddToCart(product: Product) {
   const { addToCart } = useCart();
   const handleAddToCart = () => {
-    console.log("Add to cart", product);
-
     addToCart(product);
   };
   return (
@@ -37,6 +36,7 @@ export function AddToCartPurfectSection({
     image?: string;
     quantity: number;
     name: string;
+    compareAtPrice?: number;
   } | null>(null);
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
@@ -80,6 +80,9 @@ export function AddToCartPurfectSection({
         id: matchedVariant.node.id,
         title: matchedVariant.node.title,
         price: parseFloat(matchedVariant.node.priceV2.amount),
+        compareAtPrice: parseFloat(
+          matchedVariant.node.compareAtPriceV2?.amount ?? "0"
+        ),
         image: matchedVariant.node.image?.url,
         quantity: 1,
         name: product.title,
@@ -111,6 +114,9 @@ export function AddToCartPurfectSection({
         id: firstVariant.id,
         title: firstVariant.title,
         price: parseFloat(firstVariant.priceV2.amount),
+        compareAtPrice: parseFloat(
+          firstVariant.compareAtPriceV2?.amount ?? "0"
+        ),
         image: firstVariant.image?.url,
         quantity: 1,
         name: product.title,
@@ -125,33 +131,57 @@ export function AddToCartPurfectSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOptions]);
   return (
-    <div className="space-y-4">
-      {product.options.map((option: { name: string; values: string[] }) => (
-        <div className="mt-6 flex flex-col space-y-4" key={option.name}>
-          <h4>{option.name}</h4>
-          {option.values.map((value: string) => (
-            <Button
-              variant={"outline"}
-              key={value}
-              onClick={() => handleOptionChange(option.name, value)}
-              className={`w-full rounded-full h-12 text-base font-normal ${
-                selectedOptions[option.name] === value
-                  ? "border-2 border-gray-800"
-                  : "border-gray-300"
-              }`}
-            >
-              {value}
-            </Button>
-          ))}
+    <div>
+      <div className="mt-4 rounded-lg">
+        <div className=" flex space-x-3 items-center ">
+          <span className="line-through text-xl  ">
+            ${variant?.price ?? ""}
+          </span>{" "}
+          {!!variant?.compareAtPrice && (
+            <span className="font-normal text-4xl text-accent-foreground ">
+              {" "}
+              ${variant?.compareAtPrice ?? ""}
+            </span>
+          )}
+          <Badge>Sale</Badge>
         </div>
-      ))}
+      </div>
+      <div className="flex flex-col space-y-2 mt-4">
+        <p> 🔥 24-In-1 Supplement Superblend</p>
 
-      <Button
-        onClick={handleAddToCart}
-        className="w-full rounded-full h-12 text-base font-semibold"
-      >
-        Add To Cart | 50% OFF ➜
-      </Button>
+        <p>✅ Boosts energy</p>
+        <p>✅ Enhances focus</p>
+        <p>✅ 2024 best seller</p>
+        <p>✅ Natural ingredients</p>
+      </div>
+      <div className="space-y-4">
+        {product.options.map((option: { name: string; values: string[] }) => (
+          <div className="mt-6 flex flex-col space-y-4" key={option.name}>
+            <h4>{option.name}</h4>
+            {option.values.map((value: string) => (
+              <Button
+                variant={"outline"}
+                key={value}
+                onClick={() => handleOptionChange(option.name, value)}
+                className={`w-full rounded-full h-12 text-base font-normal ${
+                  selectedOptions[option.name] === value
+                    ? "border-2 border-gray-800"
+                    : "border-gray-300"
+                }`}
+              >
+                {value}
+              </Button>
+            ))}
+          </div>
+        ))}
+
+        <Button
+          onClick={handleAddToCart}
+          className="w-full rounded-full h-12 text-base font-semibold"
+        >
+          Add To Cart | 50% OFF ➜
+        </Button>
+      </div>
     </div>
   );
 }

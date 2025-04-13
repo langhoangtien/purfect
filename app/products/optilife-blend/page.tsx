@@ -13,6 +13,7 @@ import {
 import { getProductBySlug } from "@/lib/shopify";
 import { notFound } from "next/navigation";
 import { AddToCartPurfectSection } from "./views/add-to-cart-purfect";
+import ReviewList from "@/components/reviews";
 const data = [
   {
     title: "Description",
@@ -51,6 +52,7 @@ type Image = {
 };
 export default async function PufectPage() {
   const product = await getProductBySlug("optilife-blend");
+
   if (!product) return notFound();
 
   return (
@@ -101,26 +103,6 @@ export default async function PufectPage() {
               <span> wellness solution.</span>
             </p>
 
-            <div className="mt-4 rounded-lg">
-              <p className="text-4xl flex space-x-2 ">
-                <span className="font-normal ">
-                  {" "}
-                  ${product.variants.edges[0]?.node.priceV2.amount}
-                </span>
-                <span className="line-through  ">
-                  $
-                  {product.variants.edges[0]?.node.compareAtPriceV2?.amount ??
-                    ""}
-                </span>{" "}
-              </p>
-            </div>
-
-            <div className="flex flex-col space-y-2">
-              <p>24-In-1 Supplement Blend</p>
-              <p>🙌 2024 Best-Seller </p>
-              <p>💪 Tested & Certified</p>
-              <p>🌟 60 Day Returns</p>
-            </div>
             <div className="mt-6">
               <AddToCartPurfectSection product={product} />
             </div>
@@ -154,7 +136,7 @@ export default async function PufectPage() {
             </div>
           </div>
         </div>
-        {/* <ProductReviews /> */}
+        <ReviewList />
       </div>
     </div>
   );

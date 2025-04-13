@@ -1,13 +1,14 @@
-"use client";
+// RichTextEditor.tsx
 import React, { useState, useRef } from "react";
 
-type RichTextEditorProps = {
+interface RichTextEditorProps {
   value: string;
   onChange: (value: string) => void;
-};
+}
 
 const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
   const editorRef = useRef<HTMLDivElement | null>(null);
+  const [selectedColor, setSelectedColor] = useState("#000000");
 
   const handleInput = () => {
     if (editorRef.current) {
@@ -15,102 +16,196 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ value, onChange }) => {
     }
   };
 
-  const formatText = (tag: string) => {
+  const handleBold = () => {
     const selection = window.getSelection();
-    if (!selection || selection.rangeCount === 0) return;
-
-    const range = selection.getRangeAt(0);
-    const span = document.createElement(tag);
-    span.appendChild(range.extractContents());
-    range.insertNode(span);
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("b");
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
   };
 
-  const handleImageUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const formData = new FormData();
-      formData.append("image", file);
+  const handleItalic = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("i");
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
 
-      try {
-        const response = await fetch("https://your-server.com/upload", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await response.json();
-        if (data.url) {
-          const img = document.createElement("img");
-          img.src = data.url;
-          img.style.maxWidth = "100%";
-          editorRef.current?.appendChild(img);
-          onChange(editorRef.current?.innerHTML || "");
-        }
-      } catch (error) {
-        console.error("Upload failed", error);
-      }
+  const handleUnderline = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("u");
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleAlignLeft = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("div");
+      wrapper.style.textAlign = "left";
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleAlignCenter = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("div");
+      wrapper.style.textAlign = "center";
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleAlignRight = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("div");
+      wrapper.style.textAlign = "right";
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleUploadImage = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = () => {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = document.createElement("img");
+        img.src = reader.result as string;
+        editorRef.current?.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    };
+    input.click();
+  };
+
+  const handleAddList = () => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("ul");
+      const listItem = document.createElement("li");
+      listItem.textContent = "Mục mới";
+      wrapper.appendChild(listItem);
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleFormat = (format: string) => {
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement(format);
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
+    }
+  };
+
+  const handleColor = (color: string) => {
+    setSelectedColor(color);
+    const selection = window.getSelection();
+    if (selection) {
+      const range = selection.getRangeAt(0);
+      const wrapper = document.createElement("span");
+      wrapper.style.color = color;
+      wrapper.appendChild(range.extractContents());
+      range.insertNode(wrapper);
     }
   };
 
   return (
-    <div>
-      <div className="mb-2 flex gap-2">
+    <div className="flex flex-col">
+      <div className="toolbar mb-2 flex flex-wrap gap-2">
         <button
-          onClick={() => formatText("b")}
-          className="px-2 py-1 border rounded"
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleBold}
         >
           B
         </button>
         <button
-          onClick={() => formatText("i")}
-          className="px-2 py-1 border rounded"
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleItalic}
         >
           I
         </button>
         <button
-          onClick={() => formatText("u")}
-          className="px-2 py-1 border rounded"
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleUnderline}
         >
           U
         </button>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="hidden"
-          id="imageUpload"
-        />
-        <label
-          htmlFor="imageUpload"
-          className="px-2 py-1 border rounded cursor-pointer"
+        <button
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleAlignLeft}
         >
-          📷
-        </label>
+          Lề trái
+        </button>
+        <button
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleAlignCenter}
+        >
+          Lề giữa
+        </button>
+        <button
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleAlignRight}
+        >
+          Lề phải
+        </button>
+        <button
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleUploadImage}
+        >
+          Tải ảnh lên
+        </button>
+        <button
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onClick={handleAddList}
+        >
+          Thêm danh sách
+        </button>
+        <select
+          className="bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded"
+          onChange={(e) => handleFormat(e.target.value)}
+        >
+          <option value="h1">Tiêu đề 1</option>
+          <option value="h2">Tiêu đề 2</option>
+          <option value="h3">Tiêu đề 3</option>
+          <option value="h4">Tiêu đề 4</option>
+        </select>
+        <input
+          type="color"
+          value={selectedColor}
+          onChange={(e) => handleColor(e.target.value)}
+          className="w-10 h-10"
+        />
       </div>
       <div
-        contentEditable
         ref={editorRef}
+        contentEditable
         onInput={handleInput}
         dangerouslySetInnerHTML={{ __html: value }}
         className="border p-2 min-h-[150px] rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-      ></div>
+      />
     </div>
   );
 };
 
-const App: React.FC = () => {
-  const [text, setText] = useState<string>("");
-
-  return (
-    <div className="p-4 max-w-2xl mx-auto">
-      <h2 className="text-xl font-bold mb-2">Rich Text Editor</h2>
-      <RichTextEditor value={text} onChange={setText} />
-      <div className="mt-4 p-2 border rounded bg-gray-100">
-        <h3 className="font-semibold">Preview:</h3>
-        <div dangerouslySetInnerHTML={{ __html: text }} />
-      </div>
-    </div>
-  );
-};
-
-export default App;
+export default RichTextEditor;

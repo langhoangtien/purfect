@@ -69,4 +69,4 @@ jobs:
               docker rm purfect-fe-container
             fi
             # Tạo container mới từ image vừa pull
-            docker run -d -p 7000:7000 --name purfect-fe-container langhoangtien/purfect-fe:${{ github.sha }}
+            docker run -d -p 5001:5001 --name purfect-fe-container langhoangtien/purfect-fe:${{ github.sha }}
