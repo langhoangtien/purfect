@@ -59,6 +59,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     fetchProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, page]);
 
   const fetchProduct = async () => {
