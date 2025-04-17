@@ -42,13 +42,6 @@ export function AddToCartPurfectSection({
     Record<string, string>
   >({});
 
-  const handleOptionChange = (name: string, value: string) => {
-    setSelectedOptions((prev: Record<string, string>) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
   const handleAddToCart = () => {
     if (!variant) {
       toast.error("Please select a variant");
@@ -84,6 +77,25 @@ export function AddToCartPurfectSection({
           matchedVariant.node.compareAtPriceV2?.amount ?? "0"
         ),
         image: matchedVariant.node.image?.url,
+        quantity: 1,
+        name: product.title,
+      });
+    }
+  };
+
+  const handleSetVariant = (id: string) => {
+    const newVariant = product.variants.edges.find(
+      (variant: { node: ProductVariant }) => variant.node.id === id
+    );
+    if (newVariant) {
+      setVariant({
+        id: newVariant.node.id,
+        title: newVariant.node.title,
+        price: parseFloat(newVariant.node.priceV2.amount),
+        compareAtPrice: parseFloat(
+          newVariant.node.compareAtPriceV2?.amount ?? "0"
+        ),
+        image: newVariant.node.image?.url,
         quantity: 1,
         name: product.title,
       });
@@ -156,34 +168,54 @@ export function AddToCartPurfectSection({
         <p>✅ 2024 best seller</p>
         <p>✅ Natural ingredients</p>
       </div>
-      <div className="space-y-4">
-        {product.options.map((option: { name: string; values: string[] }) => (
-          <div className="mt-6 flex flex-col space-y-4" key={option.name}>
-            <h4>{option.name}</h4>
-            {option.values.map((value: string) => (
-              <Button
-                variant={"outline"}
-                key={value}
-                onClick={() => handleOptionChange(option.name, value)}
-                className={`w-full rounded-full h-12 text-base font-normal ${
-                  selectedOptions[option.name] === value
-                    ? "border-2 border-gray-800"
-                    : "border-gray-300"
-                }`}
-              >
-                {value}
-              </Button>
-            ))}
-          </div>
+      <div className="flex flex-col gap-2 mt-4">
+        {product.variants.edges.map((item: { node: ProductVariant }, index) => (
+          <label
+            onClick={() => handleSetVariant(item.node.id)}
+            className={`flex text-background justify-between cursor-pointer items-center duration-300 transition-all rounded-full border h-[76px] py-6 px-4 border-border ${
+              item.node.id === variant?.id
+                ? "dark:bg-gray-300 bg-gray-900 "
+                : "dark:bg-gray-100 bg-gray-600"
+            }`}
+            key={item.node.id}
+            htmlFor={item.node.id}
+          >
+            <div className="flex items-center relative space-x-4">
+              <RadioCustom checked={item.node.id === variant?.id} />
+              <div className="space-y-0.5">
+                {" "}
+                <p className="text-xl ">{item.node.title}</p>
+                <p className="text-sm">{(index + 1) * 2} bottles</p>
+              </div>
+            </div>
+            <div>
+              {" "}
+              <p className=" text-xl">${item.node.priceV2.amount}</p>
+              <p className="line-through text-gray-500 text-sm">
+                ${item.node.compareAtPriceV2?.amount}
+              </p>
+            </div>
+          </label>
         ))}
-
-        <Button
-          onClick={handleAddToCart}
-          className="w-full rounded-full h-12 text-base font-semibold"
-        >
-          Add To Cart | 50% OFF ➜
-        </Button>
+        <div className="space-y-4">
+          <Button
+            onClick={handleAddToCart}
+            className="w-full rounded-full h-12 mt-4 text-base font-semibold"
+          >
+            Add To Cart | 50% OFF ➜
+          </Button>
+        </div>
       </div>
     </div>
   );
 }
+
+const RadioCustom = ({ checked }: { checked: boolean }) => {
+  return (
+    <div className="flex border-2 border-background/80 items-center  justify-center rounded-full size-6">
+      <span
+        className={`${checked ? "size-3 bg-accent/80" : ""} rounded-full`}
+      ></span>
+    </div>
+  );
+};

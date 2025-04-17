@@ -88,7 +88,7 @@ export default function Cart() {
 
           <button
             onClick={handleCheckout}
-            className="bg-green-900 w-full text-white px-4 py-2 rounded-md"
+            className="bg-green-900 w-full text-white px-4 py-2 rounded-full"
           >
             Checkout
           </button>
@@ -108,7 +108,7 @@ export default function Cart() {
       <Sheet onOpenChange={setSheet} open={sheet}>
         <SheetContent
           onOpenAutoFocus={(e) => e.preventDefault()}
-          className="p-0 flex flex-col"
+          className="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
           side="right"
         >
           <SheetHeader>
