@@ -11,7 +11,7 @@ import {
 
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import Cart from "./cart";
+import Cart from "./cart-header";
 import { menu } from "./nav-desktop";
 
 export default function NavMobile() {

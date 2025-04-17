@@ -1,7 +1,7 @@
 import Logo from "@/components/logo";
 import Link from "next/link";
 
-import Cart from "./cart";
+import Cart from "./cart-header";
 import { usePathname } from "next/navigation";
 
 export const menu = [
