@@ -452,16 +452,7 @@ export default function ProductView(data: { data: Product }) {
                   </div>
                 ))}
               </div>
-              <div>
-                <span className="inline-flex text-xs items-center gap-1 p-2 bg-gray-100 rounded-md">
-                  <CheckIcon
-                    className="text-[#102A3E]"
-                    strokeWidth={3}
-                    size={16}
-                  />{" "}
-                  <strong>FREE</strong> Pillow Cover with every pillow!
-                </span>
-              </div>
+
               <h3 className="text-xl font-semibold"></h3>
               {product.options.map(
                 (option: { id: string; name: string; values: string[] }) => (
