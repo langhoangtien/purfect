@@ -347,8 +347,12 @@ export default function ProductView(data: { data: Product }) {
     return "bg-gray-300";
   };
 
-  const caculatePrice = (price: string, quantity: number, extra = 0) => {
+  const caculatePrice = (price: string, quantity: number) => {
     const priceNumber = parseFloat(price);
+    let extra = 0.3;
+    if (quantity === 1) extra = 0;
+    if (quantity === 2) extra = 0.2;
+    if (quantity === 3) extra = 0.3;
     return (priceNumber * quantity * (1 - extra)).toFixed(2);
   };
 
@@ -417,10 +421,18 @@ export default function ProductView(data: { data: Product }) {
               </div>
               <p className="flex gap-2 items-center">
                 <span className="text-gray-400 text-sm font-semibold line-through">
-                  {variantSelected?.compareAtPriceV2?.amount} USD
+                  {parseFloat(
+                    variantSelected?.compareAtPriceV2?.amount || "0"
+                  ) *
+                    (optionNumber.number + 1)}{" "}
+                  USD
                 </span>
                 <span className="text-[#102a3e] text-2xl font-semibold">
-                  {variantSelected?.priceV2.amount} USD
+                  {caculatePrice(
+                    variantSelected?.priceV2.amount || "0",
+                    optionNumber.number + 1
+                  )}
+                  USD
                 </span>
 
                 <span className="flex justify-center text-sm font-semibold items-center px-4 py-1 text-white bg-[#102A3E] rounded-full">
@@ -538,8 +550,7 @@ export default function ProductView(data: { data: Product }) {
                         $
                         {caculatePrice(
                           variantSelected?.priceV2.amount || "0",
-                          item.number + 1,
-                          item.extra
+                          item.number + 1
                         )}
                       </p>
                       <p className="line-through text-gray-500 text-sm">
