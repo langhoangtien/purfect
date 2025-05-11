@@ -53,9 +53,7 @@ export default function RootLayout({
       s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1393158791704032');
-    fbq('init', '3741128446126361');
-    fbq('init', '2097577540760659');        
+    fbq('init', '1708544753085399');
     fbq('track', 'PageView');
           `}
         </Script>
@@ -66,25 +64,10 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1393158791704032&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1708544753085399&ev=PageView&noscript=1"
           />
         </noscript>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=3741128446126361&ev=PageView&noscript=1"
-          />
-        </noscript>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=2097577540760659&ev=PageView&noscript=1"
-          />
-        </noscript>
+
         <CartProvider>{children}</CartProvider>
         <Toaster
           icons={{
