@@ -499,7 +499,7 @@ export default function ProductView(data: { data: Product }) {
                 {variant.node.title} - {variant.node.priceV2.amount} USD
               </p>
             ))} */}
-            {options.map((item) => (
+            {options.map((item, index) => (
               <label
                 onClick={() =>
                   calculaSetOptionNumber(
@@ -543,7 +543,11 @@ export default function ProductView(data: { data: Product }) {
                       )}
                     </p>
                     <p className="line-through text-gray-500 text-sm">
-                      ${variantSelected?.compareAtPriceV2?.amount}
+                      $
+                      {(index + 1) *
+                        parseFloat(
+                          variantSelected?.compareAtPriceV2?.amount || "0"
+                        )}
                     </p>
                   </div>
                 </div>
