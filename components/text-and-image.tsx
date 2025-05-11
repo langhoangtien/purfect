@@ -18,7 +18,7 @@ export default function TextAndImage({
   imgFirst = false,
 }: TextAndImageProps) {
   return (
-    <div className="max-w-7xl mx-auto mt-10">
+    <div className="mt-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Phần chữ */}
         <div className="flex items-center justify-center">

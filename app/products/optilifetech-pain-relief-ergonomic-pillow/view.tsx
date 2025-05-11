@@ -374,251 +374,254 @@ export default function ProductView(data: { data: Product }) {
     }
   };
   return (
-    <div className="p-4 text-[#102a3e] ">
-      <div className="max-w-7xl mx-auto  rounded-lg">
+    <div className="text-[#102a3e] ">
+      <div className="rounded-lg">
         <div className="grid grid-cols-12 space-x-6 space-y-16">
-          {/* Hình ảnh */}
-          <section className="col-span-12 md:col-span-8">
-            <ProductDetailCarousel
-              slides={product.images.edges.map(
-                (img: { node: { url: string } }) => img.node.url
-              )}
-            />
-          </section>
-
-          <section className="flex flex-col space-y-4 col-span-12 md:col-span-4">
-            <div className="flex gap-1 text-xs">
-              <span className="excellent" style={{ color: "#102A3E" }}>
-                &quot;EXCELLENT&quot;
-              </span>
-              <span className="stars">★★★★★</span>
-              <span className="rating-text">
-                <b>4.8/5</b> | 9,250+ Reviews
-              </span>
-            </div>
-
-            <h1 className="text-[#102a3e] text-4xl">{product.title}</h1>
-            <div className="flex gap-2 items-center bg-gray-100 p-2 rounded-md">
-              <Image
-                src="/purfect/linda.avif"
-                alt="Linda"
-                width={100}
-                height={100}
-                className="rounded-full object-cover size-12"
+          <div className="grid max-w-7xl p-4 col-span-12 mx-auto grid-cols-12">
+            <section className="col-span-12  md:col-span-8">
+              <ProductDetailCarousel
+                slides={product.images.edges.map(
+                  (img: { node: { url: string } }) => img.node.url
+                )}
               />
-              <div className="flex gap-1 flex-col ">
-                <p className="text-xs font-semibold">Linda Harris</p>
-                <span className="text-[#102a3e]  text-[10px] italic">
-                  &quot;I’m 59 and used to wake up sore every morning. I’ve
-                  tried at least six pillows, and none of them made a
-                  difference. This one did — the very first night.&quot;
+            </section>
+
+            <section className="flex flex-col  space-y-4 col-span-12 md:col-span-4">
+              <div className="flex gap-1 text-xs">
+                <span className="excellent" style={{ color: "#102A3E" }}>
+                  &quot;EXCELLENT&quot;
+                </span>
+                <span className="stars">★★★★★</span>
+                <span className="rating-text">
+                  <b>4.8/5</b> | 9,250+ Reviews
                 </span>
               </div>
-            </div>
-            <p className="flex gap-2 items-center">
-              <span className="text-gray-400 text-sm font-semibold line-through">
-                {variantSelected?.compareAtPriceV2?.amount} USD
-              </span>
-              <span className="text-[#102a3e] text-2xl font-semibold">
-                {variantSelected?.priceV2.amount} USD
-              </span>
 
-              <span className="flex justify-center text-sm font-semibold items-center px-4 py-1 text-white bg-[#102A3E] rounded-full">
-                Flash Sale
-              </span>
-            </p>
-            <div className="flex gap-2 flex-col text-sm">
-              {benifests.map((item) => (
-                <div className="flex gap-2 items-center" key={item}>
-                  <span className="flex gap-2 items-center justify-center size-4 rounded-full bg-[#102A3E]">
-                    <CheckIcon
-                      className="text-white size-3"
-                      strokeWidth={2.5}
-                    />
+              <h1 className="text-[#102a3e] text-4xl">{product.title}</h1>
+              <div className="flex gap-2 items-center bg-gray-100 p-2 rounded-md">
+                <Image
+                  src="/purfect/linda.avif"
+                  alt="Linda"
+                  width={100}
+                  height={100}
+                  className="rounded-full object-cover size-12"
+                />
+                <div className="flex gap-1 flex-col ">
+                  <p className="text-xs font-semibold">Linda Harris</p>
+                  <span className="text-[#102a3e]  text-[10px] italic">
+                    &quot;I’m 59 and used to wake up sore every morning. I’ve
+                    tried at least six pillows, and none of them made a
+                    difference. This one did — the very first night.&quot;
                   </span>
-                  <span className="text-[#102a3e]">{item}</span>
                 </div>
-              ))}
-            </div>
-            <div>
-              <span className="inline-flex text-xs items-center gap-1 p-2 bg-gray-100 rounded-md">
-                <CheckIcon
-                  className="text-[#102A3E]"
-                  strokeWidth={3}
-                  size={16}
-                />{" "}
-                <strong>FREE</strong> Pillow Cover with every pillow!
-              </span>
-            </div>
-            <h3 className="text-xl font-semibold"></h3>
-            {product.options.map(
-              (option: { id: string; name: string; values: string[] }) => (
-                <div className="space-y-4" key={option.name}>
-                  <h4 className="text-base">
-                    {" "}
-                    Cover color - {selectedOptions[option.name]}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {option.values.map((value: string) => (
-                      <span
-                        key={value}
-                        onClick={() => handleOptionChange(option.name, value)}
-                        className={`size-12 duration-500 transition-transform  flex items-center cursor-pointer  justify-center rounded-full text-base font-normal ${
-                          selectedOptions[option.name] === value
-                            ? " border-gray-800 border-2  "
-                            : ""
-                        }`}
-                      >
-                        <span
-                          className={`size-10 block border-gray-200 border rounded-full ${getColor(
-                            value
-                          )} `}
-                        ></span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            )}
-            <p className="text-orange-500 flex items-center gap-2">
-              <span className="inline-flex size-3 rounded-full bg-orange-500 animate-pulse "></span>
-              <span>Limited stock - only 6 items available</span>
-            </p>
-            <p className=" flex items-center gap-2 ">
-              <span className="h-0.5 flex-grow bg-gray-300"> </span>
-              <span className="text-xs font-semibold text-[#102a3e] ">
-                FLASH SALE ENDS TODAY
-              </span>
-              <span className="h-0.5 flex-grow bg-gray-300"> </span>
-            </p>
+              </div>
+              <p className="flex gap-2 items-center">
+                <span className="text-gray-400 text-sm font-semibold line-through">
+                  {variantSelected?.compareAtPriceV2?.amount} USD
+                </span>
+                <span className="text-[#102a3e] text-2xl font-semibold">
+                  {variantSelected?.priceV2.amount} USD
+                </span>
 
-            {/* <h3> Description:</h3>
+                <span className="flex justify-center text-sm font-semibold items-center px-4 py-1 text-white bg-[#102A3E] rounded-full">
+                  Flash Sale
+                </span>
+              </p>
+              <div className="flex gap-2 flex-col text-sm">
+                {benifests.map((item) => (
+                  <div className="flex gap-2 items-center" key={item}>
+                    <span className="flex gap-2 items-center justify-center size-4 rounded-full bg-[#102A3E]">
+                      <CheckIcon
+                        className="text-white size-3"
+                        strokeWidth={2.5}
+                      />
+                    </span>
+                    <span className="text-[#102a3e]">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <span className="inline-flex text-xs items-center gap-1 p-2 bg-gray-100 rounded-md">
+                  <CheckIcon
+                    className="text-[#102A3E]"
+                    strokeWidth={3}
+                    size={16}
+                  />{" "}
+                  <strong>FREE</strong> Pillow Cover with every pillow!
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold"></h3>
+              {product.options.map(
+                (option: { id: string; name: string; values: string[] }) => (
+                  <div className="space-y-4" key={option.name}>
+                    <h4 className="text-base">
+                      {" "}
+                      Cover color - {selectedOptions[option.name]}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {option.values.map((value: string) => (
+                        <span
+                          key={value}
+                          onClick={() => handleOptionChange(option.name, value)}
+                          className={`size-12 duration-500 transition-transform  flex items-center cursor-pointer  justify-center rounded-full text-base font-normal ${
+                            selectedOptions[option.name] === value
+                              ? " border-gray-800 border-2  "
+                              : ""
+                          }`}
+                        >
+                          <span
+                            className={`size-10 block border-gray-200 border rounded-full ${getColor(
+                              value
+                            )} `}
+                          ></span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )
+              )}
+              <p className="text-orange-500 flex items-center gap-2">
+                <span className="inline-flex size-3 rounded-full bg-orange-500 animate-pulse "></span>
+                <span>Limited stock - only 6 items available</span>
+              </p>
+              <p className=" flex items-center gap-2 ">
+                <span className="h-0.5 flex-grow bg-gray-300"> </span>
+                <span className="text-xs font-semibold text-[#102a3e] ">
+                  FLASH SALE ENDS TODAY
+                </span>
+                <span className="h-0.5 flex-grow bg-gray-300"> </span>
+              </p>
+
+              {/* <h3> Description:</h3>
             {/* <h3> Price:</h3>
             {product.variants.edges.map((variant: { node: ProductVariant }) => (
               <p key={variant.node.id}>
                 {variant.node.title} - {variant.node.priceV2.amount} USD
               </p>
             ))} */}
-            {options.map((item, index) => (
-              <label
-                onClick={() =>
-                  calculaSetOptionNumber(
-                    item.number,
-                    selectedOptions[product.options[0].name]
-                  )
-                }
-                className={`flex flex-col gap-1 relative bg-blue-50 cursor-pointer  text-[#102a3e] rounded-md   p-4 ${
-                  item.number === optionNumber.number
-                    ? "dark:border-gray-300 border border-gray-800 "
-                    : "dark:border-gray-100 border border-gray-300"
-                }`}
-                key={item.number}
-                htmlFor={item.title}
-              >
-                {!!item.tag && <CustomTag title={item.tag} />}
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center relative space-x-4">
-                    <RadioCustom
-                      checked={item.number === optionNumber.number}
-                    />
-                    <div className="space-y-1">
+              {options.map((item, index) => (
+                <label
+                  onClick={() =>
+                    calculaSetOptionNumber(
+                      item.number,
+                      selectedOptions[product.options[0].name]
+                    )
+                  }
+                  className={`flex flex-col gap-1 relative bg-blue-50 cursor-pointer  text-[#102a3e] rounded-md   p-4 ${
+                    item.number === optionNumber.number
+                      ? "dark:border-gray-300 border border-gray-800 "
+                      : "dark:border-gray-100 border border-gray-300"
+                  }`}
+                  key={item.number}
+                  htmlFor={item.title}
+                >
+                  {!!item.tag && <CustomTag title={item.tag} />}
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center relative space-x-4">
+                      <RadioCustom
+                        checked={item.number === optionNumber.number}
+                      />
+                      <div className="space-y-1">
+                        {" "}
+                        <p className="flex flex-wrap gap-1 items-center ">
+                          <span className="text-lg">{item.title}</span>
+                          <span className="bg-blue-100 px-2 py-1 text-xs rounded-lg">
+                            {getDescription(item.extra)}
+                          </span>
+                        </p>
+                        <p className="text-xs">{item.description}</p>
+                      </div>
+                    </div>
+                    <div>
                       {" "}
-                      <p className="flex flex-wrap gap-1 items-center ">
-                        <span className="text-lg">{item.title}</span>
-                        <span className="bg-blue-100 px-2 py-1 text-xs rounded-lg">
-                          {getDescription(item.extra)}
-                        </span>
+                      <p className=" text-xl">
+                        $
+                        {caculatePrice(
+                          variantSelected?.priceV2.amount || "0",
+                          item.number + 1,
+                          item.extra
+                        )}
                       </p>
-                      <p className="text-xs">{item.description}</p>
+                      <p className="line-through text-gray-500 text-sm">
+                        $
+                        {(index + 1) *
+                          parseFloat(
+                            variantSelected?.compareAtPriceV2?.amount || "0"
+                          )}
+                      </p>
                     </div>
                   </div>
-                  <div>
-                    {" "}
-                    <p className=" text-xl">
-                      $
-                      {caculatePrice(
-                        variantSelected?.priceV2.amount || "0",
-                        item.number + 1,
-                        item.extra
+                  {item.number === optionNumber.number && !!item.number && (
+                    <div className="flex flex-col gap-1">
+                      <p className="text-xs">Cover color</p>
+                      {Array.from({ length: item.number + 1 }).map(
+                        (_, index) => (
+                          <div
+                            className="flex gap-1 text-sm items-center"
+                            key={index}
+                          >
+                            <span>#{index + 1}</span>
+                            <Select
+                              value={optionNumber.values[index]}
+                              onValueChange={(value) =>
+                                setOptionNumber((prev) => {
+                                  const newValues = [...prev.values];
+                                  newValues[index] = value;
+                                  return {
+                                    ...prev,
+                                    values: newValues,
+                                  };
+                                })
+                              }
+                            >
+                              <SelectTrigger className="w-[100px] h-8">
+                                <SelectValue placeholder="Select" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {product.options[0].values.map((value) => (
+                                  <SelectItem key={value} value={value}>
+                                    {value}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        )
                       )}
-                    </p>
-                    <p className="line-through text-gray-500 text-sm">
-                      $
-                      {(index + 1) *
-                        parseFloat(
-                          variantSelected?.compareAtPriceV2?.amount || "0"
-                        )}
-                    </p>
-                  </div>
-                </div>
-                {item.number === optionNumber.number && !!item.number && (
-                  <div className="flex flex-col gap-1">
-                    <p className="text-xs">Cover color</p>
-                    {Array.from({ length: item.number + 1 }).map((_, index) => (
-                      <div
-                        className="flex gap-1 text-sm items-center"
-                        key={index}
-                      >
-                        <span>#{index + 1}</span>
-                        <Select
-                          value={optionNumber.values[index]}
-                          onValueChange={(value) =>
-                            setOptionNumber((prev) => {
-                              const newValues = [...prev.values];
-                              newValues[index] = value;
-                              return {
-                                ...prev,
-                                values: newValues,
-                              };
-                            })
-                          }
-                        >
-                          <SelectTrigger className="w-[100px] h-8">
-                            <SelectValue placeholder="Select" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {product.options[0].values.map((value) => (
-                              <SelectItem key={value} value={value}>
-                                {value}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </label>
-            ))}
-            <Button className="h-12" onClick={handleAddToCart}>
-              Add to cart
-            </Button>
-            <div className="flex justify-center">
-              <span className="flex items-center text-sm gap-1">
-                <ArrowLeftRightIcon strokeWidth={3} size={18} /> Try it
-                risk-free for 100 nights
-              </span>
-            </div>
-            <div className="pl-1 bg-red-500 rounded-md">
-              <div className="bg-red-100 rounded-md text-red-500 text-[15px] p-4">
-                🚨 <strong>Watch out for Replicas</strong>. Only{" "}
-                <strong>{PRODUCT_NAME} </strong> guarantees the real pillow
-                trusted by thousands for pain relief.
+                    </div>
+                  )}
+                </label>
+              ))}
+              <Button className="h-12" onClick={handleAddToCart}>
+                Add to cart
+              </Button>
+              <div className="flex justify-center">
+                <span className="flex items-center text-sm gap-1">
+                  <ArrowLeftRightIcon strokeWidth={3} size={18} /> Try it
+                  risk-free for 100 nights
+                </span>
               </div>
-            </div>
-            <div>
-              <Accordion type="single" collapsible className="w-full">
-                {acc.map((item, index) => (
-                  <AccordionItem key={item.title} value={`item-${index}`}>
-                    <AccordionTriggerCustom className="text-2xl">
-                      {item.title}
-                    </AccordionTriggerCustom>
-                    <AccordionContent>{item.content}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </section>
+              <div className="pl-1 bg-red-500 rounded-md">
+                <div className="bg-red-100 rounded-md text-red-500 text-[15px] p-4">
+                  🚨 <strong>Watch out for Replicas</strong>. Only{" "}
+                  <strong>{PRODUCT_NAME} </strong> guarantees the real pillow
+                  trusted by thousands for pain relief.
+                </div>
+              </div>
+              <div>
+                <Accordion type="single" collapsible className="w-full">
+                  {acc.map((item, index) => (
+                    <AccordionItem key={item.title} value={`item-${index}`}>
+                      <AccordionTriggerCustom className="text-2xl">
+                        {item.title}
+                      </AccordionTriggerCustom>
+                      <AccordionContent>{item.content}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </section>
+          </div>
           <section className="col-span-12 flex justify-center text-2xl">
             <h2 className="text-center">
               {" "}
@@ -632,87 +635,89 @@ export default function ProductView(data: { data: Product }) {
               <em> </em>their sleep!{" "}
             </h2>
           </section>
-          <section className="col-span-12">
-            <div className="flex justify-center w-full space-x-4 mb-6">
-              {tabs.map((tab) => (
-                <Button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  variant={activeTab === tab ? "default" : "outline"}
-                >
-                  {tab}
-                </Button>
-              ))}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {testimonials
-                .sort((a, b) => {
-                  const aMatch = a.tab
-                    .toLowerCase()
-                    .includes(activeTab.toLowerCase());
-                  const bMatch = b.tab
-                    .toLowerCase()
-                    .includes(activeTab.toLowerCase());
-
-                  if (aMatch && !bMatch) return -1;
-                  if (!aMatch && bMatch) return 1;
-                  return 0;
-                })
-                .slice(0, number)
-                .map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex flex-col gap-2 bg-gray-100 p-4 rounded-md  "
+          <section className="col-span-12 ">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex justify-center flex-wrap w-full md:gap-4 gap-2 mb-6">
+                {tabs.map((tab) => (
+                  <Button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    variant={activeTab === tab ? "default" : "outline"}
                   >
-                    <div className="flex gap-2 flex-col">
-                      <span className="flex space-x-1"> ★★★★★</span>
-                      <span className="text-[#102a3e] text-base font-semibold">
-                        {item.tab}
-                      </span>
-                      <div className="flex gap-1 flex-col ">
-                        <span className="text-[#102a3e]  text-sm italic">
-                          &quot;{item.review}&quot;
+                    {tab}
+                  </Button>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {testimonials
+                  .sort((a, b) => {
+                    const aMatch = a.tab
+                      .toLowerCase()
+                      .includes(activeTab.toLowerCase());
+                    const bMatch = b.tab
+                      .toLowerCase()
+                      .includes(activeTab.toLowerCase());
+
+                    if (aMatch && !bMatch) return -1;
+                    if (!aMatch && bMatch) return 1;
+                    return 0;
+                  })
+                  .slice(0, number)
+                  .map((item) => (
+                    <div
+                      key={item.name}
+                      className="flex flex-col gap-2 bg-gray-100 p-4 rounded-md  "
+                    >
+                      <div className="flex gap-2 flex-col">
+                        <span className="flex space-x-1"> ★★★★★</span>
+                        <span className="text-[#102a3e] text-base font-semibold">
+                          {item.tab}
                         </span>
-                      </div>
-                      <div className="flex mt-8 md:mt-16 space-x-2">
-                        {" "}
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={100}
-                          height={100}
-                          className="rounded-full object-cover size-12"
-                        />
-                        <div>
-                          <p className="font-semibold">{item.name}</p>
-                          <p className="flex space-x-1 items-center text-sm">
-                            <svg
-                              className="mr-1"
-                              width={13}
-                              height={15}
-                              viewBox="0 0 13 15"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M11.5847 1.98343C11.8867 2.04983 12.1563 2.21913 12.3472 2.46237C12.5382 2.7056 12.6386 3.00763 12.6314 3.31677V6.00343C12.631 7.76098 12.1035 9.478 11.1171 10.9326C10.1307 12.3873 8.73071 13.5127 7.09807 14.1634C6.79712 14.2759 6.46569 14.2759 6.16474 14.1634C4.5321 13.5127 3.13214 12.3873 2.14574 10.9326C1.15934 9.478 0.631843 7.76098 0.631406 6.00343V3.2901C0.624193 2.98096 0.724652 2.67893 0.915588 2.4357C1.10652 2.19247 1.37606 2.02316 1.67807 1.95677L6.34474 0.923432C6.53301 0.876841 6.7298 0.876841 6.91807 0.923432L11.5847 1.98343Z"
-                                fill="#0E283C"
-                              />
-                              <path
-                                d="M6.11807 9.4301C5.94412 9.43115 5.77665 9.36416 5.6514 9.24343L4.1314 7.7501C4.06892 7.68813 4.01932 7.61439 3.98548 7.53315C3.95163 7.45191 3.9342 7.36478 3.9342 7.27677C3.9342 7.18876 3.95163 7.10162 3.98548 7.02038C4.01932 6.93914 4.06892 6.86541 4.1314 6.80343C4.25631 6.67927 4.42528 6.60957 4.6014 6.60957C4.77753 6.60957 4.94649 6.67927 5.0714 6.80343L6.12474 7.83677L8.86474 5.1701C8.92733 5.10838 9.00147 5.05959 9.08292 5.02652C9.16438 4.99346 9.25154 4.97675 9.33945 4.97737C9.42736 4.97799 9.51428 4.99592 9.59526 5.03013C9.67623 5.06434 9.74968 5.11417 9.8114 5.17677C9.87312 5.23936 9.92191 5.3135 9.95498 5.39496C9.98805 5.47641 10.0047 5.56357 10.0041 5.65148C10.0035 5.73939 9.98558 5.82631 9.95137 5.90729C9.91716 5.98827 9.86733 6.06171 9.80474 6.12343L6.59807 9.27677C6.46429 9.38871 6.29197 9.44375 6.11807 9.4301Z"
-                                fill="white"
-                              />
-                            </svg>
-                            <span>Verified Buyer</span>
-                          </p>
+                        <div className="flex gap-1 flex-col ">
+                          <span className="text-[#102a3e]  text-sm italic">
+                            &quot;{item.review}&quot;
+                          </span>
+                        </div>
+                        <div className="flex mt-8 md:mt-16 space-x-2">
+                          {" "}
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={100}
+                            height={100}
+                            className="rounded-full object-cover size-12"
+                          />
+                          <div>
+                            <p className="font-semibold">{item.name}</p>
+                            <p className="flex space-x-1 items-center text-sm">
+                              <svg
+                                className="mr-1"
+                                width={13}
+                                height={15}
+                                viewBox="0 0 13 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.5847 1.98343C11.8867 2.04983 12.1563 2.21913 12.3472 2.46237C12.5382 2.7056 12.6386 3.00763 12.6314 3.31677V6.00343C12.631 7.76098 12.1035 9.478 11.1171 10.9326C10.1307 12.3873 8.73071 13.5127 7.09807 14.1634C6.79712 14.2759 6.46569 14.2759 6.16474 14.1634C4.5321 13.5127 3.13214 12.3873 2.14574 10.9326C1.15934 9.478 0.631843 7.76098 0.631406 6.00343V3.2901C0.624193 2.98096 0.724652 2.67893 0.915588 2.4357C1.10652 2.19247 1.37606 2.02316 1.67807 1.95677L6.34474 0.923432C6.53301 0.876841 6.7298 0.876841 6.91807 0.923432L11.5847 1.98343Z"
+                                  fill="#0E283C"
+                                />
+                                <path
+                                  d="M6.11807 9.4301C5.94412 9.43115 5.77665 9.36416 5.6514 9.24343L4.1314 7.7501C4.06892 7.68813 4.01932 7.61439 3.98548 7.53315C3.95163 7.45191 3.9342 7.36478 3.9342 7.27677C3.9342 7.18876 3.95163 7.10162 3.98548 7.02038C4.01932 6.93914 4.06892 6.86541 4.1314 6.80343C4.25631 6.67927 4.42528 6.60957 4.6014 6.60957C4.77753 6.60957 4.94649 6.67927 5.0714 6.80343L6.12474 7.83677L8.86474 5.1701C8.92733 5.10838 9.00147 5.05959 9.08292 5.02652C9.16438 4.99346 9.25154 4.97675 9.33945 4.97737C9.42736 4.97799 9.51428 4.99592 9.59526 5.03013C9.67623 5.06434 9.74968 5.11417 9.8114 5.17677C9.87312 5.23936 9.92191 5.3135 9.95498 5.39496C9.98805 5.47641 10.0047 5.56357 10.0041 5.65148C10.0035 5.73939 9.98558 5.82631 9.95137 5.90729C9.91716 5.98827 9.86733 6.06171 9.80474 6.12343L6.59807 9.27677C6.46429 9.38871 6.29197 9.44375 6.11807 9.4301Z"
+                                  fill="white"
+                                />
+                              </svg>
+                              <span>Verified Buyer</span>
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+              </div>
             </div>
           </section>
-          <section className="col-span-12">
+          <section className="col-span-12 ">
             <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8  bg-white text-gray-800">
               {/* Text Section */}
               <div className="w-full lg:w-1/2">
@@ -811,12 +816,14 @@ export default function ProductView(data: { data: Product }) {
             </div>
           </section>
           <section className="col-span-12">
-            <Comparison
-              before="/purfect/pillow-before.png"
-              after="/purfect/pillow-after.png"
-            />
+            <div className="max-w-7xl mx-auto">
+              <Comparison
+                before="/purfect/pillow-before.png"
+                after="/purfect/pillow-after.png"
+              />
+            </div>
           </section>
-          <section className="col-span-12 space-y-4">
+          <section className="col-span-12 space-y-4 ">
             <TextAndImage
               src="/purfect/pillow2.png"
               alt="d"
@@ -833,7 +840,7 @@ export default function ProductView(data: { data: Product }) {
               }
             />
           </section>
-          <section className="col-span-12 space-y-4">
+          <section className="col-span-12  space-y-4">
             <TextAndImage
               src="/purfect/pillow3.webp"
               alt="d"
