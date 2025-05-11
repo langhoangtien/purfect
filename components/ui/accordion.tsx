@@ -70,11 +70,12 @@ const AccordionTriggerCustom = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center text-left py-4 font-semibold transition-all  [&[data-state=open]>svg.plus-icon]:hidden [&[data-state=closed]>svg.minus-icon]:hidden",
+        "flex flex-1 justify-between items-center text-left py-4 font-semibold transition-all  [&[data-state=open]>svg.plus-icon]:hidden [&[data-state=closed]>svg.minus-icon]:hidden",
         className
       )}
       {...props}
     >
+      {children}
       <MinusIcon
         strokeWidth={1}
         className="mr-2 h-5 w-5 minus-icon text-black shrink-0 transition-transform duration-500"
@@ -83,7 +84,6 @@ const AccordionTriggerCustom = React.forwardRef<
         strokeWidth={1}
         className="mr-2 h-5 w-5 plus-icon text-black shrink-0 transition-transform duration-500"
       />
-      {children}
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));

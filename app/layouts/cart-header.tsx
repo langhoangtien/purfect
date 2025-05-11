@@ -7,21 +7,13 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { X } from "lucide-react";
+import { TagIcon, Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import { useContext } from "react";
-import { CartContext } from "@/context/cart/cart-context";
-import Link from "next/link";
-import { QuantityCart } from "../cart/view";
+import { CartContext, Product } from "@/context/cart/cart-context";
 
-interface Product {
-  image: string;
-  quantity: number;
-  name: string;
-  price: number;
-  id: string;
-  title: string;
-}
+import { QuantityCart } from "../cart/view";
+import { Button } from "@/components/ui/button";
 
 export default function Cart() {
   const cartContext = useContext(CartContext);
@@ -60,11 +52,19 @@ export default function Cart() {
     );
   };
   const CartProduct = () => {
+    const tottalSpecial = products.reduce(
+      (acc: number, p: Product) => acc + (p.special ? p.quantity : 0),
+      0
+    );
+
     return (
       <div className="flex flex-col h-full">
-        <span className="bg-sky-100 w-full text-center font-medium p-4">
-          This Product Is In Demand! We Have Reserved It In Your Cart For 05:30
+        <span className=" w-full text-center  text-sm p-4">
+          Congratulations! You have <strong>FREE </strong>shipping
         </span>
+        <div className="justify-center flex">
+          <span className="bg-yellow-400 w-[90%] px-4  h-2 mb-8 rounded-md"></span>
+        </div>
         <div className="flex-1 overflow-y-auto p-4">
           {products.map((product: Product) => (
             <ProductCart
@@ -72,6 +72,7 @@ export default function Cart() {
               {...product}
               updateQuantity={updateQuantity}
               removeProduct={removeProduct}
+              tottalSpecial={tottalSpecial}
             />
           ))}
         </div>
@@ -86,25 +87,26 @@ export default function Cart() {
             </span>
           </div>
 
-          <button
-            onClick={handleCheckout}
-            className="bg-green-900 w-full text-white px-4 py-2 rounded-full"
-          >
+          <Button className="w-full" onClick={handleCheckout}>
             Checkout
-          </button>
+          </Button>
         </div>
       </div>
     );
   };
+
   return (
     <div className="p-4">
       {" "}
-      <Link href="/cart" className="relative inline-block cursor-pointer">
+      <div
+        onClick={() => cartContext.setSheet(true)}
+        className="relative inline-block cursor-pointer"
+      >
         <CartIcon className="size-11  text-gray-800" />
         <span className="absolute size-4 right-0 bottom-2 rounded-full bg-gray-800 text-white text-xs flex items-center justify-center">
           {products.reduce((acc: number, p: Product) => acc + p.quantity, 0)}
         </span>
-      </Link>
+      </div>
       <Sheet onOpenChange={setSheet} open={sheet}>
         <SheetContent
           onOpenAutoFocus={(e) => e.preventDefault()}
@@ -132,6 +134,7 @@ export default function Cart() {
 interface ProductCartProps extends Product {
   updateQuantity: (id: string, newQuantity: number) => void;
   removeProduct: (id: string) => void;
+  tottalSpecial: number;
 }
 
 const ProductCart: React.FC<ProductCartProps> = ({
@@ -139,14 +142,16 @@ const ProductCart: React.FC<ProductCartProps> = ({
   quantity,
   name,
   price,
+  compareAtPrice,
   id,
   title,
   updateQuantity,
   removeProduct,
+  tottalSpecial,
 }) => {
   return (
     <div className="flex relative space-x-4 border-b py-2">
-      <X
+      <Trash2Icon
         strokeWidth={1}
         className="absolute right-0 top-0 size-4 cursor-pointer"
         onClick={() => removeProduct(id)}
@@ -166,15 +171,64 @@ const ProductCart: React.FC<ProductCartProps> = ({
             quantity={quantity}
             updateQuantity={(newQuantity) => updateQuantity(id, newQuantity)}
           />
-          <span className="text-sm font-semibold">
-            {" "}
-            {new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-            }).format(price * quantity)}
-          </span>
+          <div className="flex items-center flex-col space-y-2">
+            <div className="flex space-x-2">
+              {!!compareAtPrice && (
+                <span className="text-sm  line-through text-gray-500">
+                  {" "}
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(compareAtPrice * quantity)}
+                </span>
+              )}
+
+              <span className="text-sm font-semibold">
+                {" "}
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(price * quantity * getExtra(tottalSpecial))}
+              </span>
+            </div>
+            {!!compareAtPrice && (
+              <span className="text-sm  text-green-500">
+                {"SAVE ("}
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(
+                  compareAtPrice * quantity -
+                    price * quantity * getExtra(tottalSpecial)
+                )}{" "}
+                {")"}
+              </span>
+            )}
+            <span>{getNameSpecial(tottalSpecial)}</span>{" "}
+          </div>
         </span>
       </div>
     </div>
   );
+};
+
+const getExtra = (totalSpecial: number) => {
+  if (totalSpecial === 2) return 0.8;
+  if (totalSpecial >= 3) return 0.7;
+  return 1;
+};
+const getNameSpecial = (totalSpecial: number) => {
+  if (totalSpecial === 2)
+    return (
+      <Button className="h-6" variant="outline">
+        <TagIcon /> Buy 2 Pillows
+      </Button>
+    );
+  if (totalSpecial >= 3)
+    return (
+      <Button className="h-6" variant="outline">
+        <TagIcon /> Family Pack (3 Pillows)
+      </Button>
+    );
+  return null;
 };

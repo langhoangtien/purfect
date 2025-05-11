@@ -17,6 +17,7 @@ const useCart = () => {
     setSheet,
     addToCart,
     setProducts,
+    addProducts,
   } = cartContext;
 
   return {
@@ -28,6 +29,7 @@ const useCart = () => {
     setSheet,
     addToCart,
     setProducts,
+    addProducts,
   };
 };
 

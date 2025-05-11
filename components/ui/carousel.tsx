@@ -400,18 +400,17 @@ type ThumbPropType = {
 
 export const Thumb: React.FC<ThumbPropType> = (props) => {
   const { selected, onClick, image } = props;
-
   return (
     <div
-      className={" cursor-pointer p-1 flex-[0_0_22%] border rounded-sm".concat(
-        selected ? " border-primary" : ""
+      className={" cursor-pointer p-1 flex-[0_0_22%] border aspect-square rounded-sm ".concat(
+        selected ? "border-primary" : ""
       )}
     >
       <Image
         alt="thumb"
         width={100}
         height={100}
-        className="object-cover 1 aspect-square"
+        className="object-cover w-full aspect-square"
         src={image}
         onClick={onClick}
       />

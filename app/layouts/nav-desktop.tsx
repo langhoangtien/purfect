@@ -3,10 +3,14 @@ import Link from "next/link";
 
 import Cart from "./cart-header";
 import { usePathname } from "next/navigation";
+import { PRODUCT_NAME } from "@/config-global";
 
 export const menu = [
   { name: "About Us", link: "/about-us" },
-  { name: "Buy", link: "/products/optilife-blend" },
+  {
+    name: `${PRODUCT_NAME.toLocaleUpperCase()} - Premium Ergonomic Pillow`,
+    link: "/products/optilifetech-pain-relief-ergonomic-pillow",
+  },
   { name: "Contact", link: "/contact-us" },
   { name: "Track Order", link: "/track-order" },
 ];

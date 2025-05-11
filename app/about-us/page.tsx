@@ -1,125 +1,101 @@
+import { PRODUCT_NAME } from "@/config-global";
+import Image from "next/image";
+
 export default function HealthAndMedicalDisclaimer() {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h2 className="text-center text-3xl font-semibold my-8">About Us</h2>
-      <div>
+      <div className="space-y-4">
         <p>
-          Welcome to <strong>OptiLife</strong>, where we harness the power of
-          nature to boost your wellness. Our journey is inspired by the belief
-          that nature holds the key to optimal health, and we are committed to
-          bringing you its most potent gifts through our premium supplements.
+          <strong>Your Path to Pain Relief and Comfort.</strong>
+          <br />
+          Welcome to {PRODUCT_NAME} – where comfort meets innovation. Our
+          journey started with a simple but profound belief: your well-being
+          deserves to be a top priority, and we’re here to provide the comfort
+          and relief you need. At {PRODUCT_NAME}, we’re passionate about
+          improving your sleep, reducing pain, and empowering you to live your
+          best life through our premium ergonomic products.
         </p>
-        <h3 className="text-2xl font-semibold">
+        <p>
+          <Image
+            width={800}
+            height={800}
+            className="mx-auto w-full h-auto"
+            src="/logo.png"
+            alt={""}
+          />
+        </p>
+        <p>
           <strong>Our Mission</strong>
-        </h3>
-        <p>
-          Our mission at <strong>OptiLife</strong> is to empower your wellness
-          journey with high-quality, natural supplements. We are dedicated to
-          enhancing your health and vitality by providing products that support
-          balance, healing, and strength from within.
-        </p>
-        <h3 className="text-2xl font-semibold">
-          <strong>Our Products</strong>
-        </h3>
-        <ul className="list-disc px-8">
-          <li>
-            <p>
-              <strong>Shilajit &amp; Sea Moss:</strong> Dive into nature&apos;s
-              potency with shilajit, known for its enriching mineral content and
-              energy-boosting properties, and sea moss, which supports thyroid
-              function and boosts immunity with its rich mineral profile.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Ashwagandha:</strong> Experience the calming effects of
-              ashwagandha, an ancient herb that reduces stress, enhances
-              stamina, and improves mental clarity.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Black Seed Oil:</strong> Explore the therapeutic benefits
-              of black seed oil, known for its antioxidant properties that
-              support digestive health, reduce inflammation, and strengthen the
-              immune system.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Burdock Root:</strong> Tap into the detoxifying powers of
-              burdock root to purify the blood, promote liver health, and
-              improve skin conditions.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Iodine:</strong> Ensure proper thyroid function and
-              metabolic health with our sourced iodine, crucial for cognitive
-              development and overall bodily functions.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>Chlorophyll:</strong> Embrace the lifeblood of plants with
-              chlorophyll, which detoxifies the body, promotes healing, and
-              fights fatigue.
-            </p>
-          </li>
-          <li>
-            <p>
-              <strong>&amp; More:</strong> Alongside these key ingredients, our
-              blend includes other powerful supplements designed to enhance
-              absorption, maximize benefits, and support your journey to optimal
-              health.
-            </p>
-          </li>
-        </ul>
-        <h3 className="text-2xl font-semibold">
-          <strong>Our Promise</strong>
-        </h3>
-        <p>
-          At <strong>OptiLife</strong>, we ensure that each product is crafted
-          with the highest standards of purity and potency. We are committed to
-          sustainability and ethical sourcing, ensuring that our supplements are
-          free from harmful additives and are environmentally friendly.
-        </p>
-        <h3 className="text-2xl font-semibold">
-          <strong>Join Our Community</strong>
-        </h3>
-        <p>
-          Join the <strong>OptiLife</strong> family and connect with a community
-          of wellness enthusiasts. We offer educational resources, interactive
-          workshops, and a supportive online community to enhance your holistic
-          health journey.
+          <br />
+          At {PRODUCT_NAME}, our mission is deeply rooted in our core values. We
+          are committed to:
         </p>
         <p>
-          Discover the power of nature with OptiLife.{" "}
-          <strong>Awaken your inner OptiLife and thrive!</strong>
+          <strong>Promoting Comfort and Pain Relief:</strong>
+          <br />
+          We understand that neck, back, and hip pain can significantly impact
+          your quality of life. Our ergonomic pillows and accessories are
+          designed to provide the relief you need, allowing you to rest easy,
+          reduce discomfort, and wake up feeling rejuvenated.
         </p>
         <p>
-          <strong>OptiLife LLC</strong>
+          <strong>Environmental Sustainability:</strong>
+          <br />
+          We recognize the importance of preserving our planet for future
+          generations. That&apos;s why we strive to minimize our environmental
+          impact, using eco-friendly materials and sustainable practices in our
+          product development and packaging.
         </p>
         <p>
-          <strong>
-            Address:&nbsp;+1111B S Governors Ave STE 28573 Dover Delaware 19904,
-            United States
-          </strong>
+          <strong>Empowering Your Health Journey:</strong>
+          <br />
+          At {PRODUCT_NAME}, we believe in the power of natural recovery and the
+          ability to lead a pain-free life. Our products are crafted to enhance
+          your well-being by supporting proper posture and reducing pressure,
+          allowing you to sleep and live more comfortably. Whether you’re
+          suffering from neck pain, lower back issues, or general discomfort,
+          our products are designed to be your trusted companions in the pursuit
+          of better health.
+          <strong />
         </p>
         <p>
-          <strong>Email:&nbsp;</strong>
-          <a
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            title=""
-            role="url"
-            href="mailto:contact@optilifecompany.com"
-          >
-            <strong>contact@optilifecompany.com</strong>
-          </a>
+          <strong>{PRODUCT_NAME} Philosophy</strong>
+          <br />
+          The {PRODUCT_NAME} philosophy is more than just comfort; it’s a
+          commitment to helping you regain your natural vitality and well-being.
+          Our products are built around the idea of Healthy Freedom—freedom from
+          pain, discomfort, and the limitations of poor sleep. We believe that
+          proper rest, combined with effective pain management, can empower you
+          to live your life to the fullest.
         </p>
         <p>
-          <strong>Phone:&nbsp;+1302 590 6135</strong>
+          <Image
+            width={800}
+            height={800}
+            className="mx-auto w-full h-auto"
+            src="/purfect/about.webp"
+            alt={""}
+          />
+        </p>
+        <p>
+          <strong>Product Development Excellence</strong>
+          <br />
+          At {PRODUCT_NAME}, we are dedicated to excellence in design and
+          functionality. Every product we create is the result of extensive
+          research, customer feedback, and innovation. We collaborate closely
+          with our community to ensure that each item meets the highest
+          standards of comfort and quality. By listening to our customers’ needs
+          and experiences, we continuously improve our offerings to ensure we’re
+          providing the best possible solutions for pain relief and comfort.
+        </p>
+        <p>
+          <strong>Join the Movement, Join the Comfort</strong>
+          <br />
+          Join us in transforming the way you experience sleep and pain relief.
+          Together, we can build a future where comfort, health, and freedom
+          from pain are within everyone’s reach. Experience the difference
+          {PRODUCT_NAME} can make in your life—step into comfort today.
         </p>
       </div>
     </div>

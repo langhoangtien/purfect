@@ -1,60 +1,41 @@
-import Image from "next/image";
+import React from "react";
 
-const imgs = [
+const features = [
   {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/testicles-medical-anatomy-body_organ-masculine-reproduction-system.png?v=1712073082",
-    description: "Promotes overall wellness and vitality",
+    title: "Fast shipping",
+    description: "Fast Secured shipping",
   },
   {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/Layer_21.png?v=1712073082",
-    description: "Supports Healthy Testosterone Levels.",
+    title: "100 Day guarantee",
+    description:
+      "Not satisfied? – No problem! You can always return or exchange with us.",
   },
   {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/weight_scale-wellness-fitness-diet-electronics-digital-gym.png?v=1712073082",
-    description: "Supports weight management",
+    title: "13,750+ Satisfied customers",
+    description: "4.8/5 Customer Score",
   },
   {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/eco_energy_energy_electricity_charging_plug.png?v=1712073082",
-    description: "Help improve energy and stamina",
-  },
-  {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/safety_at_work_isolation_coronavirus_protective_measures.png?v=1712073082",
-    description: "Helps maintain immune health",
-  },
-  {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/Layer_22.png?v=1712073083",
-    description: "Helps maintain immune defenses",
-  },
-  {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/collagen-cleansing-treatment-beauty-skin_care-makeup-healthcare.png?v=1712073082",
-    description: "Promotes Beautiful Skin",
-  },
-  {
-    src: "https://cdn.shopify.com/s/files/1/0840/0158/7493/files/heartbeat_heart_alive_clinic_healthcare_and_medical.png?v=1712073082",
-    description: "Helps maintain healthy blood pressure",
+    title: "5 Star customer service",
+    description: "We are available from Monday to Friday from 08:00–17:00",
   },
 ];
-export default function SectionTwo() {
+
+const SectionTwo: React.FC = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto p-4">
-      <p className="text-center font-semibold py-8 text-darker text-2xl">
-        Daily supplements for living life — or creating it
-      </p>
-      <div className="grid grid-cols-2 md:grid-cols-8 gap-8">
-        {imgs.map((img) => (
-          <div key={img.src} className="flex flex-col items-center space-y-4 ">
-            <Image
-              width={400}
-              height={400}
-              key={img.src}
-              alt={img.description}
-              className="aspect-square max-w-12 w-full h-auto rounded-lg"
-              src={img.src}
-            />
-            <p className="text-primary">{img.description}</p>
+    <section className="px-4 py-10 md:py-16 bg-white max-w-7xl mx-auto">
+      <h2 className="text-3xl md:text-5xl font-semibold text-left mb-10">
+        Try us <span className="font-bold">RISK–FREE</span>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-8 ">
+        {features.map((feature, index) => (
+          <div key={index}>
+            <h3 className="text-2xl  font-semibold">{feature.title}</h3>
+            <p className="text-base">{feature.description}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default SectionTwo;

@@ -1,4 +1,5 @@
-import ListPaymentMethod from "@/components/ui/list-payment-method";
+import PaymentMethods from "@/components/paymnet-methods";
+import { PRODUCT_NAME } from "@/config-global";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,10 +34,15 @@ const MENU = [
 ];
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 text-gray-800 py-8 px-4 md:px-16">
+    <footer className="border-t border-gray-200 text-gray-200 bg-primary py-8 px-4 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
-        <div className="space-y-4">
+        <div className="space-y-4 md:mr-4">
+          <p>
+            At {PRODUCT_NAME}, we’ve designed a pillow to help you enjoy deeper,
+            more restful sleep and wake up feeling refreshed. Say goodbye to
+            restless nights and hello to better sleep! 🌙
+          </p>
           <Image
             width={100}
             height={100}
@@ -68,7 +74,7 @@ export default function Footer() {
         {MENU.map((item) => (
           <div key={item.title}>
             <h3 className="text-lg mb-2 font-semibold">{item.title}</h3>
-            <ul className="mt-2 space-y-4 text-gray-500 text-base">
+            <ul className="mt-2 space-y-4 text-gray-300 text-base">
               {item.items.map((subItem) => (
                 <li
                   key={subItem.title}
@@ -87,7 +93,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-8 border-t pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      <div className="mt-8  pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
         <div className="flex items-center space-x-2">
           <span className="text-red-600">
             <svg
@@ -118,7 +124,7 @@ export default function Footer() {
 
         <div className="flex space-x-2 mt-2 md:mt-0">
           <p className="mt-2 md:mt-0 text-gray-400">Powered by OptiLife</p>
-          <ListPaymentMethod />
+          <PaymentMethods />
         </div>
       </div>
     </footer>

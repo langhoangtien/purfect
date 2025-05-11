@@ -18,13 +18,13 @@ export default function TextAndImage({
   imgFirst = false,
 }: TextAndImageProps) {
   return (
-    <div className="max-w-7xl mx-auto mt-10 p-4">
+    <div className="max-w-7xl mx-auto mt-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Phần chữ */}
         <div className="flex items-center justify-center">
           <div>
             <div className="flex flex-col space-y-4 justify-start">
-              <p className="text-blue-600 text-lg font-semibold">{title}</p>
+              <p className="text-primary text-lg font-semibold">{title}</p>
               <p className="text-3xl font-bold">{description}</p>
               {content}
             </div>

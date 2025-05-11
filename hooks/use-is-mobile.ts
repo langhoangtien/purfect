@@ -1,6 +1,5 @@
 import * as React from "react";
 
-const DESKTOP_BREAKPOINT = 1024;
 const TABLET_BREAKPOINT = 768;
 const MOBILE_BREAKPOINT = 480;
 

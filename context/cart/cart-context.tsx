@@ -8,6 +8,8 @@ export interface Product {
   price: number;
   id: string;
   title: string;
+  special?: boolean;
+  compareAtPrice?: number;
 }
 
 interface CartContextType {
@@ -19,6 +21,7 @@ interface CartContextType {
   setSheet: (value: boolean) => void;
   addToCart: (product: Product) => void;
   setProducts: (products: Product[]) => void;
+  addProducts: (products: Product[]) => void;
 }
 
 interface CartProviderProps {
@@ -34,6 +37,7 @@ export const CartContext = createContext<CartContextType>({
   setSheet: () => {},
   addToCart: () => {},
   setProducts: () => {},
+  addProducts: () => {},
 });
 
 export function CartProvider({ children }: CartProviderProps) {
@@ -78,7 +82,53 @@ export function CartProvider({ children }: CartProviderProps) {
     setProducts((prev) => prev.filter((p) => p.id !== id));
   };
 
-  const subtotal = products.reduce((sum, p) => sum + p.price * p.quantity, 0);
+  const addProducts = (items: Product[]) => {
+    const grouped: Record<string, Product> = {};
+
+    // Đầu tiên add các sản phẩm cũ vào grouped
+    for (const product of products) {
+      grouped[product.id] = { ...product };
+    }
+
+    // Tiếp theo gộp sản phẩm mới, nếu trùng id thì cộng quantity
+    for (const item of items) {
+      if (grouped[item.id]) {
+        grouped[item.id].quantity += item.quantity;
+      } else {
+        grouped[item.id] = { ...item };
+      }
+    }
+
+    const newProducts = Object.values(grouped);
+    setProducts(newProducts);
+    setSheet(true);
+  };
+
+  const subtotal = (() => {
+    let normalTotal = 0;
+    let specialTotal = 0;
+    let specialCount = 0;
+
+    for (const p of products) {
+      const itemTotal = p.price * p.quantity;
+      if (p.special) {
+        specialTotal += itemTotal;
+        specialCount += p.quantity;
+      } else {
+        normalTotal += itemTotal;
+      }
+    }
+
+    let discount = 0;
+    if (specialCount >= 3) {
+      discount = 0.3;
+    } else if (specialCount === 2) {
+      discount = 0.2;
+    }
+
+    const discountedSpecialTotal = specialTotal * (1 - discount);
+    return normalTotal + discountedSpecialTotal;
+  })();
 
   return (
     <CartContext.Provider
@@ -91,6 +141,7 @@ export function CartProvider({ children }: CartProviderProps) {
         setSheet,
         addToCart,
         setProducts,
+        addProducts,
       }}
     >
       {children}
