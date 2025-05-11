@@ -81,7 +81,7 @@ export const QuantityCart: React.FC<QuantityCartProps> = ({
         type="text"
         value={quantity}
         readOnly
-        className="border-y-[1px] border-gray-300 h-8 text-center text-gray-900 text-sm font-normal w-full py-2.5"
+        className="border-y-[1px] border-gray-300 h-8 text-center min-w-4 text-gray-900 text-sm font-normal w-full py-2.5"
       />
       <button
         type="button"

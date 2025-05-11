@@ -150,21 +150,21 @@ const ProductCart: React.FC<ProductCartProps> = ({
   tottalSpecial,
 }) => {
   return (
-    <div className="flex relative space-x-4 border-b py-2">
+    <div className="flex relative space-x-4 border-b pt-6 pb-2">
       <Trash2Icon
         strokeWidth={1}
-        className="absolute right-0 top-0 size-4 cursor-pointer"
+        className="absolute right-0 top-0.5 size-4 cursor-pointer"
         onClick={() => removeProduct(id)}
       />
       <Image
-        className="rounded-md object-cover"
+        className="rounded-md size-[80px] md:size-[100px] object-cover"
         alt={name}
         src={image}
         width={100}
         height={100}
       />
-      <div className="flex flex-1 justify-center space-y-4 flex-col">
-        <span className="text-sm font-semibold">{name}</span>
+      <div className="flex flex-1 justify-center  space-y-4 flex-col">
+        <span className="text-sm font-semibold line-clamp-1">{name}</span>
         <span className="text-gray-500">{title}</span>
         <span className="flex text-sm justify-between font-semibold">
           <QuantityCart
