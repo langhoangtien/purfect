@@ -215,8 +215,8 @@ export default function ContactForm() {
           information you need.{" "}
         </p>
         <p>
-          <strong>Headquarters</strong>: 1111B S Governors Ave STE 28573 Dover
-          Daleware 19904
+          <strong>Headquarters</strong>: 1111B S Governors Ave STE 29227 Dover,
+          DE 19904, United States
           <br />
           <strong>Email</strong>:{" "}
           <a
@@ -229,7 +229,7 @@ export default function ContactForm() {
             contact@naturaeon.com
           </a>
           <br />
-          <strong>Phone</strong>: +1 302 590 6135
+          <strong>Phone</strong>: +1 213 800 9944
         </p>
       </div>
     </div>
