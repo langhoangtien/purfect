@@ -7,12 +7,12 @@ export default function HealthAndMedicalDisclaimer() {
       <div className="space-y-4">
         <h4>OVERVIEW</h4>
         <p>
-          This website is operated by OptiLife Supplements. Throughout the site,
-          the terms “we”, “us” and “our” refer to OptiLife Supplements. OptiLife
-          Supplements offers this website, including all information, tools and
-          services available from this site to you, the user, conditioned upon
-          your acceptance of all terms, conditions, policies and notices stated
-          here.
+          This website is operated by Naturaeon Supplements. Throughout the
+          site, the terms “we”, “us” and “our” refer to Naturaeon Supplements.
+          Naturaeon Supplements offers this website, including all information,
+          tools and services available from this site to you, the user,
+          conditioned upon your acceptance of all terms, conditions, policies
+          and notices stated here.
         </p>
         <p>
           By visiting our site and/ or purchasing something from us, you engage
@@ -318,7 +318,7 @@ export default function HealthAndMedicalDisclaimer() {
           particular purpose, durability, title, and non-infringement.
         </p>
         <p>
-          In no case shall OptiLife Supplements, our directors, officers,
+          In no case shall Naturaeon Supplements, our directors, officers,
           employees, affiliates, agents, contractors, interns, suppliers,
           service providers or licensors be liable for any injury, loss, claim,
           or any direct, indirect, incidental, punitive, special, or
@@ -339,7 +339,7 @@ export default function HealthAndMedicalDisclaimer() {
         </p>
         <h4>SECTION 14 - INDEMNIFICATION</h4>
         <p>
-          You agree to indemnify, defend and hold harmless OptiLife Supplements
+          You agree to indemnify, defend and hold harmless Naturaeon Supplements
           and our parent, subsidiaries, affiliates, partners, officers,
           directors, agents, contractors, licensors, service providers,
           subcontractors, suppliers, interns and employees, harmless from any
@@ -419,7 +419,7 @@ export default function HealthAndMedicalDisclaimer() {
         <h4>SECTION 20 - CONTACT INFORMATION</h4>
         <p>
           Questions about the Terms of Service should be sent to us at
-          contact@optilifecompany.com.
+          contact@naturaeon.com.
         </p>
       </div>
     </div>

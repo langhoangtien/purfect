@@ -207,7 +207,7 @@ export const getProductBySlug = async (slug: string): Promise<Product> => {
         id
         title
         description
-        images(first: 10) {
+        images(first: 20) {
           edges {
             node {
               url

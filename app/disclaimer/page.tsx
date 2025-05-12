@@ -8,13 +8,14 @@ export default function HealthAndMedicalDisclaimer() {
         </p>
         <p />
         <p>
-          The information provided by OptiLife LLC. (&quot;we,&quot;
-          &quot;us,&quot; or &quot;our&quot;) on https://www.optilifecompany.com
-          (the &quot;Site&quot;) is for general informational purposes only. All
-          information on the Site is provided in good faith, however, we make no
-          representation or warranty of any kind, express or implied, regarding
-          the accuracy, adequacy, validity, reliability, availability, or
-          completeness of any information on the Site.
+          The information provided by Naturaeon LLC. (&quot;we,&quot;
+          &quot;us,&quot; or &quot;our&quot;) on
+          https://www.Naturaeoncompany.com (the &quot;Site&quot;) is for general
+          informational purposes only. All information on the Site is provided
+          in good faith, however, we make no representation or warranty of any
+          kind, express or implied, regarding the accuracy, adequacy, validity,
+          reliability, availability, or completeness of any information on the
+          Site.
         </p>
         <p />
         <p>
@@ -97,7 +98,7 @@ export default function HealthAndMedicalDisclaimer() {
             role="url"
             href="mailto:contact@gudmuscle.com"
           >
-            contact@optilifecompany.com
+            contact@naturaeon.com
           </a>
           .
         </p>

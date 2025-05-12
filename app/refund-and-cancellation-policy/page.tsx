@@ -65,7 +65,7 @@ export default function HealthAndMedicalDisclaimer() {
           before your refund is officially posted. Next, contact your bank.
           There is often some processing time before a refund is posted. If
           you’ve done all of this and you still have not received your refund
-          yet, please contact us at contact@optilifecompany.com.
+          yet, please contact us at contact@naturaeon.com.
         </p>
         <h4 className="font-semibold">SALE ITEMS (IF APPLICABLE)</h4>
         <p>
@@ -76,7 +76,7 @@ export default function HealthAndMedicalDisclaimer() {
         <p>
           We only replace items if they are defective or damaged. If you need to
           exchange it for the same item, send us an email at
-          contact@optilifecompany.com.
+          contact@naturaeon.com.
         </p>
         <h4 className="font-semibold">GIFTS</h4>
         <p>

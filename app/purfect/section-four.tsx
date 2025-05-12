@@ -112,13 +112,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </ul>
       <div className="flex justify-between items-center mt-4">
         <Link
-          href="/products/optilife-blend"
+          href="/products/Naturaeon-blend"
           className={`md:px-16 px-6 py-4 ${buttonColor} text-white rounded-full text-lg font-medium hover:opacity-90 transition`}
         >
           Try Now
         </Link>
         <Link
-          href="/products/optilife-blend"
+          href="/products/Naturaeon-blend"
           className="text-green-700 hover:text-primary px-2 hover:border-primary font-semibold border-b-2"
         >
           Learn <br /> more
@@ -190,7 +190,7 @@ export default function SectionFour() {
       </div>
       <div className="w-full max-w-6xl flex flex-col space-y-8 mx-auto">
         <p className="text-5xl text-gray-800 text-left">
-          Here&apos;s how OptiLife ™ works
+          Here&apos;s how Naturaeon ™ works
         </p>
         <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-8">
           {works.map((item) => (
@@ -201,7 +201,7 @@ export default function SectionFour() {
               <Image
                 width={1500}
                 height={1500}
-                alt="OptiLife ™ works"
+                alt="Naturaeon ™ works"
                 className="rounded-full w-full aspect-square"
                 src={item.image}
               />

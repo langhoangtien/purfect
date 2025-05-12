@@ -73,10 +73,10 @@ export default function SectionSix() {
 
           <div className="mt-8">
             <Link
-              href="/products/optilife-blend"
+              href="/products/Naturaeon-blend"
               className="bg-primary text-white px-6 py-4 rounded-full text-lg font-medium shadow-lg"
             >
-              Start your OptiLife™ Today →
+              Start your Naturaeon™ Today →
             </Link>
             <p className="mt-4 text-base font-semibold">
               Love it or your money back, guaranteed.

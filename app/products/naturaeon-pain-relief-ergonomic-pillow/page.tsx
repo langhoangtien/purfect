@@ -4,9 +4,8 @@ import ProductView from "./view";
 
 export default async function Page() {
   const product = await getProductBySlug(
-    "optilife-pain-relief-ergonomic-pillow"
+    "naturaeon-pain-relief-ergonomic-pillow"
   );
-  console.log("Product data:", product);
 
   if (!product) return notFound();
 

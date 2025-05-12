@@ -70,8 +70,8 @@ export default function SectionFive() {
             The best supplement ever; according to 114k+ 5 star reviews
           </h2>
           <p className="text-lg font-semibold  mt-2">
-            People love OptiLife — read why 98% of OptiLife customers would shop
-            with us again.
+            People love Naturaeon — read why 98% of Naturaeon customers would
+            shop with us again.
           </p>
         </div>
 

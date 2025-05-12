@@ -5,7 +5,7 @@ import SectionOne from "./section-one";
 import SectionThree from "./section-three";
 import SectionTwo from "./section-two";
 
-export default function OptiLifeHome() {
+export default function NaturaeonHome() {
   return (
     <div className="bg-white">
       <SectionOne />

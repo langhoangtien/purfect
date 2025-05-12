@@ -397,7 +397,7 @@ export default function HealthAndMedicalDisclaimer() {
           }}
         >
           <strong style={{ fontWeight: "bold" }}>
-            **&nbsp;OptiLife&nbsp;<span style={{}}>is&nbsp;</span>not
+            **&nbsp;Naturaeon&nbsp;<span style={{}}>is&nbsp;</span>not
             <span style={{}}>&nbsp;</span>
             <span style={{}}>responsible for&nbsp;</span>
             <span style={{}}>

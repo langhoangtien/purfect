@@ -4,8 +4,8 @@ import Footer from "../layouts/footer";
 import Newsletter from "@/components/news-letter";
 
 export const metadata: Metadata = {
-  title: "OptiLife Blend",
-  description: "OptiLife Blend",
+  title: "Naturaeon Blend",
+  description: "Naturaeon Blend",
 };
 
 export default function MainLayout({

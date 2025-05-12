@@ -18,7 +18,7 @@ export default function SectionOne() {
           {PRODUCT_NAME}: Unmatched quality, designed for superior sleep.
         </h2>
         <div>
-          <Link href="/products/optilife-pain-relief-ergonomic-pillow">
+          <Link href="/products/naturaeon-pain-relief-ergonomic-pillow">
             <span className="flex group flex-col space-y-1">
               {" "}
               <span>Shop now</span>

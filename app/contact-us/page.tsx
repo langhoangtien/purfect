@@ -224,9 +224,9 @@ export default function ContactForm() {
             rel="noopener noreferrer nofollow"
             title=""
             role="url"
-            href="mailto:contact@optilifecompany.com"
+            href="mailto:contact@naturaeon.com"
           >
-            contact@optilifecompany.com
+            contact@naturaeon.com
           </a>
           <br />
           <strong>Phone</strong>: +1 302 590 6135

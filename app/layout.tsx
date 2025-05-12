@@ -25,8 +25,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OptiLife",
-  description: "OptiLife is a wellness brand that offers premium supplements.",
+  title: "Naturaeon",
+  description: "Naturaeon is a wellness brand that offers premium supplements.",
 };
 
 export default function RootLayout({

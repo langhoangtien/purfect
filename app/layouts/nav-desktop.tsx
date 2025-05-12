@@ -9,7 +9,7 @@ export const menu = [
   { name: "About Us", link: "/about-us" },
   {
     name: `${PRODUCT_NAME.toLocaleUpperCase()} - Premium Ergonomic Pillow`,
-    link: "/products/optilife-pain-relief-ergonomic-pillow",
+    link: "/products/naturaeon-pain-relief-ergonomic-pillow",
   },
   { name: "Contact", link: "/contact-us" },
   { name: "Track Order", link: "/track-order" },

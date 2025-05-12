@@ -53,16 +53,16 @@ export default function Footer() {
               boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
               borderRadius: 100,
             }}
-            className="image p-0 w-auto object-contain size-32  aspect-square"
+            className="image p-0 w-auto object-contain size-32 bg-white  aspect-square"
             draggable="false"
             alt=""
             decoding="async"
             data-loaded="false"
-            src="/logo-footer.png"
+            src="/logo.png"
           />
 
-          <h2 className="text-2xl font-bold">OptiLife LLC.</h2>
-          <p className="text-sm mt-2">Email: contact@optilifecompany.com</p>
+          <h2 className="text-2xl font-bold">Naturaeon LLC.</h2>
+          <p className="text-sm mt-2">Email: contact@naturaeon.com</p>
           {/* <div className="flex space-x-4 mt-4 text-xl">
           <FaFacebookF className="cursor-pointer hover:text-blue-500" />
           <FaYoutube className="cursor-pointer hover:text-red-500" />
@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         <div className="flex space-x-2 mt-2 md:mt-0">
-          <p className="mt-2 md:mt-0 text-gray-400">Powered by OptiLife</p>
+          <p className="mt-2 md:mt-0 text-gray-400">Powered by Naturaeon</p>
           <PaymentMethods />
         </div>
       </div>
