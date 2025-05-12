@@ -4,8 +4,10 @@ import ProductView from "./view";
 
 export default async function Page() {
   const product = await getProductBySlug(
-    "optilifetech-pain-relief-ergonomic-pillow"
+    "optilife-pain-relief-ergonomic-pillow"
   );
+  console.log("Product data:", product);
+
   if (!product) return notFound();
 
   return <ProductView data={product} />;
