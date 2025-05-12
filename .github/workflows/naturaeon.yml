@@ -44,5 +44,5 @@ jobs:
             docker build -t naturaeon-fe .
 
             echo "🚀 Chạy container mới"
-            docker run -d --name naturaeon-fe-container -p 4010:4010 naturaeon-fe
+            docker run -d --name naturaeon-fe-container -p 4010:5001 naturaeon-fe
           EOF
