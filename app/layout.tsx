@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import {
   CheckCircle,
@@ -80,6 +82,7 @@ export default function RootLayout({
             loading: <Loader2 size={16} className="animate-spin mt-1" />,
           }}
         />
+        <GoogleAnalytics gaId="G-3CZZJ6YVBE" />
       </body>
     </html>
   );
