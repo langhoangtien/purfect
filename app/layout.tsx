@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Naturaeon",
-  description: "Naturaeon is a wellness brand that offers premium supplements.",
+  description: "NATURAEON - PAIN RELIEF ERGONOMIC PILLOW",
 };
 
 export default function RootLayout({
