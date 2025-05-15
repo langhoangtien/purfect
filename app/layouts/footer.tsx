@@ -5,43 +5,44 @@ import Link from "next/link";
 
 const MENU = [
   {
-    title: "MORE INFO",
+    title: "MER INFORMATION",
     items: [
-      { title: "Order Tracking", link: "/track-order" },
-      { title: "About Us", link: "/about-us" },
-      { title: "Blogs", link: "/blogs" },
-      { title: "Contact", link: "/contact-us" },
-      { title: "FAQs", link: "/faqs" },
+      { title: "Spåra beställning", link: "/track-order" },
+      { title: "Om oss", link: "/about-us" },
+      { title: "Blogg", link: "/blogs" },
+      { title: "Kontakta oss", link: "/contact-us" },
+      { title: "Vanliga frågor (FAQs)", link: "/faqs" },
     ],
   },
   {
     title: "POLICY",
     items: [
-      { title: "Terms of Service", link: "/terms-of-service" },
-      { title: "Privacy Policy", link: "/privacy-policy" },
-      { title: "Shipping Policy", link: "/shipping-policy" },
+      { title: "Användarvillkor", link: "/terms-of-service" },
+      { title: "Integritetspolicy", link: "/privacy-policy" },
+      { title: "Fraktpolicy", link: "/shipping-policy" },
       {
-        title: "Return and Refund Policy",
+        title: "Retur- och återbetalningspolicy",
         link: "/refund-and-cancellation-policy",
       },
       {
-        title: "Billing Terms and Conditions",
+        title: "Faktureringsvillkor",
         link: "/billing-terms-and-conditions",
       },
-      { title: "Disclaimer", link: "/disclaimer" },
+      { title: "Ansvarsfriskrivning", link: "/disclaimer" },
     ],
   },
 ];
+
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200 text-gray-200 bg-primary py-8 px-4 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Company Info */}
+        {/* Företagsinformation */}
         <div className="space-y-4 md:mr-4">
           <p>
-            At {PRODUCT_NAME}, we’ve designed a pillow to help you enjoy deeper,
-            more restful sleep and wake up feeling refreshed. Say goodbye to
-            restless nights and hello to better sleep! 🌙
+            På {PRODUCT_NAME} har vi designat en kudde som hjälper dig att sova
+            djupare, vakna mer utvilad och må bättre. Säg hej då till oroliga
+            nätter – och hej till bättre sömn! 🌙
           </p>
           <Image
             width={100}
@@ -62,15 +63,10 @@ export default function Footer() {
           />
 
           <h2 className="text-2xl font-bold">Naturaeon LLC.</h2>
-          <p className="text-sm mt-2">Email: contact@naturaeon.com</p>
-          {/* <div className="flex space-x-4 mt-4 text-xl">
-          <FaFacebookF className="cursor-pointer hover:text-blue-500" />
-          <FaYoutube className="cursor-pointer hover:text-red-500" />
-          <FaTiktok className="cursor-pointer hover:text-black" />
-        </div> */}
+          <p className="text-sm mt-2">E-post: contact@naturaeon.com</p>
         </div>
 
-        {/* More Info */}
+        {/* Mer information + Policys */}
         {MENU.map((item) => (
           <div key={item.title}>
             <h3 className="text-lg mb-2 font-semibold">{item.title}</h3>
@@ -88,12 +84,10 @@ export default function Footer() {
             </ul>
           </div>
         ))}
-
-        {/* Policy */}
       </div>
 
-      {/* Bottom Section */}
-      <div className="mt-8  pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
+      {/* Footer nederdel */}
+      <div className="mt-8 pt-4 flex flex-col md:flex-row justify-between items-center text-sm">
         <div className="flex items-center space-x-2">
           <span className="text-red-600">
             <svg
@@ -119,11 +113,11 @@ export default function Footer() {
               />
             </svg>
           </span>
-          <span>English (EN) | USD</span>
+          <span>Svenska (SV) | SEK</span>
         </div>
 
         <div className="flex space-x-2 mt-2 md:mt-0">
-          <p className="mt-2 md:mt-0 text-gray-400">Powered by Naturaeon</p>
+          <p className="mt-2 md:mt-0 text-gray-400">Drivs av Naturaeon</p>
           <PaymentMethods />
         </div>
       </div>

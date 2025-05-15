@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     domains: ["cdn.shopify.com", "img.thesitebase.net", "localhost"], // 👈 Thêm Shopify CDN vào đây
   },
   output: "standalone",
+  i18n: {
+    locales: ["en", "sv"],
+    defaultLocale: "en",
+  },
 };
 
 export default nextConfig;

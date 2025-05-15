@@ -14,7 +14,7 @@ import {
   SelectValue,
   Select,
 } from "@/components/ui/select";
-import { ArrowLeftRightIcon, CheckIcon } from "lucide-react";
+import { ArrowLeftRightIcon, CheckIcon, XIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -26,39 +26,40 @@ import { Comparison } from "@/components/comparison";
 import TextAndImage from "@/components/text-and-image";
 import { useIsTablet } from "@/hooks/use-is-mobile";
 import { PRODUCT_NAME } from "@/config-global";
+import { useTranslation } from "next-i18next";
 
-const tabs = ["Neck Pain", "Insomnia", "Snoring", "Shoulder Pain"];
+const tabs = ["Nacksmärta", "Sömnlöshet", "Snarkning", "Axelsmärta"];
 
 const testimonials = [
   {
-    tab: "Neck Pain",
-    name: "Michelle​ L.",
+    tab: "Nacksmärta",
+    name: "Lena Karlsson",
     review:
-      "This pillow exceeded my expectations! I've struggled with C5-C6 neck pain for a long time, and this is the first product that truly provides relief. The quality is excellent, and it’s so easy to use. I wake up with less stiffness and discomfort, feeling more refreshed. Highly recommend for anyone dealing with neck pain — it’s worth every penny!",
+      "Denna kudde överträffade mina förväntningar! Jag har haft problem med smärta i C5-C6 under lång tid, och detta är den första produkten som verkligen lindrat det. Kvaliteten är fantastisk och den är så enkel att använda. Jag vaknar upp mindre stel och mer utvilad. Rekommenderas varmt till alla med nackproblem – den är värd varje krona!",
     rating: 5,
     image: "/purfect/comment1.webp",
   },
   {
-    tab: "Insomnia",
-    name: "Melissa G.",
+    tab: "Sömnlöshet",
+    name: "Emma Andersson",
     review:
-      "Getting a full night’s sleep used to feel impossible, but this pillow has been a complete game-changer. I fall asleep faster, wake up less often, and finally feel truly rested in the morning. The comfort and support help me relax, and the high-quality design makes it a joy to use. It’s rare to find something that actually helps with insomnia, but this does exactly what I needed. Highly recommend!",
+      "Att få en hel natts sömn brukade kännas omöjligt, men denna kudde har förändrat allt. Jag somnar snabbare, vaknar mindre under natten och känner mig äntligen riktigt utvilad. Den är bekväm och ger ett skönt stöd, och kvalitén är hög. Det är ovanligt att något verkligen fungerar mot sömnproblem, men denna kudde gör det. Rekommenderas starkt!",
     rating: 5,
     image: "/purfect/comment2.webp",
   },
   {
-    tab: "Shoulder pain",
-    name: "Kimberly V.",
+    tab: "Axelsmärta",
+    name: "Sofia Nilsson",
     review:
-      "Dealing with shoulder pain every morning was my reality until I found this pillow. The support is perfectly balanced, relieving pressure on my shoulders and helping me sleep deeper through the night. It’s comfortable, well–made, and incredibly effective at reducing my pain. I finally feel like I’m waking up without that constant ache. If you struggle with shoulder pain, this is 100% worth it!",
+      "Jag vaknade varje morgon med axelsmärta – tills jag hittade denna kudde. Stödet är perfekt balanserat och minskar trycket på axlarna, vilket hjälper mig att sova djupare. Den är otroligt bekväm och välgjord, och verkligen effektiv. Om du har ont i axlarna är denna kudde ett måste!",
     rating: 5,
     image: "/purfect/comment3.webp",
   },
   {
-    tab: "Snoring",
-    name: "David B.",
+    tab: "Snarkning",
+    name: "Johan Eriksson",
     review:
-      "I never thought a pillow could make such a difference, but this one truly has! My snoring used to wake me (and my partner) up multiple times a night, but since using this, I sleep so much more peacefully. The support keeps my head and neck in the perfect position, helping me breathe better and reducing snoring significantly. The quality is fantastic, and it’s so comfortable. If you struggle with snoring, this is absolutely worth trying!",
+      "Jag trodde inte att en kudde kunde göra sådan skillnad – men denna har verkligen hjälpt mig! Min snarkning brukade väcka både mig och min partner flera gånger varje natt. Nu sover jag mycket lugnare. Kudden håller huvudet och nacken i rätt position, vilket förbättrar andningen och minskar snarkning. Fantastisk kvalitet och väldigt bekväm!",
     rating: 5,
     image: "/purfect/comment4.webp",
   },
@@ -66,76 +67,77 @@ const testimonials = [
 
 const acc = [
   {
-    title: "Shipping times & Returns",
+    title: "Leveranstider & Returpolicy",
     content: (
       <div className="space-y-2 text-base">
         <p>
-          <strong>Shipping</strong>
+          <strong>Leverans</strong>
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Secured shipping includes (Track &amp; Trace code)</li>
+          <li>Säker leverans med spårningskod (Track & Trace)</li>
           <li>
-            Orders are delivered to your home within 7-11 business days with
-            track and trace code
+            Beställningar levereras hem till dig inom 7–11 arbetsdagar med
+            spårningsinformation.
             <br />
           </li>
         </ul>
         <p>
-          <strong>Returns</strong>
+          <strong>Returer</strong>
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            We love our product and we&apos;re confident you will too! If
-            you&apos;re not completely satisfied, you can easily return it
-            within 100 days.
+            Vi älskar vår produkt och vi är säkra på att du också kommer göra
+            det! Om du inte är helt nöjd kan du enkelt returnera den inom 100
+            dagar.
           </li>
         </ul>
       </div>
     ),
   },
   {
-    title: "Sleep Shouldn’t Hurt",
+    title: "Sömn ska inte göra ont",
     content: (
       <div className="space-y-2 text-base">
         <p>
-          That’s why we created the
-          <strong> {PRODUCT_NAME} Premium Ergonomic Pillow</strong> — a sleep
-          solution designed for{" "}
-          <strong>people who are tired of waking up in pain.</strong>
+          Det är därför vi skapade
+          <strong> {PRODUCT_NAME} Premium Ergonomisk Kudde</strong> — en
+          sömnlösning framtagen för{" "}
+          <strong>personer som är trötta på att vakna med smärta.</strong>
         </p>
         <p>
-          We didn’t just guess. This pillow is built on{" "}
+          Vi gissade inte. Denna kudde bygger på{" "}
           <strong>
-            years of research, real-world testing, and feedback from people just
-            like you.
+            år av forskning, praktiska tester och feedback från människor som
+            du.
           </strong>
         </p>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>Soft, adaptive memory foam</strong> gently supports your
-            neck and shoulders all night.
+            <strong>Mjuk, anpassningsbar minnesskum</strong> ger stöd åt din
+            nacke och dina axlar hela natten.
           </li>
           <li>
-            <strong>An ergonomic shape</strong> keeps your spine aligned —
-            whether you sleep on your back, side, or toss and turn.
+            <strong>Ergonomisk form</strong> håller din ryggrad i rätt linje —
+            oavsett om du sover på rygg, sida eller byter position ofta.
           </li>
           <li>
-            <strong>A hollow center</strong> helps reduce ear pressure (great
-            for side sleepers).
+            <strong>Ihåligt centrum</strong> minskar trycket mot örat (perfekt
+            för sidosovare).
           </li>
           <li>
-            <strong>Arm grooves</strong> let you rest comfortably without waking
-            up with tingling or tension.
+            <strong>Armspår</strong> gör det bekvämt att vila utan att vakna med
+            domningar eller spänningar.
           </li>
           <li>
             <strong>
-              And yes — it helps reduce snoring and sleep interruptions too.
+              Och ja — den hjälper även till att minska snarkning och
+              sömnavbrott.
             </strong>
           </li>
         </ul>
         <p>
-          It’s soft. It’s breathable. And it comes with a removable, washable
-          cover — because comfort shouldn’t be complicated.
+          Den är mjuk. Den andas. Och den har ett avtagbart, tvättbart överdrag
+          — för komfort ska inte vara komplicerat.
         </p>
       </div>
     ),
@@ -144,41 +146,42 @@ const acc = [
 
 const acc2 = [
   {
-    title: `Is ${PRODUCT_NAME} really different than other pillows?`,
+    title: `Är ${PRODUCT_NAME} verkligen annorlunda jämfört med andra kuddar?`,
     content: (
       <p>
-        Yes. The <strong>{PRODUCT_NAME} pillow</strong> isn’t a generic pillow
-        with a new cover — it was engineered specifically for alignment,
-        comfort, and long-term relief.
+        Ja. <strong>{PRODUCT_NAME}-kudden</strong> är inte en vanlig kudde med
+        nytt överdrag — den är specifikt utformad för korrekt stöd, komfort och
+        långsiktig smärtlindring.
       </p>
     ),
   },
   {
-    title: "Does my purchase include a pillowcase?",
+    title: "Ingår örngott i mitt köp?",
     content: (
       <p>
-        Yes, the pillow comes with a pillowcase already fitted. If you’d like an
-        additional one for convenience while the original is being washed, you
-        can easily order an extra pillowcase.
+        Ja, kudden levereras med ett örngott redan påsatt. Om du vill ha ett
+        extra örngott för bekvämlighet när det första tvättas, kan du enkelt
+        beställa ett till.
       </p>
     ),
   },
   {
-    title: "Can I use my own pillowcase?",
+    title: "Kan jag använda mitt eget örngott?",
     content: (
       <p>
-        Yes, you can use your own pillowcase. Keep in mind that it may not fit
-        as snugly as the provided one, which could lead to a less tailored
-        appearance.
+        Ja, du kan använda ditt eget örngott. Men tänk på rằng det kanske inte
+        passar lika perfekt som det som medföljer, vilket kan ge ett mindre
+        snyggt utseende.
       </p>
     ),
   },
   {
-    title: "Not satisfied with the pillow? No problem!",
+    title: "Inte nöjd med kudden? Inga problem!",
     content: (
       <p>
-        We offer a 100-night trial. If you’re not completely satisfied, you can
-        return the <strong>{PRODUCT_NAME} Pillow</strong> risk-free.
+        Vi erbjuder 100 nätters provperiod. Om du inte är helt nöjd kan du
+        returnera
+        <strong> {PRODUCT_NAME}-kudden</strong> helt riskfritt.
       </p>
     ),
   },
@@ -186,32 +189,32 @@ const acc2 = [
 
 const options = [
   {
-    title: "Buy 1 Pillow",
-    description: "SALE ENDS TODAY",
+    title: "Köp 1 kudde",
+    description: "REA SLUTAR IDAG",
     number: 0,
     tag: "",
     extra: 0,
   },
   {
-    title: "Buy 2 Pillow",
-    description: "+ FREE SHIPPING",
+    title: "Köp 2 kuddar",
+    description: "+ FRI FRAKT",
     number: 1,
-    tag: "Most Popular",
+    tag: "Mest populär",
     extra: 0.2,
   },
   {
-    title: "Family Pack (3 Pillows)",
-    description: "+ FREE SHIPPING",
+    title: "Familjepaket (3 kuddar)",
+    description: "+ FRI FRAKT",
     number: 2,
-    tag: "Best Value",
+    tag: "Bästa värdet",
     extra: 0.3,
   },
 ];
 
 const benifests = [
-  "Reduces Neck, Back, and Shoulder Pain",
-  "Keeps your Spine in Alignment — All night",
-  "Soft, Cooling memory foam",
+  "Minskar smärta i nacke, rygg och axlar",
+  "Håller ryggraden i rätt position – hela natten",
+  "Mjukt och svalkande minnesskum",
 ];
 export default function ProductView(data: { data: Product }) {
   const product = data.data;
@@ -219,7 +222,7 @@ export default function ProductView(data: { data: Product }) {
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
   >({ [product.options[0].name]: product.options[0].values[0] });
-
+  useTranslation();
   const [variantSelected, setVariantSelected] = useState<ProductVariant | null>(
     null
   );
@@ -380,8 +383,8 @@ export default function ProductView(data: { data: Product }) {
   return (
     <div className="text-[#102a3e] ">
       <div className="rounded-lg">
-        <div className="grid grid-cols-12 space-x-6 space-y-16">
-          <div className="grid max-w-7xl p-4 col-span-12 mx-auto grid-cols-12">
+        <div className="grid grid-cols-12 p-4 md:space-x-6 space-y-16">
+          <div className="grid max-w-7xl  col-span-12 mx-auto grid-cols-12">
             <section className="col-span-12  md:col-span-8">
               <ProductDetailCarousel
                 slides={product.images.edges.map(
@@ -390,18 +393,19 @@ export default function ProductView(data: { data: Product }) {
               />
             </section>
 
-            <section className="flex flex-col  space-y-4 col-span-12 md:col-span-4">
+            <section className="flex flex-col space-y-4 col-span-12 md:col-span-4">
               <div className="flex gap-1 text-xs">
                 <span className="excellent" style={{ color: "#102A3E" }}>
-                  &quot;EXCELLENT&quot;
+                  &quot;Kundbetyg&quot;
                 </span>
                 <span className="stars">★★★★★</span>
                 <span className="rating-text">
-                  <b>4.8/5</b> | 9,250+ Reviews
+                  <b>4.8/5</b> | 9 250+ Recensioner
                 </span>
               </div>
 
               <h1 className="text-[#102a3e] text-4xl">{product.title}</h1>
+
               <div className="flex gap-2 items-center bg-gray-100 p-2 rounded-md">
                 <Image
                   src="/purfect/linda.avif"
@@ -410,15 +414,16 @@ export default function ProductView(data: { data: Product }) {
                   height={100}
                   className="rounded-full object-cover size-12"
                 />
-                <div className="flex gap-1 flex-col ">
-                  <p className="text-xs font-semibold">Linda Harris</p>
-                  <span className="text-[#102a3e]  text-[10px] italic">
-                    &quot;I’m 59 and used to wake up sore every morning. I’ve
-                    tried at least six pillows, and none of them made a
-                    difference. This one did — the very first night.&quot;
+                <div className="flex gap-1 flex-col">
+                  <p className="text-xs font-semibold">Eva Larsson</p>
+                  <span className="text-[#102a3e] text-[10px] italic">
+                    &quot;Jag är 59 och vaknade tidigare varje morgon med värk.
+                    Jag har provat minst sex olika kuddar, och ingen fungerade —
+                    förrän denna. Redan första natten gjorde skillnad.&quot;
                   </span>
                 </div>
               </div>
+
               <p className="flex gap-2 items-center">
                 <span className="text-gray-400 text-sm font-semibold line-through">
                   {parseFloat(
@@ -431,7 +436,7 @@ export default function ProductView(data: { data: Product }) {
                   {caculatePrice(
                     variantSelected?.priceV2.amount || "0",
                     optionNumber.number + 1
-                  )}
+                  )}{" "}
                   USD
                 </span>
 
@@ -439,6 +444,7 @@ export default function ProductView(data: { data: Product }) {
                   Flash Sale
                 </span>
               </p>
+
               <div className="flex gap-2 flex-col text-sm">
                 {benifests.map((item) => (
                   <div className="flex gap-2 items-center" key={item}>
@@ -453,55 +459,47 @@ export default function ProductView(data: { data: Product }) {
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold"></h3>
-              {product.options.map(
-                (option: { id: string; name: string; values: string[] }) => (
-                  <div className="space-y-4" key={option.name}>
-                    <h4 className="text-base">
-                      {" "}
-                      Cover color - {selectedOptions[option.name]}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {option.values.map((value: string) => (
+              {product.options.map((option) => (
+                <div className="space-y-4" key={option.name}>
+                  <h4 className="text-base">
+                    {" "}
+                    Välj färg - {selectedOptions[option.name]}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {option.values.map((value) => (
+                      <span
+                        key={value}
+                        onClick={() => handleOptionChange(option.name, value)}
+                        className={`size-12 duration-500 transition-transform flex items-center cursor-pointer justify-center rounded-full text-base font-normal ${
+                          selectedOptions[option.name] === value
+                            ? " border-gray-800 border-2 "
+                            : ""
+                        }`}
+                      >
                         <span
-                          key={value}
-                          onClick={() => handleOptionChange(option.name, value)}
-                          className={`size-12 duration-500 transition-transform  flex items-center cursor-pointer  justify-center rounded-full text-base font-normal ${
-                            selectedOptions[option.name] === value
-                              ? " border-gray-800 border-2  "
-                              : ""
-                          }`}
-                        >
-                          <span
-                            className={`size-10 block border-gray-200 border rounded-full ${getColor(
-                              value
-                            )} `}
-                          ></span>
-                        </span>
-                      ))}
-                    </div>
+                          className={`size-10 block border-gray-200 border rounded-full ${getColor(
+                            value
+                          )}`}
+                        />
+                      </span>
+                    ))}
                   </div>
-                )
-              )}
+                </div>
+              ))}
+
               <p className="text-orange-500 flex items-center gap-2">
-                <span className="inline-flex size-3 rounded-full bg-orange-500 animate-pulse "></span>
-                <span>Limited stock - only 6 items available</span>
-              </p>
-              <p className=" flex items-center gap-2 ">
-                <span className="h-0.5 flex-grow bg-gray-300"> </span>
-                <span className="text-xs font-semibold text-[#102a3e] ">
-                  FLASH SALE ENDS TODAY
-                </span>
-                <span className="h-0.5 flex-grow bg-gray-300"> </span>
+                <span className="inline-flex size-3 rounded-full bg-orange-500 animate-pulse" />
+                <span>Begränsat lager – endast 6 kvar</span>
               </p>
 
-              {/* <h3> Description:</h3>
-            {/* <h3> Price:</h3>
-            {product.variants.edges.map((variant: { node: ProductVariant }) => (
-              <p key={variant.node.id}>
-                {variant.node.title} - {variant.node.priceV2.amount} USD
+              <p className="flex items-center gap-2">
+                <span className="h-0.5 flex-grow bg-gray-300" />
+                <span className="text-xs font-semibold text-[#102a3e]">
+                  BLIXTREA SLUTAR IDAG
+                </span>
+                <span className="h-0.5 flex-grow bg-gray-300" />
               </p>
-            ))} */}
+
               {options.map((item, index) => (
                 <label
                   onClick={() =>
@@ -510,9 +508,9 @@ export default function ProductView(data: { data: Product }) {
                       selectedOptions[product.options[0].name]
                     )
                   }
-                  className={`flex flex-col gap-1 relative bg-blue-50 cursor-pointer  text-[#102a3e] rounded-md   p-4 ${
+                  className={`flex flex-col gap-1 relative bg-blue-50 cursor-pointer text-[#102a3e] rounded-md p-4 ${
                     item.number === optionNumber.number
-                      ? "dark:border-gray-300 border border-gray-800 "
+                      ? "dark:border-gray-300 border border-gray-800"
                       : "dark:border-gray-100 border border-gray-300"
                   }`}
                   key={item.number}
@@ -525,8 +523,7 @@ export default function ProductView(data: { data: Product }) {
                         checked={item.number === optionNumber.number}
                       />
                       <div className="space-y-1">
-                        {" "}
-                        <p className="flex flex-wrap gap-1 items-center ">
+                        <p className="flex flex-wrap gap-1 items-center">
                           <span className="text-lg">{item.title}</span>
                           <span className="bg-blue-100 px-2 py-1 text-xs rounded-lg">
                             {getDescription(item.extra)}
@@ -536,8 +533,7 @@ export default function ProductView(data: { data: Product }) {
                       </div>
                     </div>
                     <div>
-                      {" "}
-                      <p className=" text-xl">
+                      <p className="text-xl">
                         $
                         {caculatePrice(
                           variantSelected?.priceV2.amount || "0",
@@ -553,9 +549,10 @@ export default function ProductView(data: { data: Product }) {
                       </p>
                     </div>
                   </div>
+
                   {item.number === optionNumber.number && !!item.number && (
                     <div className="flex flex-col gap-1">
-                      <p className="text-xs">Cover color</p>
+                      <p className="text-xs">Färg på överdrag</p>
                       {Array.from({ length: item.number + 1 }).map(
                         (_, index) => (
                           <div
@@ -565,19 +562,17 @@ export default function ProductView(data: { data: Product }) {
                             <span>#{index + 1}</span>
                             <Select
                               value={optionNumber.values[index]}
-                              onValueChange={(value) =>
-                                setOptionNumber((prev) => {
-                                  const newValues = [...prev.values];
-                                  newValues[index] = value;
-                                  return {
-                                    ...prev,
-                                    values: newValues,
-                                  };
-                                })
-                              }
+                              onValueChange={(value) => {
+                                const newValues = [...optionNumber.values];
+                                newValues[index] = value;
+                                setOptionNumber({
+                                  ...optionNumber,
+                                  values: newValues,
+                                });
+                              }}
                             >
                               <SelectTrigger className="w-[100px] h-8">
-                                <SelectValue placeholder="Select" />
+                                <SelectValue placeholder="Välj" />
                               </SelectTrigger>
                               <SelectContent>
                                 {product.options[0].values.map((value) => (
@@ -594,22 +589,26 @@ export default function ProductView(data: { data: Product }) {
                   )}
                 </label>
               ))}
+
               <Button className="h-12" onClick={handleAddToCart}>
-                Add to cart
+                Lägg till i kundvagnen
               </Button>
+
               <div className="flex justify-center">
                 <span className="flex items-center text-sm gap-1">
-                  <ArrowLeftRightIcon strokeWidth={3} size={18} /> Try it
-                  risk-free for 100 nights
+                  <ArrowLeftRightIcon strokeWidth={3} size={18} /> Prova
+                  riskfritt i 100 nätter
                 </span>
               </div>
+
               <div className="pl-1 bg-red-500 rounded-md">
                 <div className="bg-red-100 rounded-md text-red-500 text-[15px] p-4">
-                  🚨 <strong>Watch out for Replicas</strong>. Only{" "}
-                  <strong>{PRODUCT_NAME} </strong> guarantees the real pillow
-                  trusted by thousands for pain relief.
+                  🚨 <strong>Varning för kopior</strong>. Endast{" "}
+                  <strong>{PRODUCT_NAME}</strong> garanterar den äkta kudden som
+                  tusentals litar på för smärtlindring.
                 </div>
               </div>
+
               <div>
                 <Accordion type="single" collapsible className="w-full">
                   {acc.map((item, index) => (
@@ -626,18 +625,17 @@ export default function ProductView(data: { data: Product }) {
           </div>
           <section className="col-span-12 flex justify-center text-2xl">
             <h2 className="text-center">
-              {" "}
-              Over <strong>9250+</strong> Customers{" "}
+              Över <strong>9&nbsp;250+</strong> nöjda kunder har{" "}
               <span className="italic-part">
                 <em>
-                  <strong>Transformed</strong>
+                  <strong>förbättrat</strong>
                 </em>
-                <em></em>
-              </span>
-              <em> </em>their sleep!{" "}
+              </span>{" "}
+              sin sömn!
             </h2>
           </section>
-          <section className="col-span-12 ">
+
+          <section className="col-span-12">
             <div className="max-w-7xl mx-auto">
               <div className="flex justify-center flex-wrap w-full md:gap-4 gap-2 mb-6">
                 {tabs.map((tab) => (
@@ -668,7 +666,7 @@ export default function ProductView(data: { data: Product }) {
                   .map((item) => (
                     <div
                       key={item.name}
-                      className="flex flex-col gap-2 bg-gray-100 p-4 rounded-md  "
+                      className="flex flex-col gap-2 bg-gray-100 p-4 rounded-md"
                     >
                       <div className="flex gap-2 flex-col">
                         <span className="flex space-x-1"> ★★★★★</span>
@@ -676,12 +674,11 @@ export default function ProductView(data: { data: Product }) {
                           {item.tab}
                         </span>
                         <div className="flex gap-1 flex-col ">
-                          <span className="text-[#102a3e]  text-sm italic">
+                          <span className="text-[#102a3e] text-sm italic">
                             &quot;{item.review}&quot;
                           </span>
                         </div>
                         <div className="flex mt-8 md:mt-16 space-x-2">
-                          {" "}
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -709,7 +706,7 @@ export default function ProductView(data: { data: Product }) {
                                   fill="white"
                                 />
                               </svg>
-                              <span>Verified Buyer</span>
+                              <span>Verifierad kund</span>
                             </p>
                           </div>
                         </div>
@@ -719,104 +716,103 @@ export default function ProductView(data: { data: Product }) {
               </div>
             </div>
           </section>
-          <section className="col-span-12 ">
-            <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8  bg-white text-gray-800">
-              {/* Text Section */}
+
+          <section className="col-span-12">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 bg-white text-gray-800">
+              {/* Textdel */}
               <div className="w-full lg:w-1/2">
                 <p className="text-sm text-gray-500 uppercase mb-2">
-                  Only available at {PRODUCT_NAME}
+                  Endast tillgänglig hos {PRODUCT_NAME}
                 </p>
                 <h2 className="text-2xl lg:text-4xl font-bold mb-4">
-                  Wake Up Without the Aches and Pains
+                  Vakna utan värk och stelhet
                 </h2>
                 <p className="mb-4">
-                  Neck and shoulder pain. Waking up with tension or headaches.
-                  Struggling to fall — or stay — asleep.
+                  Nack- och axelsmärta. Du vaknar med spänningar eller
+                  huvudvärk. Svårt att somna — eller att sova hela natten.
                 </p>
                 <p className="font-semibold mb-4">
-                  If that sounds familiar, you’re not alone.
+                  Känns det bekant? Du är inte ensam.
                 </p>
                 <p className="mb-4">
-                  For so many people, the real problem is alignment. When your
-                  head, neck, and spine aren&apos;t supported properly during
-                  the night,
+                  För många är det verkliga problemet att kroppen inte är i rätt
+                  linje. När huvud, nacke och ryggrad inte stöds korrekt under
+                  natten
                   <span className="font-semibold">
-                    {" "}
-                    your body stays tense — and you never get the rest you need.
+                    blir kroppen spänd – och du får aldrig den vila du behöver.
                   </span>
                 </p>
                 <p className="mb-4">
-                  That’s why we created the {PRODUCT_NAME} Premium Ergonomic
-                  Pillow:
+                  Därför skapade vi {PRODUCT_NAME} Premium Ergonomisk Kudde:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-sm">
                   <li>
-                    <strong>Relieves neck and shoulder pain</strong> caused by
-                    poor sleep posture
+                    <strong>Lindrar smärta i nacke och axlar</strong> orsakad av
+                    dålig sovställning
                   </li>
                   <li>
-                    <strong>Supports healthy alignment</strong> — no matter how
-                    you sleep
+                    <strong>Stödjer en hälsosam kroppshållning</strong> –
+                    oavsett hur du sover
                   </li>
                   <li>
-                    <strong>Reduces tension</strong> that leads to morning
-                    headaches and restlessness
+                    <strong>Minskar spänningar</strong> som leder till huvudvärk
+                    och rastlöshet på morgonen
                   </li>
                   <li>
-                    <strong>Helps minimize snoring</strong> and sleep
-                    interruptions
+                    <strong>Hjälper till att minska snarkning</strong> och
+                    avbrott i sömnen
                   </li>
                   <li>
-                    <strong>Gentle armrest design</strong> prevents shoulder
-                    pressure and numbness
+                    <strong>Skonsam armstödsdesign</strong> förhindrar tryck på
+                    axlarna och domningar
                   </li>
                   <li>
-                    <strong>Soft, high-quality memory foam</strong> for
-                    all-night comfort
+                    <strong>Mjuk, högkvalitativt minnesskum</strong> för komfort
+                    hela natten
                   </li>
                 </ul>
                 <p className="mt-6">
-                  Invest in your health and enjoy better sleep with the{" "}
-                  {PRODUCT_NAME}
-                  Pillow.
+                  Investera i din hälsa och njut av bättre sömn med{" "}
+                  {PRODUCT_NAME}-kudden.
                 </p>
               </div>
 
-              {/* Image Section */}
+              {/* Bilddel */}
               <div className="w-full lg:w-1/2">
                 <Image
                   width={800}
                   height={800}
                   src="/purfect/pillow1.webp"
-                  alt={`Woman resting on ${PRODUCT_NAME} pillow`}
+                  alt={`Kvinna som vilar på ${PRODUCT_NAME}-kudden`}
                   className="rounded-lg shadow-md w-full h-auto"
                 />
               </div>
             </div>
           </section>
+
           <section className="col-span-12 space-y-4">
             <h2 className="text-4xl text-center font-semibold">
-              Save Your Neck
+              Skona din nacke
             </h2>
             <div className="space-y-4 text-center">
-              {" "}
               <p>
-                <strong>{PRODUCT_NAME}</strong> is made to finally take the
-                pressure off your neck — with gentle, targeted support that
-                actually lasts through the night. When your neck is aligned
-                properly, you don’t wake up stiff, sore, or tense.
+                <strong>{PRODUCT_NAME}</strong> är utformad för att äntligen
+                avlasta din nacke — med skonsamt och riktat stöd som håller hela
+                natten. När nacken ligger i rätt position vaknar du inte upp
+                stel, öm eller spänd.
                 <br />
                 <br />
-                You feel rested. You feel like yourself again.
+                Du känner dig utvilad. Du känner dig som dig själv igen.
               </p>
               <p>
-                By keeping your head and spine in a natural position,{" "}
-                <strong>{PRODUCT_NAME}</strong> helps reduce the daily strain
-                that causes pain, tension, and poor sleep — so every night
-                becomes part of your healing routine.
+                Genom att hålla huvudet och ryggraden i en naturlig ställning
+                hjälper <strong>{PRODUCT_NAME}</strong> till att minska den
+                dagliga belastningen som orsakar smärta, spänningar och dålig
+                sömn — så att varje natt blir en del av din återhämtning.
               </p>
             </div>
           </section>
+
           <section className="col-span-12">
             <div className="max-w-7xl mx-auto">
               <Comparison
@@ -825,61 +821,144 @@ export default function ProductView(data: { data: Product }) {
               />
             </div>
           </section>
-          <section className="col-span-12 space-y-4 ">
-            <TextAndImage
-              src="/purfect/pillow2.png"
-              alt="d"
-              description={`What Makes the ${PRODUCT_NAME} Pillow So Special`}
-              title=""
-              content={
-                <p>
-                  Unlike standard pillows, <strong>{PRODUCT_NAME} </strong>holds
-                  its form and keeps your neck supported all night.
-                  <br />
-                  <br />
-                  The difference? You feel it the moment you wake up.
-                </p>
-              }
-            />
+          <section className="col-span-12 space-y-4">
+            <div className="mt-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Phần chữ */}
+                <div className="flex items-center justify-center">
+                  <div>
+                    <div className="flex flex-col space-y-4 justify-start">
+                      <p className="text-primary text-lg font-semibold"></p>
+                      <p className="text-3xl font-bold">{`Vad gör ${PRODUCT_NAME}-kudden så unik?`}</p>
+                      <p>
+                        Till skillnad från vanliga kuddar behåller{" "}
+                        <strong>{PRODUCT_NAME}</strong> sin form och ger stöd åt
+                        nacken hela natten.
+                        <br />
+                        <br />
+                        Skillnaden? Du känner den direkt när du vaknar.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Hình ảnh */}
+                <div className={`flex-1`}>
+                  <div className="bg-white rounded-md shadow border border-gray-300 ">
+                    <h2 className="text-3xl md:text-4xl font-bold mt-4 text-center mb-8">
+                      VARFÖR VI STICKER UT
+                    </h2>
+                    <div className="grid grid-cols-3  overflow-hidden ">
+                      <div className="bg-white p-4 font-semibold text-sm sm:text-base">
+                        <div className="py-3 border-b h-16 border-gray-300"></div>
+                        {[
+                          "Nackstöd",
+                          "Tryckavlastning",
+                          "Ryggradsjustering",
+                          "Individuell passform",
+                          "Tryckfördelning",
+                          "Hållbarhet",
+                          "Premiumkvalitet",
+                        ].map((item, index) => (
+                          <div
+                            key={item}
+                            className="py-3 border-b flex space-x-1 h-16 items-center border-gray-300"
+                          >
+                            <Image
+                              alt={item}
+                              className="size-10 object-cover"
+                              width={100}
+                              height={100}
+                              src={`/purfect/${index + 1}.jpg`}
+                            ></Image>{" "}
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="bg-primary text-white p-4 text-center text-sm sm:text-base">
+                        <div className="py-3 border-b h-16 border-gray-500 font-bold">
+                          NATURAEON
+                        </div>
+                        {Array(7)
+                          .fill(true)
+                          .map((_, i) => (
+                            <div
+                              key={i}
+                              className="py-3 border-b-[1px] h-16 flex justify-center items-center  border-gray-500 "
+                            >
+                              <span className="size-7 flex justify-center items-center border text-white border-gray-200 rounded-full">
+                                {" "}
+                                <CheckIcon className="size-5" strokeWidth={3} />
+                              </span>
+                            </div>
+                          ))}
+                      </div>
+
+                      <div className="bg-gray-50 text-gray-500 p-4 text-center text-sm sm:text-base">
+                        <div className="py-3 border-b h-16 border-gray-200 font-semibold">
+                          Vanlig kudde
+                        </div>
+                        {Array(7)
+                          .fill(false)
+                          .map((_, i) => (
+                            <div
+                              key={i}
+                              className="py-3 border-b flex h-16 justify-center items-center border-gray-200"
+                            >
+                              {" "}
+                              <span className="size-7 flex justify-center items-center border text-gray-400 border-gray-400 rounded-full">
+                                <XIcon className=" size-5" strokeWidth={3} />
+                              </span>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
-          <section className="col-span-12  space-y-4">
+          <section className="col-span-12 space-y-4">
             <TextAndImage
               src="/purfect/pillow3.webp"
               alt="d"
-              description="— Dr. M. Levinson, Sleep Health Specialist"
+              description="— Dr. M. Levinson, Specialist på sömnhälsa"
               title=""
               content={
                 <div className="space-y-4">
                   <p>
-                    After <strong>26 years </strong>treating patients
+                    Efter <strong>26 års</strong> behandling av patienter
                     <strong>
-                      {" "}
-                      with chronic neck pain, poor sleep, and shoulder tension
+                      med kronisk nacksmärta, sömnproblem och spänningar i
+                      axlarna
                     </strong>
-                    , I hit a turning point —{" "}
-                    <strong>when my own sleep was affected too.</strong>
+                    kom en vändpunkt —{" "}
+                    <strong>när min egen sömn började påverkas.</strong>
                   </p>
                   <p>
-                    That’s why I <strong>helped design this pillow</strong>: to
-                    keep the neck in alignment without forcing the body into a
-                    position it can’t maintain.
+                    Det är därför jag{" "}
+                    <strong>var med och tog fram den här kudden</strong>: för
+                    att hålla nacken i rätt position utan att tvinga kroppen
+                    till något onaturligt.
                   </p>
                   <p>
-                    It&apos;s{" "}
+                    Den är{" "}
                     <strong>
-                      simple, supportive, and made to relieve pain{" "}
+                      enkel, stödjande och framtagen för att lindra smärta
+                    </strong>{" "}
+                    — inte bara hantera den. Mina patienter säger att det är
+                    <strong>
+                      den första riktiga lättnaden de upplevt på flera år.
                     </strong>
-                    — not manage it. My patients say it’s the{" "}
-                    <strong>first real relief they’ve had in years.</strong>
                   </p>
                 </div>
               }
             />
           </section>
           <section className="col-span-3 hidden md:block space-y-4"></section>
-          <section className="col-span-12 md:col-span-6  space-y-4">
+          <section className="col-span-12 md:col-span-6 space-y-4">
             <h2 className="text-4xl text-center font-semibold">
-              HAVE QUESTIONS? WE&apos;RE HERE TO HELP!
+              HAR DU FRÅGOR? VI FINNS HÄR FÖR DIG!
             </h2>
             <Accordion type="single" collapsible className="w-full">
               {acc2.map((item, index) => (

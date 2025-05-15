@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { PRODUCT_NAME } from "@/config-global";
 
 export const menu = [
-  { name: "About Us", link: "/about-us" },
+  { name: "Om oss", link: "/about-us" },
   {
-    name: `${PRODUCT_NAME.toLocaleUpperCase()} - Premium Ergonomic Pillow`,
+    name: `${PRODUCT_NAME.toLocaleUpperCase()} – Ergonomisk Premiumkudde`,
     link: "/products/naturaeon-pain-relief-ergonomic-pillow",
   },
-  { name: "Contact", link: "/contact-us" },
-  { name: "Track Order", link: "/track-order" },
+  { name: "Kontakta oss", link: "/contact-us" },
+  { name: "Spåra beställning", link: "/track-order" },
 ];
 
 export default function NavDesktop() {
