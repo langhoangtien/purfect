@@ -14,6 +14,7 @@ import { CartContext, Product } from "@/context/cart/cart-context";
 
 import { QuantityCart } from "../cart/view";
 import { Button } from "@/components/ui/button";
+import { formatCurrency } from "@/lib/utils";
 
 export default function Cart() {
   const cartContext = useContext(CartContext);
@@ -35,8 +36,8 @@ export default function Cart() {
     const data = await res.json();
 
     if (data.checkoutUrl) {
-      setSheet(false); // Đóng giỏ hàng
-      window.location.href = data.checkoutUrl; // Redirect sang Shopify Checkout
+      setSheet(false);
+      window.location.href = data.checkoutUrl;
     }
   };
   const { products, updateQuantity, removeProduct, subtotal, sheet, setSheet } =
@@ -44,9 +45,9 @@ export default function Cart() {
   const CartEmpty = () => {
     return (
       <div className="flex flex-col justify-center items-center h-full space-y-2">
-        <span className="text-gray-500 text-lg">Your cart is empty</span>
+        <span className="text-gray-500 text-lg">Din varukorg är tom</span>
         <span className="text-green-900 text-base font-semibold uppercase">
-          Shop Our Best sellers
+          Utforska våra bästsäljare
         </span>
       </div>
     );
@@ -59,11 +60,11 @@ export default function Cart() {
 
     return (
       <div className="flex flex-col h-full">
-        <span className=" w-full text-center  text-sm p-4">
-          Congratulations! You have <strong>FREE </strong>shipping
+        <span className=" w-full text-center text-sm p-4">
+          Grattis! Du får <strong>FRI</strong> frakt
         </span>
         <div className="justify-center flex">
-          <span className="bg-yellow-400 w-[90%] px-4  h-2 mb-8 rounded-md"></span>
+          <span className="bg-yellow-400 w-[90%] px-4 h-2 mb-8 rounded-md"></span>
         </div>
         <div className="flex-1 overflow-y-auto p-4">
           {products.map((product: Product) => (
@@ -78,17 +79,12 @@ export default function Cart() {
         </div>
         <div className="p-4 border-t font-semibold text-lg flex flex-col justify-between items-center space-y-2 bg-white sticky bottom-0">
           <div className="flex justify-between w-full">
-            <span>Subtotal</span>
-            <span>
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(subtotal)}
-            </span>
+            <span>Delsumma</span>
+            <span>{formatCurrency(subtotal)}</span>
           </div>
 
           <Button className="w-full" onClick={handleCheckout}>
-            Checkout
+            Till kassan
           </Button>
         </div>
       </div>
@@ -97,12 +93,11 @@ export default function Cart() {
 
   return (
     <div className="p-4">
-      {" "}
       <div
         onClick={() => cartContext.setSheet(true)}
         className="relative inline-block cursor-pointer"
       >
-        <CartIcon className="size-11  text-gray-800" />
+        <CartIcon className="size-11 text-gray-800" />
         <span className="absolute size-4 right-0 bottom-2 rounded-full bg-gray-800 text-white text-xs flex items-center justify-center">
           {products.reduce((acc: number, p: Product) => acc + p.quantity, 0)}
         </span>
@@ -115,7 +110,7 @@ export default function Cart() {
         >
           <SheetHeader>
             <SheetTitle className="p-4">
-              Cart{" "}
+              Varukorg{" "}
               {!!products.length && (
                 <span className="text-gray-500">{products.length}</span>
               )}
@@ -163,7 +158,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
         width={100}
         height={100}
       />
-      <div className="flex flex-1 justify-center  space-y-4 flex-col">
+      <div className="flex flex-1 justify-center space-y-4 flex-col">
         <span className="text-sm font-semibold line-clamp-1">{name}</span>
         <span className="text-gray-500">{title}</span>
         <span className="flex text-sm justify-between font-semibold">
@@ -174,33 +169,22 @@ const ProductCart: React.FC<ProductCartProps> = ({
           <div className="flex items-center flex-col space-y-2">
             <div className="flex space-x-2">
               {!!compareAtPrice && (
-                <span className="text-sm  line-through text-gray-500">
-                  {" "}
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                  }).format(compareAtPrice * quantity)}
+                <span className="text-sm line-through text-gray-500">
+                  {formatCurrency(compareAtPrice * quantity)}
                 </span>
               )}
 
               <span className="text-sm font-semibold">
-                {" "}
-                {new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                }).format(price * quantity * getExtra(tottalSpecial))}
+                {formatCurrency(price * quantity * getExtra(tottalSpecial))}
               </span>
             </div>
             {!!compareAtPrice && (
-              <span className="text-sm  text-green-500">
-                {"SAVE ("}
-                {new Intl.NumberFormat("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                }).format(
+              <span className="text-sm text-green-500">
+                {"SPARA ("}
+                {formatCurrency(
                   compareAtPrice * quantity -
                     price * quantity * getExtra(tottalSpecial)
-                )}{" "}
+                )}
                 {")"}
               </span>
             )}
@@ -221,13 +205,13 @@ const getNameSpecial = (totalSpecial: number) => {
   if (totalSpecial === 2)
     return (
       <Button className="h-6" variant="outline">
-        <TagIcon /> Buy 2 Pillows
+        <TagIcon /> Köp 2 kuddar
       </Button>
     );
   if (totalSpecial >= 3)
     return (
       <Button className="h-6" variant="outline">
-        <TagIcon /> Family Pack (3 Pillows)
+        <TagIcon /> Familjepaket (3 kuddar)
       </Button>
     );
   return null;

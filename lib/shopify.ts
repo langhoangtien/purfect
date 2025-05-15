@@ -202,7 +202,7 @@ export const getProductsByCollection = async (
 // Lấy sản phẩm theo slug (handle)
 export const getProductBySlug = async (slug: string): Promise<Product> => {
   const query = `
-    query GetProductByHandle($handle: String!) {
+    query GetProductByHandle($handle: String!) @inContext(country: SE) {
       productByHandle(handle: $handle) {
         id
         title
@@ -247,6 +247,7 @@ export const getProductBySlug = async (slug: string): Promise<Product> => {
   `;
 
   const data = await ShopifyFetch(query, { handle: slug });
+
   return data?.data?.productByHandle;
 };
 

@@ -6,80 +6,77 @@ import {
 } from "@/components/ui/accordion";
 const data = [
   {
-    title: "How do I place my order?",
+    title: "Hur gör jag en beställning?",
     value: "0",
     content: (
       <div className="space-y-2">
         <p>
-          Simply choose your style on the product page then click the “Add To
-          Cart” button and follow the simple steps to complete your order.
+          Välj helt enkelt din stil på produktsidan, klicka på “Lägg i varukorg”
+          och följ de enkla stegen för att slutföra din beställning.
         </p>
-        <p>
-          We’ll prepare your order and let you know when it&apos;s on its way!
-        </p>
+        <p>Vi förbereder din order och meddelar dig när den är på väg!</p>
       </div>
     ),
   },
   {
-    title: "How long will it take to ship my order?",
+    title: "Hur lång tid tar det att skicka min beställning?",
     value: "1",
     content:
-      "Orders typically ship within 5 to 10 business days. For international orders, transit will take an additional 1 to 2 weeks.",
+      "Beställningar skickas vanligtvis inom 5 till 10 arbetsdagar. För internationella beställningar tillkommer 1 till 2 veckors leveranstid.",
   },
   {
-    title: "My tracking number isn’t working",
+    title: "Mitt spårningsnummer fungerar inte",
     value: "2",
     content:
-      "Tracking numbers can take 1-2 days to appear in the shipping carrier's system. Occasionally, the shipping carrier can lose an order. If the tracking number is still not working within a few days, please contact the shipping carrier.",
+      "Spårningsnummer kan ta 1–2 dagar att registreras i transportörens system. Ibland kan transportören förlora ett paket. Om ditt spårningsnummer fortfarande inte fungerar efter ett par dagar, vänligen kontakta transportören.",
   },
   {
-    title: "I need help with a late order",
+    title: "Jag behöver hjälp med en sen beställning",
     value: "3",
     content: (
       <div className="space-y-2">
         <p>
-          Orders typically ship within 5 to 10 business days. For international
-          orders, transit will take an additional 1 to 2 weeks.
+          Beställningar skickas vanligtvis inom 5 till 10 arbetsdagar. För
+          internationella beställningar tillkommer 1 till 2 veckors leveranstid.
         </p>
         <p>
-          If your order has not arrived after 10 business days (domestic) and 20
-          business days (international), please contact our team, we are happy
-          to assist.
+          Om din beställning inte har kommit efter 10 arbetsdagar (inom Sverige)
+          eller 20 arbetsdagar (internationellt), kontakta gärna vårt
+          supportteam så hjälper vi dig.
         </p>
       </div>
     ),
   },
   {
-    title: "What type of payments do you accept?",
+    title: "Vilka betalningsmetoder accepterar ni?",
     value: "4",
-    content: "We accept Visa, Mastercard as well as Paypal.",
+    content: "Vi accepterar Visa, Mastercard samt Paypal.",
   },
   {
-    title: "When will my card be charged?",
+    title: "När dras pengarna från mitt konto?",
     value: "5",
-    content: "Just after your order has been successfully placed.",
+    content: "Beloppet dras direkt efter att din beställning har genomförts.",
   },
   {
-    title: "How secure is my personal information?",
+    title: "Hur säker är min personliga information?",
     value: "6",
     content: (
       <div className="space-y-2">
         <p>
-          We adhere to the highest industry standards to protect your personal
-          information when you checkout and purchase.
+          Vi följer branschens högsta standarder för att skydda din personliga
+          information vid köp.
         </p>
         <p>
-          Your credit card information is encrypted during transmission using
-          secure socket layer (SSL) technology, which is widely used on the
-          Internet for processing payments. Your credit card information is only
-          used to complete the requested transaction and is not subsequently
-          stored.
+          Ditt kortnummer krypteras under överföring via SSL (Secure Socket
+          Layer) – en säker metod som ofta används för betalningar online. Din
+          kortinformation används endast för att slutföra köpet och lagras inte.
         </p>
       </div>
     ),
   },
 ];
-export default function HealthAndMedicalDisclaimer() {
+
+export default function Faqs() {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h2 className="text-left text-3xl font-semibold my-8">FAQs</h2>

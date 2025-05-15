@@ -3,12 +3,12 @@ import Link from "next/link";
 
 import Cart from "./cart-header";
 import { usePathname } from "next/navigation";
-import { PRODUCT_NAME } from "@/config-global";
+import { COMPANY_NAME } from "@/config-global";
 
 export const menu = [
   { name: "Om oss", link: "/about-us" },
   {
-    name: `${PRODUCT_NAME.toLocaleUpperCase()} – Ergonomisk Premiumkudde`,
+    name: `${COMPANY_NAME.toLocaleUpperCase()} – Ergonomisk Premiumkudde`,
     link: "/products/naturaeon-pain-relief-ergonomic-pillow",
   },
   { name: "Kontakta oss", link: "/contact-us" },

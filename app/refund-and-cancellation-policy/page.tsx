@@ -1,103 +1,95 @@
-export default function HealthAndMedicalDisclaimer() {
+export default function RefundPolicy() {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h2 className="font-bold text-gray-800 text-5xl text-center my-8">
-        Refund and Cancellation Policy
+        Återbetalning & Avbeställning
       </h2>
-      <div className="space-y-2">
-        <h4 className="font-semibold">RETURN</h4>
+      <div className="space-y-4">
         <p>
-          Our policy lasts 30 days. If 30 days have gone by since your purchase,
-          unfortunately, we can’t offer you a refund or exchange.
+          <strong>Viktig information</strong>
         </p>
-        <p>
-          To be eligible for a return, your item must be unused and in the same
-          condition that you received it. It must also be in the original
-          packaging.
-        </p>
-        <p>
-          Several types of goods are exempt from being returned. Perishable
-          goods such as food, flowers, newspapers, or magazines cannot be
-          returned. We also do not accept products that are intimate or sanitary
-          goods, hazardous materials, or flammable liquids or gases.
-        </p>
-        <p>Additional non-returnable items:</p>
-        <ul className="list-disc list-inside ml-4">
-          <li>Gift cards</li>
-          <li>Downloadable software products</li>
-          <li>Some health and personal care items</li>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>100 dagar för att initiera retur</li>
+          <li>7 dagar för att behandla återbetalning</li>
+          <li>Ingen återlagringsavgift</li>
+          <li>Kunden står för returkostnaden</li>
         </ul>
         <p>
-          To complete your return, we require a receipt or proof of purchase.
+          Du har rätt att returnera din beställning inom 100 dagar efter att du
+          mottagit den. Varan måste vara i nyskick, oanvänd, otvättad och med
+          originaletiketter kvar.
+        </p>
+
+        <p>
+          <strong>Så här returnerar du</strong>
         </p>
         <p>
-          Please do not send your purchase back to the manufacturer. There are
-          certain situations where only partial refunds are granted (if
-          applicable):
+          Kontakta oss på <strong>info@naturaeon.com</strong> för att påbörja
+          returprocessen. Vi ger dig instruktioner och returadress. Skicka
+          varorna i skyddande förpackning och använd ett fraktsätt med
+          spårningsnummer.
         </p>
-        <ul className="list-disc list-inside ml-4">
-          <li>Book with obvious signs of use</li>
+
+        <p>
+          <strong>Avbeställning</strong>
+        </p>
+        <p>
+          Du kan avboka din beställning inom 8 timmar genom att mejla oss ditt
+          ordernummer. Om paketet redan är skickat kan du returnera det i
+          efterhand.
+        </p>
+
+        <p>
+          <strong>Försenad leverans</strong>
+        </p>
+        <p>
+          Om din beställning inte har kommit efter angiven leveranstid, vänligen
+          vänta ytterligare 2 dagar och kontrollera ditt spårningsnummer.
+          Kontakta oss om det fortfarande inte har levererats.
+        </p>
+
+        <p>
+          <strong>Skadade eller felaktiga produkter?</strong>
+        </p>
+        <p>
+          Skicka foto på skadan och innehållet tillsammans med ordernummer till{" "}
+          <strong>info@naturaeon.com</strong> så hjälper vi dig. Observera att
+          kunden står för returfrakten.
+        </p>
+
+        <p>
+          <strong>Ej uthämtade eller vägrade paket</strong>
+        </p>
+        <p>
+          Om ett paket inte hämtas ut eller nekas vid leverans returneras det
+          till vårt lager. Vi förbehåller oss rätten att dra av 20 USD från
+          återbetalningen.
+        </p>
+
+        <p>
+          <strong>Kontakt</strong>
+        </p>
+        <ul className="list-disc pl-6 space-y-2">
           <li>
-            CD, DVD, VHS tape, software, video game, cassette tape, or vinyl
-            record that has been opened
+            <strong>Email</strong>: info@naturaeon.com
           </li>
           <li>
-            Any item not in its original condition is damaged or missing parts
-            for reasons not due to our error
+            <strong>Telefon</strong>: +1 213 800 9944
           </li>
-          <li>Any item that is returned more than 30 days after delivery</li>
         </ul>
-        <h4 className="font-semibold">REFUNDS (IF APPLICABLE)</h4>
         <p>
-          Once your return is received and inspected, we will send you an email
-          to notify you that we have received your returned item. We will also
-          notify you of the approval or rejection of your refund. If you are
-          approved, then your refund will be processed, and a credit will
-          automatically be applied to your credit card or original method of
-          payment within a certain amount of days.
+          <strong>Öppettider:</strong>
+          <br />
+          Måndag - Fredag: 09:00–17:00
         </p>
-        <h4 className="font-semibold">
-          LATE OR MISSING REFUNDS (IF APPLICABLE)
-        </h4>
         <p>
-          If you haven’t received a refund yet, first check your bank account
-          again. Then contact your credit card company, it may take some time
-          before your refund is officially posted. Next, contact your bank.
-          There is often some processing time before a refund is posted. If
-          you’ve done all of this and you still have not received your refund
-          yet, please contact us at contact@naturaeon.com.
-        </p>
-        <h4 className="font-semibold">SALE ITEMS (IF APPLICABLE)</h4>
-        <p>
-          Only regular priced items may be refunded; unfortunately, sale items
-          cannot be refunded.
-        </p>
-        <h4 className="font-semibold">EXCHANGES (IF APPLICABLE)</h4>
-        <p>
-          We only replace items if they are defective or damaged. If you need to
-          exchange it for the same item, send us an email at
-          contact@naturaeon.com.
-        </p>
-        <h4 className="font-semibold">GIFTS</h4>
-        <p>
-          If the item was marked as a gift when purchased and shipped directly
-          to you, you’ll receive a gift credit for the value of your return.
-          Once the returned item is received, a gift certificate will be mailed
-          to you. If the item wasn’t marked as a gift when purchased, or the
-          gift giver had the order shipped to themselves to give to you later,
-          we will send a refund to the gift giver, and he will find out about
-          your return.&nbsp;
-        </p>
-        <h4 className="font-semibold">SHIPPING</h4>
-        <p>
-          You will be responsible for paying for your own shipping costs for
-          returning your item. Shipping costs are non-refundable. If you receive
-          a refund, the cost of return shipping will be deducted from your
-          refund. Depending on where you live, the time it may take for your
-          exchanged product to reach you may vary. If you are shipping an item
-          over $75, you should consider using a trackable shipping service or
-          purchasing shipping insurance. We don’t guarantee that we will receive
-          your returned item.
+          <strong>Företagsadress:</strong>
+          <br />
+          Naturaeon LLC
+          <br />
+          1111B S Governors Ave STE 29227
+          <br />
+          Dover, DE 19904, USA
         </p>
       </div>
     </div>

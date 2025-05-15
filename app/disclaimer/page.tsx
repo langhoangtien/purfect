@@ -1,108 +1,85 @@
 export default function HealthAndMedicalDisclaimer() {
   return (
-    <div className="max-w-4xl w-full mx-auto p-4">
-      <h2 className="text-center text-3xl font-semibold my-8">DISCLAIMER</h2>
-      <div className="space-y-2 " data-text-editor-id="content">
+    <div className="max-w-5xl w-full mx-auto p-4">
+      <h2 className="text-center text-3xl font-semibold my-8">
+        ANSVARSFRISKRIVNING
+      </h2>
+      <div className="space-y-4" data-text-editor-id="content">
         <p>
-          <strong>WEBSITE DISCLAIMER</strong>
+          <strong>WEBBPLATSENS ANSVARSFRISKRIVNING</strong>
         </p>
-        <p />
         <p>
-          The information provided by Naturaeon LLC. (&quot;we,&quot;
-          &quot;us,&quot; or &quot;our&quot;) on
-          https://www.Naturaeoncompany.com (the &quot;Site&quot;) is for general
-          informational purposes only. All information on the Site is provided
-          in good faith, however, we make no representation or warranty of any
-          kind, express or implied, regarding the accuracy, adequacy, validity,
-          reliability, availability, or completeness of any information on the
-          Site.
+          Informationen som tillhandahålls av Naturaeon LLC. (&quot;vi&quot;,
+          &quot;oss&quot; eller &quot;vår&quot;) på https://www.naturaeon.com
+          (&ldquo;webbplatsen&quot;) är endast avsedd för allmän information.
+          All information på webbplatsen tillhandahålls i god tro, men vi lämnar
+          inga garantier – vare sig uttryckliga eller underförstådda – om
+          informationens riktighet, fullständighet, tillförlitlighet,
+          tillgänglighet eller lämplighet.
         </p>
-        <p />
         <p>
-          UNDER NO CIRCUMSTANCES shall we have any liability to you for any loss
-          or damage of any kind incurred as a result of the use of the Site or
-          reliance on any information provided on the Site. Your use of the Site
-          and reliance on any information on the Site is solely at your own
-          risk.
+          UNDER INGA OMSTÄNDIGHETER kommer vi att hållas ansvariga för någon
+          form av förlust eller skada som uppstår till följd av användning av
+          webbplatsen eller tillit till någon information som finns där.
+          Användningen sker helt på egen risk.
         </p>
-        <p />
         <p>
-          <strong>PROFESSIONAL DISCLAIMER</strong>
+          <strong>PROFESSIONELL ANSVARSFRISKRIVNING</strong>
         </p>
-        <p />
         <p>
-          The Site cannot and does not contain medical health advice. The
-          medical health information provided is for general informational and
-          educational purposes only and is not a substitute for professional
-          advice. Accordingly, before taking any actions based on such
-          information, we encourage you to consult with appropriate medical
-          professionals.
+          Webbplatsen innehåller inte och ska inte tolkas som medicinsk
+          rådgivning. Informationen är endast avsedd för allmän kunskap och
+          utbildning och ersätter inte råd från legitimerad sjukvårdspersonal.
+          Rådfråga alltid vårdgivare innan du fattar beslut baserat på
+          informationen på denna webbplats.
         </p>
-        <p />
         <p>
-          We do not provide any kind of medical advice. THE USE OR RELIANCE ON
-          ANY INFORMATION contained on the Site is entirely at your own risk.
+          Vi tillhandahåller inte någon form av medicinsk rådgivning. ANVÄNDNING
+          ELLER TILLIT TILL INFORMATIONEN sker helt på egen risk.
         </p>
-        <p />
         <p>
-          <strong>TESTIMONIALS DISCLAIMER</strong>
+          <strong>ANSVARSFRISKRIVNING FÖR OMDÖMEN</strong>
         </p>
-        <p />
         <p>
-          The Site may contain testimonials from users of our products and/or
-          services. These testimonials reflect the real-life experiences and
-          opinions of such users. However, these experiences are personal to
-          those particular users and may not necessarily be representative of
-          all users of our products and/or services. We do not claim, and you
-          should not assume, that all users will have the same experiences.
+          Webbplatsen kan innehålla kundomdömen som återspeglar personliga
+          erfarenheter av våra produkter eller tjänster. Dessa är autentiska,
+          men resultaten varierar mellan individer och är inte nödvändigtvis
+          representativa för alla kunders upplevelser.
         </p>
-        <p />
         <p>
-          The testimonials on the Site are displayed verbatim, except for
-          grammatical or typing corrections, if necessary. These corrections do
-          not alter the essence of the testimonials. Reliance on any
-          testimonials is at your own risk.
+          Omdömena återges ordagrant med eventuella grammatiska eller
+          stavningsmässiga korrigeringar utan att ändra innebörden. All tillit
+          till dessa omdömen sker på egen risk.
         </p>
-        <p />
         <p>
-          <strong>EXTERNAL LINKS DISCLAIMER</strong>
+          <strong>EXTERNA LÄNKAR</strong>
         </p>
-        <p />
         <p>
-          The Site may contain links to other websites or content belonging to
-          or originating from third parties or links to websites and features in
-          advertisements. We do not investigate, monitor, or check such external
-          links for accuracy, reliability, validity, or completeness. We do not
-          assume any responsibility for the content of any third-party sites
-          linked to from our Site. Your access to and use of such third-party
-          links is solely at your own risk.
+          Webbplatsen kan innehålla länkar till externa webbplatser eller
+          innehåll från tredje part. Vi granskar eller garanterar inte att sådan
+          information är korrekt eller aktuell. Vi ansvarar inte för innehållet
+          på dessa webbplatser och användning av dem sker helt på egen risk.
         </p>
-        <p />
         <p>
-          <strong>ERRORS AND OMISSIONS DISCLAIMER</strong>
+          <strong>FEL OCH UTELÄMNANDEN</strong>
         </p>
-        <p />
         <p>
-          While we have made every effort to ensure the accuracy of the
-          information on the Site, we are not responsible for any errors or
-          omissions in the content.
+          Vi gör vårt bästa för att säkerställa att informationen på webbplatsen
+          är korrekt, men vi kan inte garantera att det är fritt från fel eller
+          utelämnanden.
         </p>
-        <p />
         <p>
-          If you require any further information or have any questions about our
-          disclaimer, please contact us by email at:{" "}
+          Om du har frågor om denna ansvarsfriskrivning, vänligen kontakta oss
+          på e-post:
+          <br />
           <a
+            href="mailto:contact@naturaeon.com"
             target="_blank"
-            rel="noopener noreferrer nofollow"
-            title=""
-            role="url"
-            href="mailto:contact@gudmuscle.com"
+            rel="noopener noreferrer"
           >
             contact@naturaeon.com
           </a>
-          .
         </p>
-        <p />
       </div>
     </div>
   );

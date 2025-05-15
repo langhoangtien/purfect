@@ -1,192 +1,153 @@
-export default function HealthAndMedicalDisclaimer() {
+export default function BillingTermsandConditions() {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h2 className="text-center text-3xl font-semibold my-8">
-        Billing Terms and Conditions
+        Betalningsvillkor
       </h2>
-      <div className="space-y-2" data-text-editor-id="content">
+      <div className="space-y-2">
         <p>
-          Thank you for shopping at <strong>Naturaeon</strong>! We strive to
-          provide you with a seamless and secure shopping experience. Please
-          review our payment policy below:
+          Tack för att du handlar hos <strong>Naturaeon</strong>! Vi strävar
+          efter att ge dig en smidig och säker shoppingupplevelse. Vänligen läs
+          igenom våra betalningsvillkor nedan:
         </p>
         <p className="p1">
-          <strong>Accepted Payment Methods:</strong>
+          <strong>Godkända betalningsmetoder:</strong>
         </p>
         <ul className="list-disc px-8">
           <li>
-            <p>
-              <strong>Credit Cards:</strong> We accept Visa, MasterCard,
-              American Express, and Discover.
-            </p>
+            <strong>Kreditkort:</strong> Vi accepterar Visa, MasterCard,
+            American Express och Discover.
           </li>
           <li>
-            <p>
-              <strong>Debit Cards:</strong> We accept debit cards with Visa or
-              MasterCard logos.
-            </p>
+            <strong>Betalkort:</strong> Vi accepterar betalkort med Visa- eller
+            MasterCard-logotyp.
           </li>
           <li>
-            <p>
-              <strong>Apple Pay:</strong> For convenient checkout using Apple
-              devices.
-            </p>
+            <strong>Apple Pay:</strong> För smidig betalning via Apple-enheter.
           </li>
           <li>
-            <p>
-              <strong>Google Pay:</strong> For quick and easy payments with
-              Google accounts.
-            </p>
+            <strong>Google Pay:</strong> För snabb och enkel betalning med ditt
+            Google-konto.
           </li>
           <li>
-            <p>
-              <strong>Bank Transfers:</strong> Direct bank transfers are
-              accepted for large purchases. Please contact us for more
-              information.
-            </p>
+            <strong>Banköverföring:</strong> Accepteras vid större köp. Kontakta
+            oss för mer information.
           </li>
         </ul>
+
         <p>
-          <strong>Currency:</strong> All transactions on Naturaeon are processed
-          in United States Dollar (USD). Prices displayed on the website are in
-          USD by default.
+          <strong>Valuta:</strong> Alla transaktioner på Naturaeon behandlas i
+          svenska kronor (SEK). Priser som visas på webbplatsen är som standard
+          i SEK.
         </p>
+
         <p>
-          <strong>Tax Policy:</strong> Tax will be calculated during checkout if
-          applicable based on the shipping address provided. The tax rate will
-          vary depending on the destination of the order and the applicable tax
-          laws.
+          <strong>Skattepolicy:</strong> Skatt beräknas i kassan beroende på
+          leveransadressen och gällande skattelagar.
         </p>
+
         <p>
-          <strong>Payment Processing:</strong>
+          <strong>Betalningshantering:</strong>
         </p>
         <ul className="list-disc px-8">
           <li>
-            <p>
-              Payments are processed securely through our trusted payment
-              gateway.
-            </p>
+            Betalningar behandlas säkert via vår betrodda betalningsgateway.
           </li>
           <li>
-            <p>
-              Your credit/debit card information is encrypted and securely
-              processed by our payment partners.
-            </p>
+            Dina kortuppgifter krypteras och hanteras säkert av våra
+            betalningspartners.
           </li>
           <li>
-            <p>
-              We do not store your payment information on our servers for
-              security reasons.
-            </p>
+            Vi lagrar inte dina betalningsuppgifter på våra servrar för ökad
+            säkerhet.
           </li>
         </ul>
+
         <p>
-          <strong>Order Confirmation:</strong>
+          <strong>Orderbekräftelse:</strong>
         </p>
         <ul className="list-disc px-8">
           <li>
-            <p>
-              You will receive an order confirmation email shortly after placing
-              your order.
-            </p>
+            Du får en orderbekräftelse via e-post strax efter att du lagt din
+            beställning.
           </li>
           <li>
-            <p>
-              Please review the order details carefully and contact us
-              immediately if you notice any discrepancies.
-            </p>
+            Kontrollera informationen noggrant och kontakta oss direkt om du
+            upptäcker några fel.
           </li>
         </ul>
+
         <p>
-          <strong>Payment Confirmation:</strong>
+          <strong>Betalningsbekräftelse:</strong>
+        </p>
+        <ul className="list-disc px-8">
+          <li>När betalningen har genomförts får du ett bekräftelsemail.</li>
+          <li>
+            Om du stöter på problem vid betalning, kontakta vår kundtjänst på{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:contact@naturaeon.com"
+            >
+              contact@naturaeon.com
+            </a>
+            .
+          </li>
+        </ul>
+
+        <p>
+          <strong>Avbeställning av order:</strong>
         </p>
         <ul className="list-disc px-8">
           <li>
-            <p>
-              Once payment is successfully processed, you will receive a payment
-              confirmation email.
-            </p>
+            Du kan avbryta din order inom 24 timmar genom att kontakta vår
+            kundtjänst.
           </li>
           <li>
-            <p>
-              If you encounter any issues during the payment process, please
-              contact our customer support at{" "}
-              <a
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                title=""
-                role="url"
-                href="mailto:info@Naturaeoncompany.com"
-              >
-                info@Naturaeoncompany.com
-              </a>{" "}
-              for assistance.
-            </p>
+            När beställningen har behandlats och skickats kan den inte längre
+            avbrytas. Se vår retur- och återbetalningspolicy för mer
+            information.
           </li>
         </ul>
+
         <p>
-          <strong>Order Cancellation:</strong>
+          <strong>Säkerhet vid betalning:</strong>
         </p>
         <ul className="list-disc px-8">
+          <li>Vi prioriterar säkerheten för din betalningsinformation.</li>
           <li>
-            <p>
-              Orders can be canceled within 24 hours of placement by contacting
-              our customer support team.
-            </p>
+            Vår webbplats är utrustad med SSL-kryptering för att säkra all
+            datakommunikation.
           </li>
           <li>
-            <p>
-              Once an order has been processed and shipped, it cannot be
-              canceled. Please refer to our Returns &amp; Refunds Policy for
-              further assistance.
-            </p>
+            Vi följer branschstandarder och regelverk för att skydda din
+            information.
           </li>
         </ul>
+
         <p>
-          <strong>Payment Security:</strong>
-        </p>
-        <ul className="list-disc px-8">
-          <li>
-            <p>We prioritize the security of your payment information.</p>
-          </li>
-          <li>
-            <p>
-              Our website is equipped with SSL encryption to ensure secure
-              transmission of data.
-            </p>
-          </li>
-          <li>
-            <p>
-              We comply with industry standards and regulations to safeguard
-              your payment details.
-            </p>
-          </li>
-        </ul>
-        <p>
-          <strong>Contact Information:</strong> If you have any questions or
-          concerns regarding our payment policy, please feel free to contact us
-          at:
+          <strong>Kontaktinformation:</strong> Har du frågor angående våra
+          betalningsvillkor?
           <br />
-          Email:{" "}
+          E-post:{" "}
           <a
             target="_blank"
-            rel="noopener noreferrer nofollow"
-            title=""
-            role="url"
+            rel="noopener noreferrer"
             href="mailto:contact@naturaeon.com"
           >
             contact@naturaeon.com
           </a>
         </p>
+
         <p>
-          <strong>Policy Revision:</strong> Naturaeon reserves the right to
-          update or modify this payment policy at any time without prior notice.
-          Please review this policy periodically for any changes.
+          <strong>Policyuppdatering:</strong> Naturaeon förbehåller sig rätten
+          att ändra denna policy när som helst utan förvarning. Kontrollera
+          gärna denna sida regelbundet.
         </p>
+
         <p>
-          By shopping with Naturaeon, you agree to abide by the terms outlined
-          in this payment policy. Thank you for choosing Naturaeon for your
-          needs!
+          Genom att handla hos Naturaeon godkänner du våra betalningsvillkor.
+          Tack för att du väljer oss!
         </p>
       </div>
     </div>

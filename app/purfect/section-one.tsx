@@ -1,4 +1,4 @@
-import { PRODUCT_NAME } from "@/config-global";
+import { COMPANY_NAME } from "@/config-global";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ export default function SectionOne() {
       <div className="space-y-4 flex flex-col justify-center items-center p-8 text-center">
         <h2 className="text-5xl font-semibold">Oöverträffad sömn väntar.</h2>
         <h2 className="text-2xl">
-          {PRODUCT_NAME}: Enastående kvalitet, designad för överlägsen sömn.
+          {COMPANY_NAME}: Enastående kvalitet, designad för överlägsen sömn.
         </h2>
         <div>
           <Link href="/products/naturaeon-pain-relief-ergonomic-pillow">

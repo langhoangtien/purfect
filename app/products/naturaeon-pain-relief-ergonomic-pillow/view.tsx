@@ -25,8 +25,17 @@ import { Button } from "@/components/ui/button";
 import { Comparison } from "@/components/comparison";
 import TextAndImage from "@/components/text-and-image";
 import { useIsTablet } from "@/hooks/use-is-mobile";
-import { PRODUCT_NAME } from "@/config-global";
+import { COMPANY_NAME } from "@/config-global";
 import { useTranslation } from "next-i18next";
+import { formatCurrency } from "@/lib/utils";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const tabs = ["Nacksmärta", "Sömnlöshet", "Snarkning", "Axelsmärta"];
 
@@ -100,7 +109,7 @@ const acc = [
       <div className="space-y-2 text-base">
         <p>
           Det är därför vi skapade
-          <strong> {PRODUCT_NAME} Premium Ergonomisk Kudde</strong> — en
+          <strong> {COMPANY_NAME} Premium Ergonomisk Kudde</strong> — en
           sömnlösning framtagen för{" "}
           <strong>personer som är trötta på att vakna med smärta.</strong>
         </p>
@@ -146,10 +155,10 @@ const acc = [
 
 const acc2 = [
   {
-    title: `Är ${PRODUCT_NAME} verkligen annorlunda jämfört med andra kuddar?`,
+    title: `Är ${COMPANY_NAME} verkligen annorlunda jämfört med andra kuddar?`,
     content: (
       <p>
-        Ja. <strong>{PRODUCT_NAME}-kudden</strong> är inte en vanlig kudde med
+        Ja. <strong>{COMPANY_NAME}-kudden</strong> är inte en vanlig kudde med
         nytt överdrag — den är specifikt utformad för korrekt stöd, komfort och
         långsiktig smärtlindring.
       </p>
@@ -181,7 +190,7 @@ const acc2 = [
       <p>
         Vi erbjuder 100 nätters provperiod. Om du inte är helt nöjd kan du
         returnera
-        <strong> {PRODUCT_NAME}-kudden</strong> helt riskfritt.
+        <strong> {COMPANY_NAME}-kudden</strong> helt riskfritt.
       </p>
     ),
   },
@@ -345,8 +354,8 @@ export default function ProductView(data: { data: Product }) {
   //   special: true,
   // };
   const getColor = (color: string) => {
-    if (color.toLowerCase().includes("black")) return "bg-black";
-    if (color.toLowerCase().includes("white")) return "bg-white";
+    if (color.toLowerCase().includes("sva")) return "bg-black";
+    if (color.toLowerCase().includes("vit")) return "bg-white";
     return "bg-gray-300";
   };
 
@@ -356,7 +365,7 @@ export default function ProductView(data: { data: Product }) {
     if (quantity === 1) extra = 0;
     if (quantity === 2) extra = 0.2;
     if (quantity === 3) extra = 0.3;
-    return (priceNumber * quantity * (1 - extra)).toFixed(2);
+    return formatCurrency(priceNumber * quantity * (1 - extra));
   };
 
   const calculaSetOptionNumber = (number: number, value: string) => {
@@ -428,18 +437,18 @@ export default function ProductView(data: { data: Product }) {
 
               <p className="flex gap-2 items-center">
                 <span className="text-gray-400 text-sm font-semibold line-through">
-                  {parseFloat(
-                    variantSelected?.compareAtPriceV2?.amount || "0"
-                  ) *
-                    (optionNumber.number + 1)}{" "}
-                  USD
+                  {formatCurrency(
+                    parseFloat(
+                      variantSelected?.compareAtPriceV2?.amount || "0"
+                    ) *
+                      (optionNumber.number + 1)
+                  )}{" "}
                 </span>
                 <span className="text-[#102a3e] text-2xl font-semibold">
                   {caculatePrice(
                     variantSelected?.priceV2.amount || "0",
                     optionNumber.number + 1
-                  )}{" "}
-                  USD
+                  )}
                 </span>
 
                 <span className="flex justify-center text-sm font-semibold items-center px-4 py-1 text-white bg-[#102A3E] rounded-full">
@@ -536,18 +545,18 @@ export default function ProductView(data: { data: Product }) {
                     </div>
                     <div>
                       <p className="text-xl">
-                        $
                         {caculatePrice(
                           variantSelected?.priceV2.amount || "0",
                           item.number + 1
                         )}
                       </p>
                       <p className="line-through text-gray-500 text-sm">
-                        $
-                        {(index + 1) *
-                          parseFloat(
-                            variantSelected?.compareAtPriceV2?.amount || "0"
-                          )}
+                        {formatCurrency(
+                          (index + 1) *
+                            parseFloat(
+                              variantSelected?.compareAtPriceV2?.amount || "0"
+                            )
+                        )}
                       </p>
                     </div>
                   </div>
@@ -606,7 +615,7 @@ export default function ProductView(data: { data: Product }) {
               <div className="pl-1 bg-red-500 rounded-md">
                 <div className="bg-red-100 rounded-md text-red-500 text-[15px] p-4">
                   🚨 <strong>Varning för kopior</strong>. Endast{" "}
-                  <strong>{PRODUCT_NAME}</strong> garanterar den äkta kudden som
+                  <strong>{COMPANY_NAME}</strong> garanterar den äkta kudden som
                   tusentals litar på för smärtlindring.
                 </div>
               </div>
@@ -724,7 +733,7 @@ export default function ProductView(data: { data: Product }) {
               {/* Textdel */}
               <div className="w-full lg:w-1/2">
                 <p className="text-sm text-gray-500 uppercase mb-2">
-                  Endast tillgänglig hos {PRODUCT_NAME}
+                  Endast tillgänglig hos {COMPANY_NAME}
                 </p>
                 <h2 className="text-2xl lg:text-4xl font-bold mb-4">
                   Vakna utan värk och stelhet
@@ -745,7 +754,7 @@ export default function ProductView(data: { data: Product }) {
                   </span>
                 </p>
                 <p className="mb-4">
-                  Därför skapade vi {PRODUCT_NAME} Premium Ergonomisk Kudde:
+                  Därför skapade vi {COMPANY_NAME} Premium Ergonomisk Kudde:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-sm">
                   <li>
@@ -775,7 +784,7 @@ export default function ProductView(data: { data: Product }) {
                 </ul>
                 <p className="mt-6">
                   Investera i din hälsa och njut av bättre sömn med{" "}
-                  {PRODUCT_NAME}-kudden.
+                  {COMPANY_NAME}-kudden.
                 </p>
               </div>
 
@@ -785,7 +794,7 @@ export default function ProductView(data: { data: Product }) {
                   width={800}
                   height={800}
                   src="/purfect/pillow1.webp"
-                  alt={`Kvinna som vilar på ${PRODUCT_NAME}-kudden`}
+                  alt={`Kvinna som vilar på ${COMPANY_NAME}-kudden`}
                   className="rounded-lg shadow-md w-full h-auto"
                 />
               </div>
@@ -798,7 +807,7 @@ export default function ProductView(data: { data: Product }) {
             </h2>
             <div className="space-y-4 text-center">
               <p>
-                <strong>{PRODUCT_NAME}</strong> är utformad för att äntligen
+                <strong>{COMPANY_NAME}</strong> är utformad för att äntligen
                 avlasta din nacke — med skonsamt och riktat stöd som håller hela
                 natten. När nacken ligger i rätt position vaknar du inte upp
                 stel, öm eller spänd.
@@ -808,7 +817,7 @@ export default function ProductView(data: { data: Product }) {
               </p>
               <p>
                 Genom att hålla huvudet och ryggraden i en naturlig ställning
-                hjälper <strong>{PRODUCT_NAME}</strong> till att minska den
+                hjälper <strong>{COMPANY_NAME}</strong> till att minska den
                 dagliga belastningen som orsakar smärta, spänningar och dålig
                 sömn — så att varje natt blir en del av din återhämtning.
               </p>
@@ -831,10 +840,10 @@ export default function ProductView(data: { data: Product }) {
                   <div>
                     <div className="flex flex-col space-y-4 justify-start">
                       <p className="text-primary text-lg font-semibold"></p>
-                      <p className="text-3xl font-bold">{`Vad gör ${PRODUCT_NAME}-kudden så unik?`}</p>
+                      <p className="text-3xl font-bold">{`Vad gör ${COMPANY_NAME}-kudden så unik?`}</p>
                       <p>
                         Till skillnad från vanliga kuddar behåller{" "}
-                        <strong>{PRODUCT_NAME}</strong> sin form och ger stöd åt
+                        <strong>{COMPANY_NAME}</strong> sin form och ger stöd åt
                         nacken hela natten.
                         <br />
                         <br />
@@ -849,9 +858,74 @@ export default function ProductView(data: { data: Product }) {
                     <h2 className="text-3xl md:text-4xl font-bold mt-4 text-center mb-8">
                       VARFÖR VI STICKER UT
                     </h2>
-                    <div className="grid grid-cols-3  overflow-hidden ">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="text-left">
+                            Funktioner
+                          </TableHead>
+                          <TableHead className="text-left">
+                            {COMPANY_NAME}
+                          </TableHead>
+                          <TableHead className="text-left">
+                            Vanlig kudde
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {[
+                          "Nackstöd",
+                          "Tryckavlastning",
+                          "Ryggradsjustering",
+                          "Individuell passform",
+                          "Tryckfördelning",
+                          "Hållbarhet",
+                          "Premiumkvalitet",
+                        ].map((item, index) => (
+                          <TableRow key={item}>
+                            <TableCell>
+                              <div
+                                key={item}
+                                className="py-3  flex space-x-1 flex-wrap items-center "
+                              >
+                                <Image
+                                  alt={item}
+                                  className="size-10 object-cover"
+                                  width={100}
+                                  height={100}
+                                  src={`/purfect/${index + 1}.jpg`}
+                                ></Image>{" "}
+                                <span>{item}</span>
+                              </div>
+                            </TableCell>
+                            <TableCell className="bg-primary">
+                              {" "}
+                              <div className="py-3  flex justify-center items-center   ">
+                                <span className="size-7 flex justify-center items-center border text-white border-gray-200 rounded-full">
+                                  {" "}
+                                  <CheckIcon
+                                    className="size-5"
+                                    strokeWidth={3}
+                                  />
+                                </span>
+                              </div>
+                            </TableCell>
+                            <TableCell>
+                              {" "}
+                              <div className="py-3 flex  justify-center items-center">
+                                {" "}
+                                <span className="size-7 flex justify-center items-center border text-gray-400 border-gray-400 rounded-full">
+                                  <XIcon className=" size-5" strokeWidth={3} />
+                                </span>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                    {/* <div className="grid grid-cols-3  overflow-hidden ">
                       <div className="bg-white p-4 font-semibold text-sm sm:text-base">
-                        <div className="py-3 border-b h-16 border-gray-300"></div>
+                        <div className="py-3 border-b  border-gray-300"></div>
                         {[
                           "Nackstöd",
                           "Tryckavlastning",
@@ -863,7 +937,7 @@ export default function ProductView(data: { data: Product }) {
                         ].map((item, index) => (
                           <div
                             key={item}
-                            className="py-3 border-b flex space-x-1 h-16 items-center border-gray-300"
+                            className="py-3 border-b flex space-x-1  items-center border-gray-300"
                           >
                             <Image
                               alt={item}
@@ -878,7 +952,7 @@ export default function ProductView(data: { data: Product }) {
                       </div>
 
                       <div className="bg-primary text-white p-4 text-center text-sm sm:text-base">
-                        <div className="py-3 border-b h-16 border-gray-500 font-bold">
+                        <div className="py-3 border-b  border-gray-500 font-bold">
                           NATURAEON
                         </div>
                         {Array(7)
@@ -886,7 +960,7 @@ export default function ProductView(data: { data: Product }) {
                           .map((_, i) => (
                             <div
                               key={i}
-                              className="py-3 border-b-[1px] h-16 flex justify-center items-center  border-gray-500 "
+                              className="py-3 border-b-[1px]  flex justify-center items-center  border-gray-500 "
                             >
                               <span className="size-7 flex justify-center items-center border text-white border-gray-200 rounded-full">
                                 {" "}
@@ -897,7 +971,7 @@ export default function ProductView(data: { data: Product }) {
                       </div>
 
                       <div className="bg-gray-50 text-gray-500 p-4 text-center text-sm sm:text-base">
-                        <div className="py-3 border-b h-16 border-gray-200 font-semibold">
+                        <div className="py-3 border-b  border-gray-200 font-semibold">
                           Vanlig kudde
                         </div>
                         {Array(7)
@@ -905,7 +979,7 @@ export default function ProductView(data: { data: Product }) {
                           .map((_, i) => (
                             <div
                               key={i}
-                              className="py-3 border-b flex h-16 justify-center items-center border-gray-200"
+                              className="py-3 border-b flex  justify-center items-center border-gray-200"
                             >
                               {" "}
                               <span className="size-7 flex justify-center items-center border text-gray-400 border-gray-400 rounded-full">
@@ -914,7 +988,7 @@ export default function ProductView(data: { data: Product }) {
                             </div>
                           ))}
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -981,8 +1055,8 @@ export default function ProductView(data: { data: Product }) {
 }
 
 const getDescription = (extra: number) => {
-  if (extra) return `EXTRA ${extra * 100} % OFF`;
-  return "70% SALE";
+  if (extra) return `${extra * 100}% EXTRA RABATT`;
+  return "70% RABATT";
 };
 
 const CustomTag = ({ title }: { title: string }) => {

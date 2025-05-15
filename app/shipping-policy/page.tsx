@@ -1,514 +1,100 @@
-export default function HealthAndMedicalDisclaimer() {
+import Image from "next/image";
+
+export default function ShippingPolicy() {
   return (
-    <div className="max-w-4xl w-full mx-auto p-4">
+    <div className="max-w-4xl w-full mx-auto p-4 space-y-6">
       <h2 className="font-bold text-gray-800 text-5xl text-center my-8">
-        Shipping policy
+        Fraktpolicy
       </h2>
-      <div>
-        <p
-          style={{
-            margin: "0px 0px 16.6667px",
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            We are proud to offer international shipping services that currently
-            operate in over 200 countries and islands worldwide. Nothing means
-            more to us than bringing our customers great value and service. We
-            will continue to grow to meet the needs of all our customers,
-            delivering a service beyond all expectations anywhere in the world.
-          </span>
+      <div className="flex justify-center mb-6">
+        <Image
+          src="/purfect/shipping.png"
+          alt="Illustration of shipping process"
+          width={800}
+          height={800}
+          className="rounded-lg shadow-md w-full h-auto"
+        />
+      </div>
+      <div className="space-y-4 text-base leading-relaxed">
+        <p>
+          <strong>Beställningshantering</strong>
+          <br />
+          Vi behandlar beställningar inom <strong>1–3 arbetsdagar</strong>.
+          Beställ innan <strong>kl. 12:00 (GMT)</strong> för att börja hanteras
+          samma dag.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            <strong style={{ fontWeight: "bold" }}>How do you shi</strong>
-            <strong style={{ fontWeight: "bold" }}>p packages?</strong>
-          </span>
+        <p>
+          <strong>Leveranstid</strong>
+          <br />
+          Normal leveranstid: <strong>7–11 arbetsdagar</strong> efter
+          behandling. Leveranstiden kan variera beroende på destinationsland.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            Packages from our international warehouses will be shipped by
-            ePacket or EMS depending on the weight and size of the product.
-            Packages shipped from our US warehouse are shipped through USPS.
-          </span>
+        <p>
+          <strong>Fri frakt</strong>
+          <br />
+          Vi erbjuder <strong>falltid fri frakt</strong> till Sverige, Norge,
+          Danmark och övriga EU-länder – oavsett ordervärde.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>Do you ship worldwide?</strong>
+        <p>
+          <strong>Spårning</strong>
+          <br />
+          Du får ett spårningsnummer via e-post när din order skickas.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            Yes. We provide free shipping to over 200 countries around the
-            world. However, there are some locations we are unable to ship to.
-            If you happen to be located in one of those countries we will
-            contact you.
-          </span>
+        <p>
+          <strong>Försenad leverans</strong>
+          <br />
+          Kontakta oss om ditt paket inte anlänt inom 15 arbetsdagar.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>What about customs?</strong>
-        </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            We are not responsible for any custom fees once the items have
-            shipped. By purchasing our products, you consent that one or more
-            packages may be shipped to you and may get custom fees when they
-            arrive to your country.&nbsp;
-          </span>
-        </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>
-            How long does shipping take?
-          </strong>
-        </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            Shipping time varies by location. These are our estimates:
-          </span>
-        </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>&nbsp;</span>
-        </p>
-        <div
-          className="scrollable-wrapper"
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            maxWidth: "100%",
-            overflow: "auto",
-            color: "#252525",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <div
-            className="scrollable-wrapper"
-            style={{ maxWidth: "100%", overflow: "auto" }}
+        <p>
+          <strong>Felaktiga eller skadade varor</strong>
+          <br />
+          Maila oss på{" "}
+          <a
+            href="mailto:info@naturaeon.com"
+            className="text-blue-600 underline"
           >
-            <div
-              className="scrollable-wrapper"
-              style={{ maxWidth: "100%", overflow: "auto" }}
-            >
-              <table
-                width={485}
-                style={{
-                  borderCollapse: "collapse",
-                  fontSize: "1rem",
-                  borderStyle: "hidden",
-                  backgroundColor: "#ffffff",
-                  width: "562.406px",
-                  borderSpacing: 0,
-                  marginBottom: 15,
-                }}
-              >
-                <thead style={{}}>
-                  <tr style={{}}>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <strong style={{ fontWeight: "bold" }}>Location</strong>
-                      </p>
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <strong style={{ fontWeight: "bold" }}>
-                          *Estimated Shipping Time
-                        </strong>
-                      </p>
-                    </td>
-                  </tr>
-                </thead>
-                <tbody style={{}}>
-                  <tr style={{}}>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>United States</span>
-                      </p>
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>7-14 Business days</span>
-                      </p>
-                    </td>
-                  </tr>
-                  <tr style={{}}>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>Canada, Europe</span>
-                      </p>
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>7-14 Business days</span>
-                      </p>
-                    </td>
-                  </tr>
-                  <tr style={{}}>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>Australia, New Zealand</span>
-                      </p>
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>12-18 Business days</span>
-                      </p>
-                    </td>
-                  </tr>
-                  <tr style={{}}>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>Mexico, Central America, South America</span>
-                      </p>
-                    </td>
-                    <td
-                      style={{
-                        padding: "10px 14px",
-                        border: "1px solid #ececec",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ color: "#252525", margin: 0 }}>
-                        <span>14-25 Business days</span>
-                      </p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>
-            **&nbsp;Naturaeon&nbsp;<span style={{}}>is&nbsp;</span>not
-            <span style={{}}>&nbsp;</span>
-            <span style={{}}>responsible for&nbsp;</span>
-            <span style={{}}>
-              any delays due to the shipping carrier or customs clearance.&nbsp;
-            </span>
-          </strong>
+            info@naturaeon.com
+          </a>{" "}
+          med bilder och ordernummer så hjälper vi dig.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>
-            Do you provide tracking information?
-          </strong>
+        <p>
+          <strong>Avbokningar</strong>
+          <br />
+          Avboka inom <strong>8 timmar</strong> från köp via{" "}
+          <a
+            href="mailto:info@naturaeon.com"
+            className="text-blue-600 underline"
+          >
+            info@naturaeon.com
+          </a>
+          . Har din order redan skickats? Du kan returnera den inom 30 dagar.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            Yes, you will receive an email once your order ships that contain
-            your tracking information, but sometimes due to free shipping
-            tracking is not available.
-          </span>
+        <p>
+          <strong>Returer</strong>
+          <br />
+          Retur inom <strong>30 dagar</strong>. Produkten ska vara oanvänd,
+          otvättad och i originalförpackning. Kunden står för returfrakten.
         </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
 
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <strong style={{ fontWeight: "bold" }}>
-            My tracking says “No information available at the moment”.
-          </strong>
-        </p>
-        <p
-          style={{
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            margin: "0px 0px 16.6667px",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            For some shipping companies, it takes 2-5 business days for the
-            tracking information to update on the system.
-          </span>
-        </p>
-        <p
-          style={{
-            margin: "0px 0px 16.6667px",
-            fontStyle: "normal",
-            textAlign: "start",
-            textIndent: 0,
-            whiteSpace: "normal",
-
-            textDecoration: "none",
-            color: "#252525",
-            fontFamily: "Montserrat, sans-serif",
-
-            fontWeight: 400,
-            letterSpacing: "normal",
-          }}
-        >
-          <span>
-            For logistical reasons, items in the same purchase will sometimes be
-            sent in separate packages, even if you’ve specified combined
-            shipping.
-          </span>
+        <p>
+          <strong>Kontakt</strong>
+          <br />
+          📧{" "}
+          <a
+            href="mailto:info@naturaeon.com"
+            className="text-blue-600 underline"
+          >
+            info@naturaeon.com
+          </a>
+          <br />
+          🕘 Måndag–Fredag: 09:00–17:00
         </p>
       </div>
     </div>

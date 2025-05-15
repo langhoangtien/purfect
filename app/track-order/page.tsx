@@ -17,19 +17,18 @@ export default function TrackOrder() {
     const newErrors: Partial<FormData & { attachmentsError?: string }> = {};
 
     if (!formData.trackingNumber)
-      newErrors.trackingNumber = "Tracking Number is required";
+      newErrors.trackingNumber = "Spårningsnummer krävs";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
     const { name, value } = e.target;
-
-    // Clear error when input is valid
     const newErrors = { ...errors };
     if (name === "trackingNumber" && value.trim()) {
       delete newErrors.trackingNumber;
@@ -45,43 +44,47 @@ export default function TrackOrder() {
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 3000);
 
-      setErrors({ trackingNumber: "Tracking Number not found" });
+      setErrors({ trackingNumber: "Spårningsnummer hittades inte" });
     }
   };
 
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-4">
       <h2 className="text-center text-3xl font-semibold my-8">
-        Order Tracking
+        Spåra din beställning
       </h2>
 
       <p>
-        Once your order has shipped, you will receive an email from us with a
-        link to track your order. You can also enter the order name and your
-        email in the box below to get the status of your shipment.
+        När din beställning har skickats får du ett e-postmeddelande från oss
+        med en länk för att spåra ditt paket. Du kan också ange spårningsnumret
+        nedan för att kontrollera leveransstatusen.
       </p>
+
       {submitted ? (
-        <p className="text-red-500">Tracking Number not found</p>
+        <p className="text-red-500">Spårningsnummer hittades inte</p>
       ) : (
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1">
           <Input
-            placeholder="Tracking Number"
+            aria-invalid={!!errors.trackingNumber}
+            placeholder="Ange spårningsnummer"
             name="trackingNumber"
             value={formData.trackingNumber}
             onChange={handleChange}
           />
           {errors.trackingNumber && (
-            <p className="text-red-500 text-sm">{errors.trackingNumber}</p>
+            <p className="text-red-500 text-sm mt-0.5">
+              {errors.trackingNumber}
+            </p>
           )}
-          <div>
-            {" "}
-            <Button type="submit">Track Order</Button>
+          <div className="mt-4">
+            <Button type="submit">Spåra</Button>
           </div>
         </form>
       )}
+
       <p className="font-serif text-gray-400">
-        If you just received a shipment notification, please allow 3 to 5
-        working days for the tracking information to update.
+        Om du nyligen fått ett leveransmeddelande, vänligen tillåt 3–5
+        arbetsdagar för att spårningsinformationen ska uppdateras.
       </p>
     </div>
   );

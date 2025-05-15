@@ -123,3 +123,14 @@ export const toSlug = (str: string): string => {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
 };
+
+export const formatCurrency = (value: number | string): string => {
+  const numericValue = typeof value === "string" ? parseFloat(value) : value;
+
+  if (isNaN(numericValue)) return "–";
+
+  return new Intl.NumberFormat("sv-SE", {
+    style: "currency",
+    currency: "SEK",
+  }).format(numericValue);
+};

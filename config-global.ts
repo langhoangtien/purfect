@@ -21,4 +21,4 @@ export const CONFIG: ConfigValue = {
    * @method jwt | amplify | firebase | supabase | auth0
    */
 };
-export const PRODUCT_NAME = "Naturaeon";
+export const COMPANY_NAME = "Naturaeon";
