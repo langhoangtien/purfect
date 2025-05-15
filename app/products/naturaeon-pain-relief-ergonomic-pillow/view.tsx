@@ -404,7 +404,9 @@ export default function ProductView(data: { data: Product }) {
                 </span>
               </div>
 
-              <h1 className="text-[#102a3e] text-4xl">{product.title}</h1>
+              <h1 className="text-[#102a3e] text-4xl uppercase">
+                {product.title}
+              </h1>
 
               <div className="flex gap-2 items-center bg-gray-100 p-2 rounded-md">
                 <Image
