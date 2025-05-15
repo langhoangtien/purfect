@@ -121,9 +121,9 @@ export function CartProvider({ children }: CartProviderProps) {
 
     let discount = 0;
     if (specialCount >= 3) {
-      discount = 0.3;
-    } else if (specialCount === 2) {
       discount = 0.2;
+    } else if (specialCount === 2) {
+      discount = 0.1;
     }
 
     const discountedSpecialTotal = specialTotal * (1 - discount);

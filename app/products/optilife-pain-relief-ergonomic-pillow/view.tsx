@@ -197,14 +197,14 @@ const options = [
     description: "+ FREE SHIPPING",
     number: 1,
     tag: "Most Popular",
-    extra: 0.2,
+    extra: 0.1,
   },
   {
     title: "Family Pack (3 Pillows)",
     description: "+ FREE SHIPPING",
     number: 2,
     tag: "Best Value",
-    extra: 0.3,
+    extra: 0.2,
   },
 ];
 
@@ -349,10 +349,10 @@ export default function ProductView(data: { data: Product }) {
 
   const caculatePrice = (price: string, quantity: number) => {
     const priceNumber = parseFloat(price);
-    let extra = 0.3;
+    let extra = 0.2;
     if (quantity === 1) extra = 0;
-    if (quantity === 2) extra = 0.2;
-    if (quantity === 3) extra = 0.3;
+    if (quantity === 2) extra = 0.1;
+    if (quantity === 3) extra = 0.2;
     return (priceNumber * quantity * (1 - extra)).toFixed(2);
   };
 
