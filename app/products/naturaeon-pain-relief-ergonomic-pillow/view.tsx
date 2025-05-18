@@ -209,14 +209,14 @@ const options = [
     description: "+ FRI FRAKT",
     number: 1,
     tag: "Mest populär",
-    extra: 0.2,
+    extra: 0.1,
   },
   {
     title: "Familjepaket (3 kuddar)",
     description: "+ FRI FRAKT",
     number: 2,
     tag: "Bästa värdet",
-    extra: 0.3,
+    extra: 0.2,
   },
 ];
 
@@ -361,10 +361,10 @@ export default function ProductView(data: { data: Product }) {
 
   const caculatePrice = (price: string, quantity: number) => {
     const priceNumber = parseFloat(price);
-    let extra = 0.3;
+    let extra = 0.2;
     if (quantity === 1) extra = 0;
-    if (quantity === 2) extra = 0.2;
-    if (quantity === 3) extra = 0.3;
+    if (quantity === 2) extra = 0.1;
+    if (quantity === 3) extra = 0.2;
     return formatCurrency(priceNumber * quantity * (1 - extra));
   };
 
@@ -1056,7 +1056,7 @@ export default function ProductView(data: { data: Product }) {
 
 const getDescription = (extra: number) => {
   if (extra) return `${extra * 100}% EXTRA RABATT`;
-  return "70% RABATT";
+  return "20% RABATT";
 };
 
 const CustomTag = ({ title }: { title: string }) => {

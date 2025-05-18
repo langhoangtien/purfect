@@ -197,8 +197,8 @@ const ProductCart: React.FC<ProductCartProps> = ({
 };
 
 const getExtra = (totalSpecial: number) => {
-  if (totalSpecial === 2) return 0.8;
-  if (totalSpecial >= 3) return 0.7;
+  if (totalSpecial === 2) return 0.9;
+  if (totalSpecial >= 3) return 0.8;
   return 1;
 };
 const getNameSpecial = (totalSpecial: number) => {
